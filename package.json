@@ -1,0 +1,13 @@
+{
+  "name": "kkcz2-stats-scraper",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Basketball Rivals stats scraper for GitHub Actions",
+  "main": "scraper/index.js",
+  "scripts": {
+    "scrape": "node scraper/index.js"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}

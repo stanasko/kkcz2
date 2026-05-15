@@ -1,0 +1,42 @@
+name: Scrape & Update Stats
+
+on:
+  workflow_dispatch:   # Manual trigger from GitHub UI → Actions tab → "Run workflow"
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run scraper
+        run: node scraper/index.js
+        env:
+          BR_TOKEN:  ${{ secrets.BR_TOKEN }}
+          BR_SEASON: ${{ secrets.BR_SEASON }}
+
+      - name: Commit updated data
+        run: |
+          git config user.name  "BR Stats Bot"
+          git config user.email "br-bot@noreply.github.com"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "No new data to commit."
+          else
+            git commit -m "stats: update $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
