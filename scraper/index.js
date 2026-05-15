@@ -8,13 +8,16 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DATA_DIR  = path.join(__dirname, '..', 'data');
+const __dirname    = path.dirname(fileURLToPath(import.meta.url));
+const DATA_ROOT    = path.join(__dirname, '..', 'data');
 
 const TOKEN  = process.env.BR_TOKEN;
 const SEASON = parseInt(process.env.BR_SEASON || '65', 10);
 
 if (!TOKEN) { console.error('BR_TOKEN env var missing'); process.exit(1); }
+
+// Per-season directory, e.g. data/s65/
+const SEASON_DIR = path.join(DATA_ROOT, `s${SEASON}`);
 
 const BASE_URL  = 'https://basketballrivals.net/api';
 const DELAY_MS  = 650;
@@ -37,15 +40,26 @@ async function apiGet(path) {
   return res.json();
 }
 
-function readJson(file, fallback) {
-  const p = path.join(DATA_DIR, file);
-  try { return JSON.parse(fs.readFileSync(p, 'utf8')); }
+function readSeasonJson(file, fallback) {
+  try { return JSON.parse(fs.readFileSync(path.join(SEASON_DIR, file), 'utf8')); }
   catch { return fallback; }
 }
 
-function writeJson(file, data) {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
-  fs.writeFileSync(path.join(DATA_DIR, file), JSON.stringify(data, null, 2));
+function writeSeasonJson(file, data) {
+  fs.mkdirSync(SEASON_DIR, { recursive: true });
+  fs.writeFileSync(path.join(SEASON_DIR, file), JSON.stringify(data, null, 2));
+}
+
+function updateSeasonsMeta() {
+  // Detect every s{N} folder under data/ and write seasons.json
+  fs.mkdirSync(DATA_ROOT, { recursive: true });
+  const available = fs.readdirSync(DATA_ROOT)
+    .map(name => /^s(\d+)$/.exec(name))
+    .filter(Boolean)
+    .map(m => parseInt(m[1], 10))
+    .sort((a, b) => a - b);
+  const meta = { current: SEASON, available };
+  fs.writeFileSync(path.join(DATA_ROOT, 'seasons.json'), JSON.stringify(meta, null, 2));
 }
 
 // ── Extract match list from various API response shapes ───────────────────────
@@ -267,8 +281,8 @@ async function main() {
   console.log('═'.repeat(50));
 
   // Load persistent state
-  const scraped = new Set(readJson('scraped.json', []));
-  const stats   = readJson('stats.json', {
+  const scraped = new Set(readSeasonJson('scraped.json', []));
+  const stats   = readSeasonJson('stats.json', {
     season: SEASON,
     last_updated: null,
     competitions: [],
@@ -314,18 +328,19 @@ async function main() {
       scraped.add(matchId);
       // Save after each match (safe checkpointing)
       stats.last_updated = new Date().toISOString();
-      writeJson('stats.json',   stats);
-      writeJson('scraped.json', [...scraped]);
+      writeSeasonJson('stats.json',   stats);
+      writeSeasonJson('scraped.json', [...scraped]);
     }
   }
 
   stats.last_updated = new Date().toISOString();
-  writeJson('stats.json',   stats);
-  writeJson('scraped.json', [...scraped]);
+  writeSeasonJson('stats.json',   stats);
+  writeSeasonJson('scraped.json', [...scraped]);
+  updateSeasonsMeta();
 
   const totalPlayers = stats.teams.reduce((s, t) => s + t.players.length, 0);
   console.log(`\n🏆 Done! ${stats.teams.length} teams, ${totalPlayers} players, ${scraped.size} matches in DB`);
-  console.log(`📁 data/stats.json updated (${new Date().toLocaleString()})`);
+  console.log(`📁 data/s${SEASON}/stats.json updated (${new Date().toLocaleString()})`);
 }
 
 main().catch(e => { console.error(e); process.exit(1); });

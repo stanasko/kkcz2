@@ -3,24 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#070B14">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>KKCZ Stats</title>
 <style>
 :root {
-  --bg:       #070B14;
-  --surface:  #0F1C32;
-  --surface2: #162236;
-  --surface3: #1C2A42;
-  --border:   #1E3460;
-  --border2:  #2a4478;
-  --accent:   #F97316;
-  --gold:     #F59E0B;
-  --green:    #10B981;
-  --red:      #EF4444;
-  --text:     #F0F4FF;
-  --text-dim: #8FA3C4;
-  --muted:    #4B6080;
-  --radius:   12px;
-  --my-team:  430;
+  --bg:         #070B14;
+  --bg-soft:    #0B1224;
+  --surface:    #0F1C32;
+  --surface2:   #162236;
+  --surface3:   #1C2A42;
+  --border:     #1E3460;
+  --border2:    #2a4478;
+  --accent:     #F97316;
+  --accent-soft:rgba(249,115,22,.14);
+  --gold:       #F59E0B;
+  --green:      #10B981;
+  --red:        #EF4444;
+  --text:       #F0F4FF;
+  --text-dim:   #8FA3C4;
+  --muted:      #4B6080;
+  --radius:     12px;
+  --radius-lg:  16px;
 }
 *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0 }
 html { height: 100%; background: var(--bg) }
@@ -31,171 +35,272 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 15px;
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  padding-bottom: env(safe-area-inset-bottom);
 }
+button { font-family: inherit; -webkit-tap-highlight-color: transparent }
 
 /* ── HEADER ── */
 .app-header {
   position: sticky; top: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 14px 16px;
-  background: var(--surface);
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 14px;
+  padding-top: max(12px, env(safe-area-inset-top));
+  background: rgba(15,28,50,.92);
   border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
-.header-left { display: flex; align-items: center; gap: 10px }
 .app-icon {
   width: 32px; height: 32px; background: var(--accent); border-radius: 8px;
-  display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 17px;
+  flex-shrink: 0;
 }
-.app-title { font-size: 18px; font-weight: 800; letter-spacing: -.4px }
-.header-right { display: flex; align-items: center; gap: 8px }
-.season-badge {
-  font-size: 11px; font-weight: 700; color: var(--muted);
+.header-title-wrap { flex: 1; min-width: 0 }
+.app-title {
+  font-size: 17px; font-weight: 800; letter-spacing: -.4px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.app-subtitle {
+  font-size: 11px; color: var(--text-dim); margin-top: 1px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.season-pick {
   background: var(--surface2); border: 1px solid var(--border);
-  border-radius: 20px; padding: 3px 10px;
+  color: var(--text); border-radius: 8px;
+  padding: 6px 26px 6px 10px; font: inherit; font-size: 13px; font-weight: 700;
+  cursor: pointer; outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238FA3C4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 9px center;
 }
-.updated-badge {
-  font-size: 11px; color: var(--muted);
-}
+.season-pick:focus { border-color: var(--accent) }
 .back-btn {
-  display: none; align-items: center; gap: 6px;
+  display: none; align-items: center; gap: 4px;
   background: transparent; border: none; color: var(--accent);
-  font: inherit; font-size: 15px; font-weight: 600;
-  cursor: pointer; padding: 4px 0;
+  font-size: 22px; font-weight: 600;
+  cursor: pointer; padding: 0 6px 0 0; line-height: 1;
+  flex-shrink: 0;
 }
 .back-btn.visible { display: flex }
 
 /* ── VIEWS ── */
-.view { display: none; padding: 0 0 80px }
+.view { display: none; padding: 0 0 32px; animation: fadeIn .18s ease-out }
 .view.active { display: block }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px) } to { opacity: 1; transform: none } }
 
 /* ── SECTION HEADERS ── */
 .section-header {
-  padding: 16px 16px 8px;
-  font-size: 11px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase;
+  padding: 18px 16px 8px;
+  font-size: 10.5px; font-weight: 800; letter-spacing: .9px; text-transform: uppercase;
   color: var(--muted);
 }
 
 /* ── SEARCH BAR ── */
-.search-wrap {
-  padding: 10px 16px 4px;
-}
+.search-wrap { padding: 12px 16px 4px }
 .search-input {
   width: 100%;
   background: var(--surface); border: 1px solid var(--border);
-  color: var(--text); border-radius: 10px;
-  padding: 9px 14px; font: inherit; font-size: 14px; outline: none;
+  color: var(--text); border-radius: 12px;
+  padding: 11px 16px; font: inherit; font-size: 14px; outline: none;
+  transition: border-color .14s;
 }
 .search-input:focus { border-color: var(--accent) }
 .search-input::placeholder { color: var(--muted) }
 
-/* ── TEAM CARD ── */
+/* ═══════════════════════════════════════════════════════════════════════════
+   TEAMS LIST
+═══════════════════════════════════════════════════════════════════════════ */
+.teams-list { padding: 0 12px }
 .team-card {
   display: flex; align-items: center; gap: 12px;
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--border);
-  cursor: pointer; transition: background .12s;
+  padding: 13px 14px;
+  margin-bottom: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer; transition: transform .12s, border-color .12s;
   text-decoration: none; color: inherit;
 }
-.team-card:active { background: var(--surface2) }
+.team-card:active { transform: scale(.985); border-color: var(--border2) }
 .team-card.my-team {
-  background: rgba(249,115,22,.06);
-  border-left: 3px solid var(--accent);
-  padding-left: 13px;
+  background: linear-gradient(135deg, rgba(249,115,22,.13), rgba(249,115,22,.04) 60%);
+  border: 1.5px solid var(--accent);
 }
-.team-flag { font-size: 24px; flex-shrink: 0; width: 32px; text-align: center }
+.team-rank {
+  font-size: 16px; font-weight: 800; color: var(--muted);
+  width: 26px; text-align: center; flex-shrink: 0;
+}
+.team-card.my-team .team-rank { color: var(--accent) }
+.team-flag-wrap {
+  width: 38px; height: 38px; background: var(--surface2);
+  border-radius: 9px; display: flex; align-items: center; justify-content: center;
+  font-size: 22px; flex-shrink: 0;
+}
+.team-card.my-team .team-flag-wrap { background: rgba(249,115,22,.18) }
 .team-info { flex: 1; min-width: 0 }
-.team-name { font-weight: 700; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
-.team-meta { font-size: 12px; color: var(--text-dim); margin-top: 2px }
-.team-poss { font-size: 13px; font-weight: 700; color: var(--accent); flex-shrink: 0 }
-.chevron { color: var(--muted); flex-shrink: 0; font-size: 12px }
+.team-name-row { display: flex; align-items: center; gap: 6px; margin-bottom: 2px }
+.team-name {
+  font-weight: 700; font-size: 15px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.my-team-badge {
+  font-size: 9px; font-weight: 800; letter-spacing: .7px;
+  background: var(--accent); color: #fff;
+  padding: 2px 6px; border-radius: 4px;
+  flex-shrink: 0;
+}
+.team-meta {
+  font-size: 12px; color: var(--text-dim);
+  display: flex; align-items: center; gap: 8px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.team-top { color: var(--gold) }
+.team-poss {
+  font-size: 14px; font-weight: 800; color: var(--accent);
+  flex-shrink: 0; text-align: right;
+}
+.team-poss-label {
+  display: block;
+  font-size: 9px; font-weight: 700; letter-spacing: .6px;
+  color: var(--muted); margin-top: -1px;
+}
 
-/* ── TEAM DETAIL HEADER ── */
-.team-detail-header {
-  padding: 16px;
-  background: var(--surface);
+/* ═══════════════════════════════════════════════════════════════════════════
+   TEAM DETAIL
+═══════════════════════════════════════════════════════════════════════════ */
+.team-detail-hero {
+  padding: 18px 16px 16px;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg-soft) 100%);
   border-bottom: 1px solid var(--border);
+}
+.team-detail-flagrow { display: flex; align-items: center; gap: 12px; margin-bottom: 14px }
+.team-detail-flag {
+  width: 52px; height: 52px; background: var(--surface2);
+  border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-size: 30px; flex-shrink: 0;
 }
 .team-detail-name {
-  font-size: 20px; font-weight: 800; margin-bottom: 6px;
-  display: flex; align-items: center; gap: 8px;
+  font-size: 21px; font-weight: 800; letter-spacing: -.3px;
+  line-height: 1.15;
 }
-.team-stats-row {
-  display: flex; gap: 20px; flex-wrap: wrap;
+.team-detail-tagline { font-size: 12px; color: var(--text-dim); margin-top: 2px }
+.team-stats-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
 }
-.team-stat { font-size: 12px; color: var(--text-dim) }
-.team-stat strong { color: var(--text); font-size: 14px }
+.team-stat-pill {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 8px; text-align: center;
+}
+.team-stat-pill-value {
+  font-size: 17px; font-weight: 800; color: var(--text);
+  line-height: 1;
+}
+.team-stat-pill-label {
+  font-size: 9.5px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase;
+  color: var(--muted); margin-top: 4px;
+}
 
-/* ── FILTER CONTROLS ── */
 .filter-bar {
-  display: flex; gap: 8px; align-items: flex-end;
-  padding: 10px 16px;
-  background: var(--bg);
+  display: flex; gap: 8px; align-items: stretch;
+  padding: 10px 14px;
+  background: var(--bg-soft);
   border-bottom: 1px solid var(--border);
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
-.filter-group { display: flex; flex-direction: column; gap: 3px; flex-shrink: 0 }
-.filter-label { font-size: 10px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: var(--muted) }
-select {
+.filter-bar::-webkit-scrollbar { display: none }
+.filter-group { display: flex; flex-direction: column; gap: 3px; flex-shrink: 0; min-width: 120px }
+.filter-label { font-size: 9.5px; font-weight: 800; letter-spacing: .7px; text-transform: uppercase; color: var(--muted) }
+select.filter-select {
   background: var(--surface); border: 1px solid var(--border);
   color: var(--text); border-radius: 8px;
-  padding: 7px 28px 7px 10px; font: inherit; font-size: 13px;
-  cursor: pointer; outline: none;
+  padding: 8px 26px 8px 10px; font: inherit; font-size: 13px;
+  cursor: pointer; outline: none; width: 100%;
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%234B6080'/%3E%3C/svg%3E");
   background-repeat: no-repeat; background-position: right 10px center;
 }
-select:focus { border-color: var(--accent) }
-
-/* ── COMPARE BUTTON ── */
+select.filter-select:focus { border-color: var(--accent) }
 .compare-btn {
-  display: flex; align-items: center; gap: 6px;
-  background: transparent; border: 1px solid var(--border);
-  color: var(--text-dim); border-radius: 8px;
-  padding: 7px 12px; font: inherit; font-size: 13px; font-weight: 600;
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text); border-radius: 8px;
+  padding: 8px 14px; font: inherit; font-size: 13px; font-weight: 700;
   cursor: pointer; white-space: nowrap; flex-shrink: 0;
-  transition: all .13s;
+  align-self: flex-end;
 }
-.compare-btn:hover { border-color: var(--border2); color: var(--text) }
-.compare-btn.active { background: var(--accent); border-color: var(--accent); color: #fff }
+.compare-btn:active { transform: scale(.97); background: var(--accent); border-color: var(--accent); color: #fff }
 
-/* ── PLAYER TABLE ── */
-.player-table-wrap { overflow-x: auto }
-.player-table {
-  width: 100%; border-collapse: collapse; min-width: 340px;
-}
-.player-table th {
-  padding: 8px 12px; text-align: right;
-  font-size: 10px; font-weight: 700; letter-spacing: .7px; text-transform: uppercase;
-  color: var(--muted); background: var(--surface); border-bottom: 1px solid var(--border);
-  cursor: pointer; user-select: none; white-space: nowrap;
-}
-.player-table th:first-child { text-align: left }
-.player-table th.sorted { color: var(--accent) }
-.player-table td {
-  padding: 11px 12px; text-align: right;
-  font-size: 14px; border-bottom: 1px solid var(--border);
-}
-.player-table td:first-child { text-align: left }
-.player-table tr:last-child td { border-bottom: none }
-.player-table tbody tr { cursor: pointer; transition: background .1s }
-.player-table tbody tr:active { background: var(--surface2) }
-.player-rank { color: var(--muted); font-size: 12px; width: 24px; display: inline-block; text-align: right }
-.player-flag { font-size: 16px; margin: 0 4px }
-.player-name { font-weight: 600 }
-.mvp-badge { color: var(--gold) }
-.pts-ef { font-size: 11px; color: var(--muted); margin-top: 2px }
-
-/* ── PLAYER CARD ── */
-.player-card-header {
-  padding: 20px 16px 16px;
+/* ── PLAYER CARDS (mobile-first list) ── */
+.players-list { padding: 10px 12px 0 }
+.player-row {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
   background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer; transition: transform .12s, border-color .12s;
+}
+.player-row:active { transform: scale(.985); border-color: var(--border2) }
+.player-row.is-mvp {
+  border-color: rgba(245,158,11,.5);
+  background: linear-gradient(135deg, rgba(245,158,11,.07), rgba(249,115,22,.03) 50%, var(--surface) 100%);
+}
+.player-rank {
+  font-size: 13px; font-weight: 800; color: var(--muted);
+  min-width: 22px; text-align: right;
+}
+.player-row.is-mvp .player-rank { color: var(--gold) }
+.player-flag-circle {
+  width: 32px; height: 32px;
+  background: var(--surface2); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.player-name-wrap { min-width: 0 }
+.player-name-row { display: flex; align-items: center; gap: 6px }
+.player-name {
+  font-weight: 700; font-size: 15px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.mvp-icon { font-size: 13px; flex-shrink: 0 }
+.player-meta {
+  font-size: 11.5px; color: var(--text-dim); margin-top: 2px;
+  display: flex; gap: 8px; flex-wrap: wrap;
+}
+.player-meta .sep { color: var(--muted); opacity: .6 }
+.player-primary {
+  font-size: 16px; font-weight: 800; color: var(--accent);
+  text-align: right; line-height: 1;
+}
+.player-primary-label {
+  display: block;
+  font-size: 9px; font-weight: 700; letter-spacing: .6px;
+  color: var(--muted); margin-top: 3px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PLAYER CARD VIEW
+═══════════════════════════════════════════════════════════════════════════ */
+.player-hero {
+  padding: 24px 16px 18px;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg-soft) 100%);
   border-bottom: 1px solid var(--border);
   text-align: center;
 }
-.player-card-avatar { font-size: 48px; margin-bottom: 8px }
-.player-card-name { font-size: 22px; font-weight: 800; margin-bottom: 4px }
-.player-card-meta { font-size: 13px; color: var(--text-dim) }
+.player-avatar {
+  width: 72px; height: 72px;
+  background: var(--surface2); border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 38px; margin-bottom: 12px;
+  border: 2px solid var(--border);
+}
+.player-hero-name { font-size: 24px; font-weight: 800; letter-spacing: -.3px; margin-bottom: 4px }
+.player-hero-meta { font-size: 13px; color: var(--text-dim) }
 
 .stat-grid {
   display: grid; grid-template-columns: 1fr 1fr;
@@ -206,89 +311,175 @@ select:focus { border-color: var(--accent) }
   border-radius: var(--radius); padding: 14px 12px;
   text-align: center;
 }
-.stat-card-value { font-size: 22px; font-weight: 800; color: var(--accent) }
-.stat-card-label { font-size: 11px; font-weight: 700; letter-spacing: .7px; text-transform: uppercase; color: var(--muted); margin-top: 3px }
+.stat-card.gold { border-color: rgba(245,158,11,.45); background: rgba(245,158,11,.07) }
+.stat-card-value { font-size: 22px; font-weight: 800; color: var(--accent); line-height: 1 }
+.stat-card.gold .stat-card-value { color: var(--gold) }
+.stat-card.muted .stat-card-value { color: var(--text) }
+.stat-card-label {
+  font-size: 10px; font-weight: 800; letter-spacing: .7px; text-transform: uppercase;
+  color: var(--muted); margin-top: 6px;
+}
 
 /* ── PROGRESSION CHART ── */
-.chart-section { padding: 0 16px 16px }
-.chart-title { font-size: 12px; font-weight: 700; letter-spacing: .7px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px }
-.chart-bars { display: flex; align-items: flex-end; gap: 4px; height: 80px }
-.chart-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; height: 100%; justify-content: flex-end }
-.chart-bar {
-  width: 100%; background: var(--accent); border-radius: 3px 3px 0 0;
-  min-height: 3px; transition: opacity .15s;
-  opacity: .75;
+.chart-section { padding: 0 16px 8px }
+.chart-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 14px;
 }
-.chart-bar.is-mvp { opacity: 1; background: var(--gold) }
-.chart-bar-label { font-size: 9px; color: var(--muted); text-align: center; white-space: nowrap }
+.chart-header {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 14px;
+}
+.chart-title { font-size: 11px; font-weight: 800; letter-spacing: .7px; text-transform: uppercase; color: var(--muted) }
+.chart-meta { font-size: 11px; color: var(--text-dim) }
+.chart-yaxis { font-size: 9px; color: var(--muted); text-align: right; padding-right: 6px }
+.chart-grid {
+  display: grid; grid-template-columns: 32px 1fr; gap: 4px;
+  margin-bottom: 6px;
+}
+.chart-yvals { display: flex; flex-direction: column; justify-content: space-between; height: 120px; padding: 2px 0 }
+.chart-bars { display: flex; align-items: flex-end; gap: 5px; height: 120px; overflow-x: auto; padding: 0 2px }
+.chart-bars::-webkit-scrollbar { display: none }
+.chart-bar-wrap {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  flex: 1 1 0; min-width: 16px; height: 100%; justify-content: flex-end;
+}
+.chart-bar {
+  width: 100%; min-width: 8px; max-width: 22px;
+  background: linear-gradient(180deg, var(--accent), #c2570e);
+  border-radius: 3px 3px 0 0; min-height: 4px;
+  transition: opacity .15s;
+}
+.chart-bar.is-mvp {
+  background: linear-gradient(180deg, var(--gold), #ca8a04);
+  box-shadow: 0 0 0 2px rgba(245,158,11,.25);
+}
+.chart-bar-label {
+  font-size: 8.5px; color: var(--muted); white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
 
-/* ── BY COMPETITION ── */
 .comp-list { padding: 0 16px 16px }
 .comp-row {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 10px 0; border-bottom: 1px solid var(--border);
+  padding: 12px 14px; margin-bottom: 6px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px;
 }
-.comp-row:last-child { border-bottom: none }
 .comp-name { font-size: 14px; font-weight: 600 }
 .comp-stats { font-size: 12px; color: var(--text-dim); text-align: right }
 
-/* ── COMPARE VIEW ── */
+/* ═══════════════════════════════════════════════════════════════════════════
+   COMPARE VIEW
+═══════════════════════════════════════════════════════════════════════════ */
 .compare-header {
   padding: 14px 16px;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
 }
-.compare-teams-row {
-  display: grid; grid-template-columns: 1fr auto 1fr;
-  align-items: center; gap: 8px; margin-bottom: 12px;
+.compare-picker { display: flex; flex-direction: column; gap: 6px }
+.compare-picker-label {
+  font-size: 10px; font-weight: 800; letter-spacing: .7px; text-transform: uppercase;
+  color: var(--muted);
 }
-.compare-team-name { font-size: 15px; font-weight: 700 }
-.compare-team-name.right { text-align: right }
-.vs-badge { font-size: 11px; font-weight: 800; color: var(--muted); padding: 4px 6px }
 .compare-pick {
-  background: var(--surface2); border: 1px dashed var(--border2);
-  color: var(--text-dim); border-radius: 8px; padding: 8px 12px;
-  font: inherit; font-size: 13px; cursor: pointer; outline: none; width: 100%;
+  background: var(--surface2); border: 1px solid var(--border2);
+  color: var(--text); border-radius: 10px; padding: 11px 14px;
+  font: inherit; font-size: 14px; font-weight: 600;
+  cursor: pointer; outline: none; width: 100%;
   appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238FA3C4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center;
+  padding-right: 36px;
 }
 .compare-pick:focus { border-color: var(--accent) }
 
-.compare-table { width: 100%; border-collapse: collapse }
-.compare-table th {
-  padding: 8px 12px;
-  font-size: 10px; font-weight: 700; letter-spacing: .7px; text-transform: uppercase;
-  color: var(--muted); background: var(--surface); border-bottom: 1px solid var(--border);
+/* Compare tabs (mobile) */
+.compare-tabs {
+  display: flex; gap: 4px; padding: 12px 14px 0;
 }
-.compare-table td {
-  padding: 10px 12px; font-size: 13px;
-  border-bottom: 1px solid var(--border);
-  vertical-align: top;
+.compare-tab {
+  flex: 1; padding: 10px 8px;
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text-dim); border-radius: 10px 10px 0 0;
+  font: inherit; font-size: 13px; font-weight: 700;
+  cursor: pointer; text-align: center;
+  border-bottom: none;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.compare-table tr:last-child td { border-bottom: none }
-.compare-cell { text-align: center }
-.compare-metric { font-size: 11px; color: var(--muted); text-align: center; font-weight: 700; letter-spacing: .5px; text-transform: uppercase }
-.compare-val { font-size: 16px; font-weight: 700; color: var(--text) }
-.compare-val.winner { color: var(--green) }
+.compare-tab.active { background: var(--accent); border-color: var(--accent); color: #fff }
+.compare-vs {
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 4px;
+  font-size: 11px; font-weight: 800; color: var(--muted);
+}
 
-/* ── EMPTY STATE ── */
+.compare-body { padding: 0 14px 16px }
+.compare-section { margin-top: 12px }
+.compare-metric-row {
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: center; gap: 10px;
+  padding: 12px 14px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; margin-bottom: 6px;
+}
+.compare-val { font-size: 17px; font-weight: 800; text-align: center; line-height: 1 }
+.compare-val.left { text-align: right }
+.compare-val.right { text-align: left }
+.compare-val.winner { color: var(--green) }
+.compare-val.loser { color: var(--text-dim); opacity: .6 }
+.compare-metric-label {
+  font-size: 9.5px; font-weight: 800; letter-spacing: .6px; text-transform: uppercase;
+  color: var(--muted); text-align: center; padding: 0 6px;
+}
+.compare-player-row {
+  display: grid; grid-template-columns: 1fr 36px 1fr;
+  align-items: center; gap: 8px;
+  padding: 10px 12px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; margin-bottom: 5px;
+}
+.compare-player-cell { min-width: 0 }
+.compare-player-cell.left { text-align: right }
+.compare-player-name {
+  font-size: 13px; font-weight: 700;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.compare-player-poss { font-size: 11px; color: var(--text-dim); margin-top: 2px }
+.compare-player-cell.winner .compare-player-name { color: var(--green) }
+.compare-player-rank {
+  font-size: 11px; font-weight: 800; color: var(--muted); text-align: center;
+  background: var(--surface2); border-radius: 50%;
+  width: 26px; height: 26px; display: flex; align-items: center; justify-content: center;
+  margin: 0 auto;
+}
+
+/* ── EMPTY / LOADING STATES ── */
 .empty { padding: 60px 24px; text-align: center; color: var(--muted) }
-.empty-icon { font-size: 40px; margin-bottom: 12px }
+.empty-icon { font-size: 44px; margin-bottom: 14px; opacity: .7 }
 .empty-text { font-size: 14px; line-height: 1.6 }
 
-/* ── LOADING ── */
-.loading { padding: 60px 24px; text-align: center; color: var(--muted) }
-.spinner {
-  width: 32px; height: 32px; border: 3px solid var(--border);
-  border-top-color: var(--accent); border-radius: 50%;
-  animation: spin .7s linear infinite; margin: 0 auto 16px;
+.loading-bar {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 2px; background: var(--accent);
+  animation: loadingSweep 1.2s ease-in-out infinite;
+  transform-origin: left; z-index: 200;
 }
-@keyframes spin { to { transform: rotate(360deg) } }
+@keyframes loadingSweep {
+  0% { transform: scaleX(0); }
+  50% { transform: scaleX(.6); }
+  100% { transform: scaleX(1); opacity: 0; }
+}
 
-/* ── RESPONSIVE ── */
-@media (min-width: 600px) {
+/* ── DESKTOP TWEAKS ── */
+@media (min-width: 720px) {
   .stat-grid { grid-template-columns: repeat(4, 1fr) }
-  .team-card { padding: 16px 24px }
-  .player-table td, .player-table th { padding: 12px 16px }
+  .teams-list { max-width: 720px; margin: 0 auto }
+  .players-list { max-width: 720px; margin: 0 auto }
+  .filter-bar { max-width: 720px; margin: 0 auto }
+  .team-detail-hero { max-width: 720px; margin: 0 auto; border-radius: 0 0 var(--radius-lg) var(--radius-lg) }
+  .player-hero { max-width: 720px; margin: 0 auto }
+  .chart-section, .comp-list, .compare-body, .compare-header, .compare-tabs { max-width: 720px; margin-left: auto; margin-right: auto }
 }
 </style>
 </head>
@@ -296,103 +487,95 @@ select:focus { border-color: var(--accent) }
 
 <!-- HEADER -->
 <div class="app-header">
-  <div class="header-left">
-    <button class="back-btn" id="backBtn" onclick="goBack()">‹ Nazad</button>
-    <div id="headerIcon" class="app-icon">🏀</div>
+  <button class="back-btn" id="backBtn" onclick="goBack()">‹</button>
+  <div class="app-icon" id="appIcon">🏀</div>
+  <div class="header-title-wrap">
     <div class="app-title" id="headerTitle">KKCZ Stats</div>
+    <div class="app-subtitle" id="headerSubtitle">—</div>
   </div>
-  <div class="header-right">
-    <span class="updated-badge" id="updatedBadge"></span>
-    <span class="season-badge" id="seasonBadge">S—</span>
-  </div>
+  <select class="season-pick" id="seasonPick" onchange="switchSeason(this.value)"></select>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════ VIEW: TEAMS LIST -->
+<!-- ═════════════════════════════════════ VIEW: TEAMS LIST -->
 <div class="view active" id="viewTeams">
   <div class="search-wrap">
-    <input class="search-input" id="teamSearch" type="search" placeholder="Pretraži tim…" oninput="renderTeams()">
+    <input class="search-input" id="teamSearch" type="search" placeholder="🔍 Pretraži tim…" oninput="renderTeams()">
   </div>
-  <div class="section-header">Svi timovi</div>
-  <div id="teamsList"></div>
+  <div class="section-header" id="teamsSection">Svi timovi</div>
+  <div class="teams-list" id="teamsList"></div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════ VIEW: TEAM DETAIL -->
+<!-- ═════════════════════════════════════ VIEW: TEAM DETAIL -->
 <div class="view" id="viewTeam">
-  <div class="team-detail-header" id="teamDetailHeader"></div>
+  <div class="team-detail-hero" id="teamDetailHero"></div>
   <div class="filter-bar">
     <div class="filter-group">
       <div class="filter-label">Takmičenje</div>
-      <select id="teamCompFilter" onchange="renderTeamPlayers()">
+      <select class="filter-select" id="teamCompFilter" onchange="renderTeamPlayers()">
         <option value="">Cela sezona</option>
       </select>
     </div>
     <div class="filter-group">
       <div class="filter-label">Sortiraj po</div>
-      <select id="teamSortBy" onchange="renderTeamPlayers()">
-        <option value="total_possession">Posesija</option>
+      <select class="filter-select" id="teamSortBy" onchange="renderTeamPlayers()">
+        <option value="total_possession">Posed</option>
         <option value="play_count">Polja</option>
         <option value="match_count">Utakmice</option>
         <option value="total_points">Poeni</option>
         <option value="mvp_count">MVP</option>
       </select>
     </div>
-    <button class="compare-btn" id="compareBtn" onclick="startCompare()">⚡ Uporedi</button>
+    <button class="compare-btn" onclick="startCompare()">⚡ Uporedi</button>
   </div>
-  <div class="player-table-wrap">
-    <table class="player-table">
-      <thead>
-        <tr>
-          <th style="min-width:160px">Igrač</th>
-          <th onclick="setTeamSort('total_possession')" id="th_possession">Posesija</th>
-          <th onclick="setTeamSort('play_count')" id="th_play_count">Polja</th>
-          <th onclick="setTeamSort('match_count')" id="th_match_count">M</th>
-          <th onclick="setTeamSort('total_points')" id="th_total_points">Poeni</th>
-          <th onclick="setTeamSort('mvp_count')" id="th_mvp_count">MVP</th>
-        </tr>
-      </thead>
-      <tbody id="teamPlayersBody"></tbody>
-    </table>
-  </div>
+  <div class="players-list" id="teamPlayersList"></div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════ VIEW: PLAYER CARD -->
+<!-- ═════════════════════════════════════ VIEW: PLAYER CARD -->
 <div class="view" id="viewPlayer">
-  <div class="player-card-header" id="playerCardHeader"></div>
+  <div class="player-hero" id="playerHero"></div>
   <div class="stat-grid" id="playerStatGrid"></div>
   <div class="chart-section" id="playerChartSection"></div>
   <div class="section-header">Po takmičenju</div>
   <div class="comp-list" id="playerCompList"></div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════ VIEW: COMPARE -->
+<!-- ═════════════════════════════════════ VIEW: COMPARE -->
 <div class="view" id="viewCompare">
   <div class="compare-header">
-    <div class="compare-teams-row">
-      <div class="compare-team-name" id="cmpTeamAName">—</div>
-      <div class="vs-badge">VS</div>
-      <div>
-        <select class="compare-pick" id="cmpTeamBSel" onchange="renderCompare()">
-          <option value="">Odaberi tim…</option>
-        </select>
-      </div>
+    <div class="compare-picker">
+      <div class="compare-picker-label">Uporedi sa</div>
+      <select class="compare-pick" id="cmpTeamBSel" onchange="renderCompare()">
+        <option value="">Odaberi tim…</option>
+      </select>
     </div>
   </div>
-  <div id="compareBody"></div>
+  <div class="compare-tabs" id="compareTabs" style="display:none">
+    <button class="compare-tab active" id="cmpTabA" onclick="switchCompareTab('A')"></button>
+    <div class="compare-vs">VS</div>
+    <button class="compare-tab" id="cmpTabB" onclick="switchCompareTab('B')"></button>
+  </div>
+  <div class="compare-body" id="compareBody">
+    <div class="empty"><div class="empty-icon">⚡</div><div class="empty-text">Odaberi tim za poređenje</div></div>
+  </div>
 </div>
 
 <script>
-// ═══════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
 // STATE
-// ═══════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
 const MY_TEAM_ID = 430;
-let statsData    = null;   // full stats.json
-let currentTeam  = null;   // team object being viewed
-let currentPlayer= null;   // player object being viewed
-let viewHistory  = ['teams'];
+let seasonsMeta   = null;   // { current, available }
+let activeSeason  = null;   // currently loaded season number
+let statsData     = null;   // current season's stats.json
+let currentTeam   = null;
+let currentPlayer = null;
+let compareTeamB  = null;
+let compareTab    = 'A';
+let viewHistory   = ['teams'];
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
 // HELPERS
-// ═══════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
 function fmtK(n) {
   const x = Number(n) || 0;
   if (x >= 1_000_000) return (x / 1_000_000).toFixed(1) + 'M';
@@ -400,126 +583,163 @@ function fmtK(n) {
   return String(x);
 }
 function fmtNum(n) { return (Number(n) || 0).toLocaleString('sr-RS') }
-
 function flagEmoji(code) {
-  if (!code || code.length !== 2) return '🏳';
+  if (!code || code.length !== 2) return '🏳️';
   return String.fromCodePoint(
     ...code.toUpperCase().split('').map(c => 0x1F1E6 + c.charCodeAt(0) - 65)
   );
 }
-
 function timeAgo(iso) {
   if (!iso) return '';
-  const diffMs  = Date.now() - new Date(iso).getTime();
-  const diffMin = Math.round(diffMs / 60000);
+  const diffMin = Math.round((Date.now() - new Date(iso).getTime()) / 60000);
   if (diffMin < 2)  return 'upravo ažurirano';
-  if (diffMin < 60) return `ažurirano pre ${diffMin} min`;
+  if (diffMin < 60) return `pre ${diffMin} min`;
   const h = Math.round(diffMin / 60);
-  if (h < 24) return `ažurirano pre ${h}h`;
-  return `ažurirano pre ${Math.round(h/24)} dana`;
+  if (h < 24) return `pre ${h}h`;
+  return `pre ${Math.round(h/24)} dana`;
 }
-
 function teamTotalPossession(team) {
   return team.players.reduce((s, p) => s + (p.total_possession || 0), 0);
 }
-
 function getPlayerStat(player, field, compId) {
   if (!compId) return player[field] || 0;
   const cs = (player.by_competition || []).find(c => c.competition_id === Number(compId));
   return cs ? (cs[field] || 0) : 0;
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
 // NAVIGATION
-// ═══════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
 function showView(name) {
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.getElementById('view' + name[0].toUpperCase() + name.slice(1)).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'instant' });
 
-  const backBtn   = document.getElementById('backBtn');
-  const headerIcon = document.getElementById('headerIcon');
-
+  const backBtn  = document.getElementById('backBtn');
+  const appIcon  = document.getElementById('appIcon');
   if (name === 'teams') {
     backBtn.classList.remove('visible');
-    headerIcon.style.display = 'flex';
+    appIcon.style.display = 'flex';
     document.getElementById('headerTitle').textContent = 'KKCZ Stats';
+    document.getElementById('headerSubtitle').textContent = updatedLabel();
   } else {
     backBtn.classList.add('visible');
-    headerIcon.style.display = 'none';
+    appIcon.style.display = 'none';
   }
 }
-
 function goBack() {
   viewHistory.pop();
   const prev = viewHistory[viewHistory.length - 1] || 'teams';
-  if (prev === 'teams')       { showView('teams'); }
-  else if (prev === 'team')   { showView('team');  }
-  else if (prev === 'compare'){ showView('compare'); }
+  if (prev === 'teams')        showView('teams');
+  else if (prev === 'team')    { showView('team');    document.getElementById('headerTitle').textContent = currentTeam?.name || ''; }
+  else if (prev === 'compare') showView('compare');
 }
-
 function navigate(name) {
   viewHistory.push(name);
   showView(name);
 }
+function updatedLabel() {
+  return statsData ? `Sezona ${statsData.season} · ${timeAgo(statsData.last_updated)}` : '—';
+}
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
+// SEASON SWITCHING
+// ═════════════════════════════════════════════════════════════════════════════
+async function loadSeason(season) {
+  const ts = Date.now();
+  const res = await fetch(`./data/s${season}/stats.json?t=${ts}`);
+  if (!res.ok) throw new Error(`s${season}/stats.json missing`);
+  statsData    = await res.json();
+  activeSeason = season;
+  viewHistory  = ['teams'];
+  currentTeam  = null;
+  renderTeams();
+  showView('teams');
+}
+async function switchSeason(seasonStr) {
+  try {
+    await loadSeason(parseInt(seasonStr, 10));
+  } catch (e) {
+    document.getElementById('teamsList').innerHTML = `<div class="empty"><div class="empty-icon">📭</div><div class="empty-text">Sezona ${seasonStr} nije dostupna.</div></div>`;
+  }
+}
+
+// ═════════════════════════════════════════════════════════════════════════════
 // TEAMS LIST VIEW
-// ═══════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
 function renderTeams() {
   if (!statsData) return;
   const q    = document.getElementById('teamSearch').value.toLowerCase().trim();
   const list = document.getElementById('teamsList');
 
-  const myTeam = statsData.teams.find(t => t.id === MY_TEAM_ID);
-  const others = statsData.teams
-    .filter(t => t.id !== MY_TEAM_ID)
-    .sort((a, b) => teamTotalPossession(b) - teamTotalPossession(a));
+  // Sort all teams by possession (for ranking)
+  const ranked = [...statsData.teams].sort((a, b) => teamTotalPossession(b) - teamTotalPossession(a));
+  const rankMap = new Map(ranked.map((t, i) => [t.id, i + 1]));
 
-  const all = myTeam ? [myTeam, ...others] : others;
-  const filtered = q ? all.filter(t => t.name.toLowerCase().includes(q)) : all;
+  const myTeam = statsData.teams.find(t => t.id === MY_TEAM_ID);
+  const others = ranked.filter(t => t.id !== MY_TEAM_ID);
+  const ordered = myTeam ? [myTeam, ...others] : ranked;
+  const filtered = q ? ordered.filter(t => t.name.toLowerCase().includes(q)) : ordered;
 
   if (filtered.length === 0) {
     list.innerHTML = '<div class="empty"><div class="empty-icon">🔍</div><div class="empty-text">Nema rezultata</div></div>';
     return;
   }
 
+  document.getElementById('teamsSection').textContent = q ? `Rezultati (${filtered.length})` : `Svi timovi · ${statsData.teams.length}`;
+
   list.innerHTML = filtered.map(team => {
     const isMine = team.id === MY_TEAM_ID;
+    const rank   = rankMap.get(team.id);
     const poss   = teamTotalPossession(team);
     const mc     = Math.max(...team.players.map(p => p.match_count || 0), 0);
     const topP   = [...team.players].sort((a,b) => (b.total_possession||0)-(a.total_possession||0))[0];
     return `
       <div class="team-card ${isMine ? 'my-team' : ''}" onclick="openTeam(${team.id})">
-        <div class="team-flag">${flagEmoji(team.flag)}</div>
+        <div class="team-rank">#${rank}</div>
+        <div class="team-flag-wrap">${flagEmoji(team.flag)}</div>
         <div class="team-info">
-          <div class="team-name">${team.name}${isMine ? ' ⭐' : ''}</div>
-          <div class="team-meta">${mc} utakmica${topP ? ` · Top: ${topP.username}` : ''}</div>
+          <div class="team-name-row">
+            <div class="team-name">${team.name}</div>
+            ${isMine ? '<span class="my-team-badge">MOJ</span>' : ''}
+          </div>
+          <div class="team-meta">
+            <span>${mc} utak.</span>
+            ${topP ? `<span class="sep">·</span><span class="team-top">★ ${topP.username}</span>` : ''}
+          </div>
         </div>
-        <div class="team-poss">${fmtK(poss)}</div>
-        <div class="chevron">›</div>
+        <div>
+          <div class="team-poss">${fmtK(poss)}</div>
+          <div class="team-poss-label">POSED</div>
+        </div>
       </div>`;
   }).join('');
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
 // TEAM DETAIL VIEW
-// ═══════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
 function openTeam(teamId) {
   currentTeam = statsData.teams.find(t => t.id === teamId);
   if (!currentTeam) return;
 
-  // Header
   const isMine  = currentTeam.id === MY_TEAM_ID;
   const poss    = teamTotalPossession(currentTeam);
   const matches = Math.max(...currentTeam.players.map(p => p.match_count || 0), 0);
-  document.getElementById('teamDetailHeader').innerHTML = `
-    <div class="team-detail-name">
-      ${flagEmoji(currentTeam.flag)} ${currentTeam.name}${isMine ? ' ⭐' : ''}
+  const mvps    = currentTeam.players.reduce((s,p) => s + (p.mvp_count||0), 0);
+
+  document.getElementById('teamDetailHero').innerHTML = `
+    <div class="team-detail-flagrow">
+      <div class="team-detail-flag">${flagEmoji(currentTeam.flag)}</div>
+      <div style="min-width:0">
+        <div class="team-detail-name">${currentTeam.name}${isMine ? ' <span class="my-team-badge" style="vertical-align:middle">MOJ TIM</span>' : ''}</div>
+        <div class="team-detail-tagline">${currentTeam.players.length} igrača · sezona ${statsData.season}</div>
+      </div>
     </div>
-    <div class="team-stats-row">
-      <div class="team-stat"><strong>${fmtK(poss)}</strong><br>Ukupno posesija</div>
-      <div class="team-stat"><strong>${currentTeam.players.length}</strong><br>Igrača</div>
-      <div class="team-stat"><strong>${matches}</strong><br>Utakmica</div>
+    <div class="team-stats-grid">
+      <div class="team-stat-pill"><div class="team-stat-pill-value">${fmtK(poss)}</div><div class="team-stat-pill-label">Posed</div></div>
+      <div class="team-stat-pill"><div class="team-stat-pill-value">${matches}</div><div class="team-stat-pill-label">Utakmica</div></div>
+      <div class="team-stat-pill"><div class="team-stat-pill-value" style="color:${mvps>0?'var(--gold)':'var(--text)'}">${mvps > 0 ? '🏆 '+mvps : '—'}</div><div class="team-stat-pill-label">MVP</div></div>
     </div>`;
 
   // Competition filter
@@ -527,19 +747,14 @@ function openTeam(teamId) {
   compSel.innerHTML = '<option value="">Cela sezona</option>';
   (statsData.competitions || []).forEach(c => {
     const opt = document.createElement('option');
-    opt.value = c.id;
-    opt.textContent = c.name;
+    opt.value = c.id; opt.textContent = c.name;
     compSel.appendChild(opt);
   });
 
   document.getElementById('headerTitle').textContent = currentTeam.name;
+  document.getElementById('headerSubtitle').textContent = `${currentTeam.players.length} igrača`;
   renderTeamPlayers();
   navigate('team');
-}
-
-function setTeamSort(field) {
-  document.getElementById('teamSortBy').value = field;
-  renderTeamPlayers();
 }
 
 function renderTeamPlayers() {
@@ -547,102 +762,124 @@ function renderTeamPlayers() {
   const compId = document.getElementById('teamCompFilter').value;
   const sortBy = document.getElementById('teamSortBy').value;
 
-  // Update sort header highlights
-  ['possession','play_count','match_count','total_points','mvp_count'].forEach(f => {
-    const th = document.getElementById('th_' + f);
-    if (th) th.classList.toggle('sorted', sortBy === f || (sortBy === 'total_possession' && f === 'possession'));
-  });
-  if (document.getElementById('th_possession'))
-    document.getElementById('th_possession').classList.toggle('sorted', sortBy === 'total_possession');
-
   const sorted = [...currentTeam.players]
-    .filter(p => getPlayerStat(p, 'match_count', compId) > 0 || !compId)
+    .filter(p => compId ? getPlayerStat(p, 'match_count', compId) > 0 : true)
     .sort((a, b) => getPlayerStat(b, sortBy, compId) - getPlayerStat(a, sortBy, compId));
 
-  const tbody = document.getElementById('teamPlayersBody');
+  const list = document.getElementById('teamPlayersList');
   if (sorted.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:var(--muted);padding:40px">Nema podataka</td></tr>`;
+    list.innerHTML = '<div class="empty"><div class="empty-icon">🏀</div><div class="empty-text">Nema podataka za ovo takmičenje</div></div>';
     return;
   }
 
-  tbody.innerHTML = sorted.map((p, i) => {
+  const sortLabelMap = {
+    total_possession: { label: 'POSED', fmt: fmtK },
+    play_count:       { label: 'POLJA', fmt: n => n },
+    match_count:      { label: 'UTAK.', fmt: n => n },
+    total_points:     { label: 'POENI', fmt: n => n },
+    mvp_count:        { label: 'MVP',   fmt: n => n > 0 ? '🏆 '+n : '—' },
+  };
+  const primary = sortLabelMap[sortBy] || sortLabelMap.total_possession;
+
+  list.innerHTML = sorted.map((p, i) => {
     const poss  = getPlayerStat(p, 'total_possession', compId);
     const plays = getPlayerStat(p, 'play_count', compId);
     const mc    = getPlayerStat(p, 'match_count', compId);
     const pts   = getPlayerStat(p, 'total_points', compId);
     const shots = getPlayerStat(p, 'total_shots', compId);
     const mvp   = getPlayerStat(p, 'mvp_count', compId);
-    const ef    = shots > 0 ? (pts / shots).toFixed(2) : '—';
+    const primaryVal = getPlayerStat(p, sortBy, compId);
+
+    // Build meta line based on what's NOT in primary
+    const metaParts = [];
+    if (sortBy !== 'total_possession') metaParts.push(`${fmtK(poss)} posed`);
+    if (sortBy !== 'play_count')        metaParts.push(`${plays} polja`);
+    if (sortBy !== 'match_count')       metaParts.push(`${mc} utak.`);
+    if (pts > 0 && sortBy !== 'total_points') metaParts.push(`${pts} pts`);
+
     return `
-      <tr onclick="openPlayer(${p.user_id})">
-        <td>
-          <span class="player-rank">${i+1}</span>
-          <span class="player-flag">${flagEmoji(p.flag)}</span>
-          <span class="player-name">${p.username}</span>
-        </td>
-        <td>${fmtK(poss)}</td>
-        <td>${plays}</td>
-        <td>${mc}</td>
-        <td>
-          <div>${pts}</div>
-          ${shots > 0 ? `<div class="pts-ef">${shots} šut · ef ${ef}</div>` : ''}
-        </td>
-        <td>${mvp > 0 ? `<span class="mvp-badge">🏆 ${mvp}</span>` : '—'}</td>
-      </tr>`;
+      <div class="player-row ${mvp > 0 ? 'is-mvp' : ''}" onclick="openPlayer(${p.user_id})">
+        <div class="player-rank">${i+1}</div>
+        <div class="player-flag-circle">${flagEmoji(p.flag)}</div>
+        <div class="player-name-wrap">
+          <div class="player-name-row">
+            <div class="player-name">${p.username}</div>
+            ${mvp > 0 ? `<span class="mvp-icon">🏆${mvp > 1 ? ' '+mvp : ''}</span>` : ''}
+          </div>
+          <div class="player-meta">${metaParts.slice(0,3).map((m,i) => i>0 ? `<span class="sep">·</span><span>${m}</span>` : `<span>${m}</span>`).join('')}</div>
+        </div>
+        <div>
+          <div class="player-primary">${primary.fmt(primaryVal)}</div>
+          <div class="player-primary-label">${primary.label}</div>
+        </div>
+      </div>`;
   }).join('');
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
 // PLAYER CARD VIEW
-// ═══════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
 function openPlayer(userId) {
   if (!currentTeam) return;
   currentPlayer = currentTeam.players.find(p => p.user_id === userId);
   if (!currentPlayer) return;
-
   const p = currentPlayer;
 
-  // Header
-  document.getElementById('playerCardHeader').innerHTML = `
-    <div class="player-card-avatar">${flagEmoji(p.flag)}</div>
-    <div class="player-card-name">${p.username}</div>
-    <div class="player-card-meta">Level ${p.level || '?'} · ${currentTeam.name}</div>`;
+  document.getElementById('playerHero').innerHTML = `
+    <div class="player-avatar">${flagEmoji(p.flag)}</div>
+    <div class="player-hero-name">${p.username}</div>
+    <div class="player-hero-meta">Level ${p.level || '?'} · ${currentTeam.name}</div>`;
 
-  // Stat grid
-  const ef = p.total_shots > 0 ? (p.total_points / p.total_shots).toFixed(2) : '—';
   document.getElementById('playerStatGrid').innerHTML = `
     <div class="stat-card">
       <div class="stat-card-value">${fmtK(p.total_possession)}</div>
-      <div class="stat-card-label">Posesija</div>
+      <div class="stat-card-label">Posed</div>
     </div>
-    <div class="stat-card">
+    <div class="stat-card muted">
       <div class="stat-card-value">${p.play_count}</div>
       <div class="stat-card-label">Polja</div>
     </div>
-    <div class="stat-card">
+    <div class="stat-card muted">
       <div class="stat-card-value">${p.match_count}</div>
       <div class="stat-card-label">Utakmice</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-card-value" style="color:var(--gold)">${p.mvp_count > 0 ? '🏆 ' + p.mvp_count : '—'}</div>
+    <div class="stat-card ${p.mvp_count > 0 ? 'gold' : 'muted'}">
+      <div class="stat-card-value">${p.mvp_count > 0 ? '🏆 ' + p.mvp_count : '—'}</div>
       <div class="stat-card-label">MVP</div>
     </div>`;
 
   // Progression chart
-  const matches = (p.by_match || []).sort((a,b) => (a.date||'') < (b.date||'') ? -1 : 1);
+  const matches = [...(p.by_match || [])].sort((a,b) => (a.date||'') < (b.date||'') ? -1 : 1);
   if (matches.length > 0) {
-    const maxPoss = Math.max(...matches.map(m => m.possession || 0), 1);
+    const possValues = matches.map(m => m.possession || 0);
+    const maxPoss    = Math.max(...possValues, 1);
+    const avgPoss    = possValues.reduce((s,v) => s+v, 0) / possValues.length;
+
     const bars = matches.map(m => {
-      const h = Math.max(Math.round(((m.possession||0) / maxPoss) * 72), 3);
-      const d = (m.date || '').slice(5); // MM-DD
+      const h = Math.max(Math.round(((m.possession||0) / maxPoss) * 110), 3);
+      const d = (m.date || '').slice(5);
+      const title = `${fmtNum(m.possession)} posed · ${m.date||''}`;
       return `<div class="chart-bar-wrap">
-        <div class="chart-bar ${m.is_mvp ? 'is-mvp' : ''}" style="height:${h}px" title="${fmtNum(m.possession)} · ${m.date||''}"></div>
+        <div class="chart-bar ${m.is_mvp ? 'is-mvp' : ''}" style="height:${h}px" title="${title}"></div>
         <div class="chart-bar-label">${d}</div>
       </div>`;
     }).join('');
+
     document.getElementById('playerChartSection').innerHTML = `
-      <div class="chart-title">Posesija po utakmici ${matches.length > 0 ? `(${matches.length}M)` : ''}</div>
-      <div class="chart-bars">${bars}</div>`;
+      <div class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title">Posed po utakmici</div>
+          <div class="chart-meta">⌀ ${fmtK(avgPoss)} · max ${fmtK(maxPoss)}</div>
+        </div>
+        <div class="chart-grid">
+          <div class="chart-yvals">
+            <div class="chart-yaxis">${fmtK(maxPoss)}</div>
+            <div class="chart-yaxis">${fmtK(maxPoss/2)}</div>
+            <div class="chart-yaxis">0</div>
+          </div>
+          <div class="chart-bars">${bars}</div>
+        </div>
+      </div>`;
   } else {
     document.getElementById('playerChartSection').innerHTML = '';
   }
@@ -651,34 +888,37 @@ function openPlayer(userId) {
   const byComp = (p.by_competition || [])
     .filter(c => c.total_possession > 0)
     .sort((a,b) => (b.total_possession||0) - (a.total_possession||0));
-  document.getElementById('playerCompList').innerHTML = byComp.map(c => {
-    const comp = (statsData.competitions || []).find(x => x.id === c.competition_id);
-    return `<div class="comp-row">
-      <div class="comp-name">${comp ? comp.name : `Komp. ${c.competition_id}`}</div>
-      <div class="comp-stats">
-        ${fmtK(c.total_possession)} pos · ${c.play_count} polja · ${c.match_count}M
-        ${c.mvp_count > 0 ? ` · 🏆 ${c.mvp_count}` : ''}
-      </div>
-    </div>`;
-  }).join('') || '<div style="color:var(--muted);padding:8px 0;font-size:13px">Nema podataka</div>';
+  document.getElementById('playerCompList').innerHTML = byComp.length > 0
+    ? byComp.map(c => {
+        const comp = (statsData.competitions || []).find(x => x.id === c.competition_id);
+        return `<div class="comp-row">
+          <div class="comp-name">${comp ? comp.name : `Komp. ${c.competition_id}`}</div>
+          <div class="comp-stats">
+            <strong style="color:var(--accent)">${fmtK(c.total_possession)}</strong> posed<br>
+            <span style="font-size:11px">${c.play_count} polja · ${c.match_count}M${c.mvp_count > 0 ? ' · 🏆 '+c.mvp_count : ''}</span>
+          </div>
+        </div>`;
+      }).join('')
+    : '<div class="empty" style="padding:20px"><div class="empty-text">Nema podataka po takmičenju</div></div>';
 
   document.getElementById('headerTitle').textContent = p.username;
+  document.getElementById('headerSubtitle').textContent = currentTeam.name;
   navigate('player');
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
 // COMPARE VIEW
-// ═══════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
 function startCompare() {
   if (!currentTeam) return;
-
-  document.getElementById('cmpTeamAName').textContent = currentTeam.name;
+  compareTeamB = null;
+  compareTab   = 'A';
 
   const sel = document.getElementById('cmpTeamBSel');
   sel.innerHTML = '<option value="">Odaberi protivnika…</option>';
   statsData.teams
     .filter(t => t.id !== currentTeam.id)
-    .sort((a,b) => a.name.localeCompare(b.name))
+    .sort((a,b) => teamTotalPossession(b) - teamTotalPossession(a))
     .forEach(t => {
       const opt = document.createElement('option');
       opt.value = t.id;
@@ -686,93 +926,122 @@ function startCompare() {
       sel.appendChild(opt);
     });
 
-  document.getElementById('compareBody').innerHTML = '<div class="empty"><div class="empty-text">Odaberi tim za poređenje</div></div>';
+  document.getElementById('compareTabs').style.display = 'none';
+  document.getElementById('compareBody').innerHTML = '<div class="empty"><div class="empty-icon">⚡</div><div class="empty-text">Odaberi tim iznad za poređenje</div></div>';
   document.getElementById('headerTitle').textContent = 'Poređenje';
+  document.getElementById('headerSubtitle').textContent = currentTeam.name + ' vs ?';
   navigate('compare');
+}
+
+function switchCompareTab(tab) {
+  compareTab = tab;
+  document.getElementById('cmpTabA').classList.toggle('active', tab === 'A');
+  document.getElementById('cmpTabB').classList.toggle('active', tab === 'B');
+  renderCompareBody();
 }
 
 function renderCompare() {
   const teamBId = Number(document.getElementById('cmpTeamBSel').value);
   if (!teamBId || !currentTeam) return;
+  compareTeamB = statsData.teams.find(t => t.id === teamBId);
+  if (!compareTeamB) return;
 
-  const teamA = currentTeam;
-  const teamB = statsData.teams.find(t => t.id === teamBId);
-  if (!teamB) return;
+  // Show tabs
+  const tabs = document.getElementById('compareTabs');
+  tabs.style.display = 'flex';
+  document.getElementById('cmpTabA').textContent = currentTeam.name;
+  document.getElementById('cmpTabB').textContent = compareTeamB.name;
+  document.getElementById('headerSubtitle').textContent = `${currentTeam.name} vs ${compareTeamB.name}`;
 
-  // Team-level metrics
-  const metricsTeam = [
-    { label: 'Ukupna posesija',  a: teamTotalPossession(teamA), b: teamTotalPossession(teamB), fmt: fmtK },
-    { label: 'Broj igrača',      a: teamA.players.length, b: teamB.players.length, fmt: n => n },
-    { label: 'Max utakmica',     a: Math.max(...teamA.players.map(p=>p.match_count||0),0), b: Math.max(...teamB.players.map(p=>p.match_count||0),0), fmt: n => n },
-    { label: 'Ukupno MVP',       a: teamA.players.reduce((s,p)=>s+(p.mvp_count||0),0), b: teamB.players.reduce((s,p)=>s+(p.mvp_count||0),0), fmt: n => n },
+  renderCompareBody();
+}
+
+function renderCompareBody() {
+  if (!compareTeamB || !currentTeam) return;
+  const teamA = currentTeam, teamB = compareTeamB;
+
+  // Metrics
+  const metrics = [
+    { key: 'Posed',     a: teamTotalPossession(teamA), b: teamTotalPossession(teamB), fmt: fmtK,    biggerBetter: true },
+    { key: 'Igrači',    a: teamA.players.length,        b: teamB.players.length,        fmt: n=>n,    biggerBetter: false },
+    { key: 'Utakmice',  a: Math.max(...teamA.players.map(p=>p.match_count||0),0), b: Math.max(...teamB.players.map(p=>p.match_count||0),0), fmt: n=>n, biggerBetter: true },
+    { key: 'MVP',       a: teamA.players.reduce((s,p)=>s+(p.mvp_count||0),0), b: teamB.players.reduce((s,p)=>s+(p.mvp_count||0),0), fmt: n=>n>0?'🏆 '+n:'—', biggerBetter: true },
   ];
 
-  const teamRows = metricsTeam.map(m => {
-    const aWins = m.a > m.b, bWins = m.b > m.a;
-    return `<tr>
-      <td class="compare-cell"><div class="compare-val ${aWins?'winner':''}">${m.fmt(m.a)}</div></td>
-      <td class="compare-metric">${m.label}</td>
-      <td class="compare-cell"><div class="compare-val ${bWins?'winner':''}">${m.fmt(m.b)}</div></td>
-    </tr>`;
+  const metricsHtml = metrics.map(m => {
+    const aWins = m.biggerBetter && m.a > m.b;
+    const bWins = m.biggerBetter && m.b > m.a;
+    return `<div class="compare-metric-row">
+      <div class="compare-val left ${aWins?'winner':bWins?'loser':''}">${m.fmt(m.a)}</div>
+      <div class="compare-metric-label">${m.key}</div>
+      <div class="compare-val right ${bWins?'winner':aWins?'loser':''}">${m.fmt(m.b)}</div>
+    </div>`;
   }).join('');
 
-  // Top 5 players per team side by side
+  // Top 5 players
   const topA = [...teamA.players].sort((a,b)=>(b.total_possession||0)-(a.total_possession||0)).slice(0,5);
   const topB = [...teamB.players].sort((a,b)=>(b.total_possession||0)-(a.total_possession||0)).slice(0,5);
-  const maxLen = Math.max(topA.length, topB.length);
-  let playerRows = '';
-  for (let i = 0; i < maxLen; i++) {
+  const max  = Math.max(topA.length, topB.length);
+
+  let playersHtml = '';
+  for (let i = 0; i < max; i++) {
     const pa = topA[i], pb = topB[i];
-    const aWins = pa && pb && pa.total_possession > pb.total_possession;
-    const bWins = pa && pb && pb.total_possession > pa.total_possession;
-    playerRows += `<tr>
-      <td class="compare-cell">${pa ? `<div class="compare-val ${aWins?'winner':''}">${pa.username}</div><div style="font-size:11px;color:var(--muted)">${fmtK(pa.total_possession)}</div>` : '—'}</td>
-      <td class="compare-metric">#${i+1}</td>
-      <td class="compare-cell">${pb ? `<div class="compare-val ${bWins?'winner':''}">${pb.username}</div><div style="font-size:11px;color:var(--muted)">${fmtK(pb.total_possession)}</div>` : '—'}</td>
-    </tr>`;
+    const aw = pa && pb && (pa.total_possession||0) > (pb.total_possession||0);
+    const bw = pa && pb && (pb.total_possession||0) > (pa.total_possession||0);
+    playersHtml += `<div class="compare-player-row">
+      <div class="compare-player-cell left ${aw?'winner':''}">
+        ${pa ? `<div class="compare-player-name">${flagEmoji(pa.flag)} ${pa.username}</div><div class="compare-player-poss">${fmtK(pa.total_possession)} posed</div>` : '—'}
+      </div>
+      <div class="compare-player-rank">#${i+1}</div>
+      <div class="compare-player-cell right ${bw?'winner':''}">
+        ${pb ? `<div class="compare-player-name">${flagEmoji(pb.flag)} ${pb.username}</div><div class="compare-player-poss">${fmtK(pb.total_possession)} posed</div>` : '—'}
+      </div>
+    </div>`;
   }
 
   document.getElementById('compareBody').innerHTML = `
-    <table class="compare-table">
-      <thead><tr>
-        <th style="text-align:center">${teamA.name}</th>
-        <th></th>
-        <th style="text-align:center">${teamB.name}</th>
-      </tr></thead>
-      <tbody>${teamRows}</tbody>
-    </table>
-    <div class="section-header" style="margin-top:8px">Top 5 igrača</div>
-    <table class="compare-table">
-      <tbody>${playerRows}</tbody>
-    </table>`;
+    <div class="compare-section">
+      <div class="section-header" style="padding-left:0;padding-right:0">Timske metrike</div>
+      ${metricsHtml}
+    </div>
+    <div class="compare-section">
+      <div class="section-header" style="padding-left:0;padding-right:0">Top 5 igrača</div>
+      ${playersHtml}
+    </div>`;
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
 // INIT
-// ═══════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
 async function init() {
   try {
-    const res  = await fetch('./data/stats.json?t=' + Date.now());
-    if (!res.ok) throw new Error('stats.json not found');
-    statsData = await res.json();
+    // Load seasons meta
+    const sRes = await fetch(`./data/seasons.json?t=${Date.now()}`);
+    if (!sRes.ok) throw new Error('seasons.json missing');
+    seasonsMeta = await sRes.json();
 
-    document.getElementById('seasonBadge').textContent = `S${statsData.season || '?'}`;
-    document.getElementById('updatedBadge').textContent = timeAgo(statsData.last_updated);
+    // Populate season picker
+    const sp = document.getElementById('seasonPick');
+    sp.innerHTML = seasonsMeta.available
+      .sort((a,b) => b - a)
+      .map(s => `<option value="${s}">Sezona ${s}</option>`)
+      .join('');
+    sp.value = String(seasonsMeta.current);
 
-    renderTeams();
+    // Load current season
+    await loadSeason(seasonsMeta.current);
   } catch (e) {
     document.getElementById('teamsList').innerHTML = `
       <div class="empty">
         <div class="empty-icon">⏳</div>
         <div class="empty-text">
           Podaci još nisu dostupni.<br><br>
-          Pokreni scraper u GitHub Actions:<br>
+          Pokreni scraper:<br>
           <strong>Actions → Scrape & Update Stats → Run workflow</strong>
         </div>
       </div>`;
   }
 }
-
 document.addEventListener('DOMContentLoaded', init);
 </script>
 </body>
