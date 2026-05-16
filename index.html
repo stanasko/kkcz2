@@ -20,6 +20,7 @@
   --gold:       #F59E0B;
   --green:      #10B981;
   --red:        #EF4444;
+  --blue:       #3B82F6;
   --text:       #F0F4FF;
   --text-dim:   #8FA3C4;
   --muted:      #4B6080;
@@ -29,12 +30,9 @@
 *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0 }
 html { height: 100%; background: var(--bg) }
 body {
-  min-height: 100%;
-  background: var(--bg);
-  color: var(--text);
+  min-height: 100%; background: var(--bg); color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 15px;
-  -webkit-font-smoothing: antialiased;
+  font-size: 15px; -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
   padding-bottom: env(safe-area-inset-bottom);
 }
@@ -44,12 +42,10 @@ button { font-family: inherit; -webkit-tap-highlight-color: transparent }
 .app-header {
   position: sticky; top: 0; z-index: 100;
   display: flex; align-items: center; gap: 10px;
-  padding: 12px 14px;
-  padding-top: max(12px, env(safe-area-inset-top));
+  padding: 12px 14px; padding-top: max(12px, env(safe-area-inset-top));
   background: rgba(15,28,50,.92);
   border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
 }
 .app-icon {
   width: 32px; height: 32px; background: var(--accent); border-radius: 8px;
@@ -57,30 +53,20 @@ button { font-family: inherit; -webkit-tap-highlight-color: transparent }
   flex-shrink: 0;
 }
 .header-title-wrap { flex: 1; min-width: 0 }
-.app-title {
-  font-size: 17px; font-weight: 800; letter-spacing: -.4px;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.app-subtitle {
-  font-size: 11px; color: var(--text-dim); margin-top: 1px;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
+.app-title { font-size: 17px; font-weight: 800; letter-spacing: -.4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.app-subtitle { font-size: 11px; color: var(--text-dim); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
 .season-pick {
   background: var(--surface2); border: 1px solid var(--border);
   color: var(--text); border-radius: 8px;
   padding: 6px 26px 6px 10px; font: inherit; font-size: 13px; font-weight: 700;
-  cursor: pointer; outline: none;
-  appearance: none;
+  cursor: pointer; outline: none; appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238FA3C4'/%3E%3C/svg%3E");
   background-repeat: no-repeat; background-position: right 9px center;
 }
 .season-pick:focus { border-color: var(--accent) }
 .back-btn {
-  display: none; align-items: center; gap: 4px;
-  background: transparent; border: none; color: var(--accent);
-  font-size: 22px; font-weight: 600;
-  cursor: pointer; padding: 0 6px 0 0; line-height: 1;
-  flex-shrink: 0;
+  display: none; align-items: center; background: transparent; border: none; color: var(--accent);
+  font-size: 24px; font-weight: 600; cursor: pointer; padding: 0 6px 0 0; line-height: 1; flex-shrink: 0;
 }
 .back-btn.visible { display: flex }
 
@@ -89,362 +75,419 @@ button { font-family: inherit; -webkit-tap-highlight-color: transparent }
 .view.active { display: block }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(4px) } to { opacity: 1; transform: none } }
 
-/* ── SECTION HEADERS ── */
 .section-header {
   padding: 18px 16px 8px;
   font-size: 10.5px; font-weight: 800; letter-spacing: .9px; text-transform: uppercase;
   color: var(--muted);
 }
 
-/* ── SEARCH BAR ── */
-.search-wrap { padding: 12px 16px 4px }
-.search-input {
+/* ═══════════ HOME — LEAGUE TABLE ═══════════ */
+.home-filters { padding: 12px 14px 4px; display: flex; flex-direction: column; gap: 10px }
+.filter-row { display: flex; flex-direction: column; gap: 4px }
+.filter-row-label {
+  font-size: 10px; font-weight: 800; letter-spacing: .7px; text-transform: uppercase;
+  color: var(--muted);
+}
+.full-select {
   width: 100%;
-  background: var(--surface); border: 1px solid var(--border);
-  color: var(--text); border-radius: 12px;
-  padding: 11px 16px; font: inherit; font-size: 14px; outline: none;
-  transition: border-color .14s;
+  background: var(--surface); border: 1px solid var(--border); color: var(--text);
+  border-radius: 10px; padding: 10px 32px 10px 14px;
+  font: inherit; font-size: 14px; font-weight: 600;
+  cursor: pointer; outline: none; appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238FA3C4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center;
 }
-.search-input:focus { border-color: var(--accent) }
-.search-input::placeholder { color: var(--muted) }
+.full-select:focus { border-color: var(--accent) }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   TEAMS LIST
-═══════════════════════════════════════════════════════════════════════════ */
-.teams-list { padding: 0 12px }
-.team-card {
-  display: flex; align-items: center; gap: 12px;
-  padding: 13px 14px;
-  margin-bottom: 8px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  cursor: pointer; transition: transform .12s, border-color .12s;
-  text-decoration: none; color: inherit;
+.standings-wrap { padding: 8px 8px 0 }
+.standings-table {
+  width: 100%; border-collapse: collapse;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden;
 }
-.team-card:active { transform: scale(.985); border-color: var(--border2) }
-.team-card.my-team {
-  background: linear-gradient(135deg, rgba(249,115,22,.13), rgba(249,115,22,.04) 60%);
-  border: 1.5px solid var(--accent);
+.standings-table th {
+  font-size: 9.5px; font-weight: 800; letter-spacing: .6px; text-transform: uppercase;
+  color: var(--muted); background: var(--surface2);
+  padding: 9px 6px; text-align: right; border-bottom: 1px solid var(--border);
 }
-.team-rank {
-  font-size: 16px; font-weight: 800; color: var(--muted);
-  width: 26px; text-align: center; flex-shrink: 0;
+.standings-table th.left { text-align: left }
+.standings-table td {
+  padding: 11px 6px; font-size: 14px; text-align: right;
+  border-bottom: 1px solid var(--border); font-variant-numeric: tabular-nums;
 }
-.team-card.my-team .team-rank { color: var(--accent) }
-.team-flag-wrap {
-  width: 38px; height: 38px; background: var(--surface2);
-  border-radius: 9px; display: flex; align-items: center; justify-content: center;
-  font-size: 22px; flex-shrink: 0;
+.standings-table td.left { text-align: left }
+.standings-table tr:last-child td { border-bottom: none }
+.standings-table tbody tr { cursor: pointer; transition: background .1s }
+.standings-table tbody tr:active { background: var(--surface2) }
+.standings-table tr.my-team {
+  background: linear-gradient(135deg, rgba(249,115,22,.15), rgba(249,115,22,.04) 60%);
 }
-.team-card.my-team .team-flag-wrap { background: rgba(249,115,22,.18) }
-.team-info { flex: 1; min-width: 0 }
-.team-name-row { display: flex; align-items: center; gap: 6px; margin-bottom: 2px }
-.team-name {
-  font-weight: 700; font-size: 15px;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.my-team-badge {
-  font-size: 9px; font-weight: 800; letter-spacing: .7px;
-  background: var(--accent); color: #fff;
-  padding: 2px 6px; border-radius: 4px;
-  flex-shrink: 0;
-}
-.team-meta {
-  font-size: 12px; color: var(--text-dim);
-  display: flex; align-items: center; gap: 8px;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.team-top { color: var(--gold) }
-.team-poss {
-  font-size: 14px; font-weight: 800; color: var(--accent);
-  flex-shrink: 0; text-align: right;
-}
-.team-poss-label {
-  display: block;
-  font-size: 9px; font-weight: 700; letter-spacing: .6px;
-  color: var(--muted); margin-top: -1px;
-}
+.standings-table tr.my-team td { color: var(--text) }
+.standings-table td.rank { color: var(--muted); font-weight: 700; padding-left: 12px; width: 28px }
+.standings-table tr.my-team td.rank { color: var(--accent) }
+.standings-table td.team-cell { font-weight: 600 }
+.standings-table td.team-cell .flag { font-size: 16px; margin-right: 6px }
+.standings-table td.team-cell .star { color: var(--accent); margin-left: 4px }
+.standings-table td.pct { color: var(--accent); font-weight: 700; padding-right: 12px }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   TEAM DETAIL
-═══════════════════════════════════════════════════════════════════════════ */
+/* ── Knockout / Groups display ── */
+.bracket-wrap { padding: 0 14px }
+.round-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; margin-bottom: 10px }
+.round-title { font-size: 11px; font-weight: 800; letter-spacing: .7px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px }
+.round-matchup { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; padding: 8px 6px; align-items: center; border-bottom: 1px solid var(--border); cursor: pointer }
+.round-matchup:last-child { border-bottom: none }
+.round-matchup:active { background: var(--surface2) }
+.matchup-team { font-size: 13px; font-weight: 600; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.matchup-team.right { text-align: right }
+.matchup-team.winner { color: var(--green) }
+.matchup-team.loser { color: var(--text-dim); opacity: .65 }
+.matchup-score {
+  font-variant-numeric: tabular-nums; font-weight: 800; font-size: 14px;
+  white-space: nowrap; color: var(--text);
+}
+.matchup-score.unplayed { color: var(--muted); font-weight: 600 }
+
+/* ═══════════ TEAM DETAIL ═══════════ */
 .team-detail-hero {
   padding: 18px 16px 16px;
   background: linear-gradient(180deg, var(--surface) 0%, var(--bg-soft) 100%);
   border-bottom: 1px solid var(--border);
 }
 .team-detail-flagrow { display: flex; align-items: center; gap: 12px; margin-bottom: 14px }
-.team-detail-flag {
-  width: 52px; height: 52px; background: var(--surface2);
-  border-radius: 12px; display: flex; align-items: center; justify-content: center;
-  font-size: 30px; flex-shrink: 0;
-}
-.team-detail-name {
-  font-size: 21px; font-weight: 800; letter-spacing: -.3px;
-  line-height: 1.15;
-}
+.team-detail-flag { width: 52px; height: 52px; background: var(--surface2); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 30px; flex-shrink: 0 }
+.team-detail-name { font-size: 21px; font-weight: 800; letter-spacing: -.3px; line-height: 1.15 }
 .team-detail-tagline { font-size: 12px; color: var(--text-dim); margin-top: 2px }
-.team-stats-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
-}
+.team-stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px }
 .team-stat-pill {
   background: var(--surface2); border: 1px solid var(--border);
-  border-radius: 10px; padding: 10px 8px; text-align: center;
+  border-radius: 10px; padding: 11px 8px; text-align: center;
+  cursor: pointer; transition: transform .12s, border-color .12s, background .12s;
 }
-.team-stat-pill-value {
-  font-size: 17px; font-weight: 800; color: var(--text);
-  line-height: 1;
-}
-.team-stat-pill-label {
-  font-size: 9.5px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase;
-  color: var(--muted); margin-top: 4px;
-}
+.team-stat-pill:active { transform: scale(.97); background: var(--surface3) }
+.team-stat-pill:hover { border-color: var(--border2) }
+.team-stat-pill-value { font-size: 17px; font-weight: 800; color: var(--text); line-height: 1 }
+.team-stat-pill-label { font-size: 9.5px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: var(--muted); margin-top: 4px }
+.team-stat-pill-chev { font-size: 9px; color: var(--muted); margin-top: 2px }
 
 .filter-bar {
   display: flex; gap: 8px; align-items: stretch;
-  padding: 10px 14px;
-  background: var(--bg-soft);
+  padding: 10px 14px; background: var(--bg-soft);
   border-bottom: 1px solid var(--border);
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
 }
 .filter-bar::-webkit-scrollbar { display: none }
-.filter-group { display: flex; flex-direction: column; gap: 3px; flex-shrink: 0; min-width: 120px }
+.filter-group { display: flex; flex-direction: column; gap: 3px; flex-shrink: 0; min-width: 130px }
 .filter-label { font-size: 9.5px; font-weight: 800; letter-spacing: .7px; text-transform: uppercase; color: var(--muted) }
 select.filter-select {
-  background: var(--surface); border: 1px solid var(--border);
-  color: var(--text); border-radius: 8px;
+  background: var(--surface); border: 1px solid var(--border); color: var(--text); border-radius: 8px;
   padding: 8px 26px 8px 10px; font: inherit; font-size: 13px;
-  cursor: pointer; outline: none; width: 100%;
-  appearance: none;
+  cursor: pointer; outline: none; width: 100%; appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%234B6080'/%3E%3C/svg%3E");
   background-repeat: no-repeat; background-position: right 10px center;
 }
 select.filter-select:focus { border-color: var(--accent) }
 .compare-btn {
-  background: var(--surface); border: 1px solid var(--border);
-  color: var(--text); border-radius: 8px;
+  background: var(--surface); border: 1px solid var(--border); color: var(--text); border-radius: 8px;
   padding: 8px 14px; font: inherit; font-size: 13px; font-weight: 700;
-  cursor: pointer; white-space: nowrap; flex-shrink: 0;
-  align-self: flex-end;
+  cursor: pointer; white-space: nowrap; flex-shrink: 0; align-self: flex-end;
 }
 .compare-btn:active { transform: scale(.97); background: var(--accent); border-color: var(--accent); color: #fff }
 
-/* ── PLAYER CARDS (mobile-first list) ── */
+/* ── Player rows ── */
 .players-list { padding: 10px 12px 0 }
 .player-row {
-  display: grid;
-  grid-template-columns: auto auto 1fr auto;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 14px;
-  margin-bottom: 8px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  display: grid; grid-template-columns: auto auto 1fr auto;
+  align-items: center; gap: 10px;
+  padding: 12px 14px; margin-bottom: 8px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
   cursor: pointer; transition: transform .12s, border-color .12s;
 }
 .player-row:active { transform: scale(.985); border-color: var(--border2) }
-.player-row.is-mvp {
-  border-color: rgba(245,158,11,.5);
-  background: linear-gradient(135deg, rgba(245,158,11,.07), rgba(249,115,22,.03) 50%, var(--surface) 100%);
-}
-.player-rank {
-  font-size: 13px; font-weight: 800; color: var(--muted);
-  min-width: 22px; text-align: right;
-}
+.player-row.is-mvp { border-color: rgba(245,158,11,.5); background: linear-gradient(135deg, rgba(245,158,11,.07), rgba(249,115,22,.03) 50%, var(--surface) 100%) }
+.player-rank { font-size: 13px; font-weight: 800; color: var(--muted); min-width: 22px; text-align: right }
 .player-row.is-mvp .player-rank { color: var(--gold) }
-.player-flag-circle {
-  width: 32px; height: 32px;
-  background: var(--surface2); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px; flex-shrink: 0;
-}
+.player-flag-circle { width: 32px; height: 32px; background: var(--surface2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0 }
 .player-name-wrap { min-width: 0 }
 .player-name-row { display: flex; align-items: center; gap: 6px }
-.player-name {
-  font-weight: 700; font-size: 15px;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
+.player-name { font-weight: 700; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
 .mvp-icon { font-size: 13px; flex-shrink: 0 }
-.player-meta {
-  font-size: 11.5px; color: var(--text-dim); margin-top: 2px;
-  display: flex; gap: 8px; flex-wrap: wrap;
-}
+.player-meta { font-size: 11.5px; color: var(--text-dim); margin-top: 2px; display: flex; gap: 8px; flex-wrap: wrap }
 .player-meta .sep { color: var(--muted); opacity: .6 }
-.player-primary {
-  font-size: 16px; font-weight: 800; color: var(--accent);
-  text-align: right; line-height: 1;
-}
-.player-primary-label {
-  display: block;
-  font-size: 9px; font-weight: 700; letter-spacing: .6px;
-  color: var(--muted); margin-top: 3px;
-}
+.player-primary { font-size: 16px; font-weight: 800; color: var(--accent); text-align: right; line-height: 1 }
+.player-primary-label { display: block; font-size: 9px; font-weight: 700; letter-spacing: .6px; color: var(--muted); margin-top: 3px }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   PLAYER CARD VIEW
-═══════════════════════════════════════════════════════════════════════════ */
+/* ── Last matches under team detail ── */
+.last-matches { padding: 0 12px 0 }
+.match-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 14px; margin-bottom: 6px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  cursor: pointer; transition: transform .12s, border-color .12s;
+}
+.match-row:active { transform: scale(.985); border-color: var(--border2) }
+.match-md {
+  font-size: 10px; font-weight: 800; letter-spacing: .5px; color: var(--muted);
+  background: var(--surface2); border-radius: 5px; padding: 3px 7px; flex-shrink: 0;
+}
+.match-info { flex: 1; min-width: 0 }
+.match-opponent { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.match-date { font-size: 11px; color: var(--text-dim); margin-top: 1px }
+.match-score {
+  font-variant-numeric: tabular-nums; font-weight: 800; font-size: 15px;
+  white-space: nowrap; flex-shrink: 0;
+}
+.match-score.won { color: var(--green) }
+.match-score.lost { color: var(--red) }
+.match-result-flag { font-size: 11px; font-weight: 800; padding: 2px 7px; border-radius: 4px; flex-shrink: 0 }
+.match-result-flag.won { background: rgba(16,185,129,.18); color: var(--green) }
+.match-result-flag.lost { background: rgba(239,68,68,.18); color: var(--red) }
+
+/* ═══════════ PLAYER CARD ═══════════ */
 .player-hero {
-  padding: 24px 16px 18px;
+  padding: 22px 16px 16px;
   background: linear-gradient(180deg, var(--surface) 0%, var(--bg-soft) 100%);
-  border-bottom: 1px solid var(--border);
-  text-align: center;
+  border-bottom: 1px solid var(--border); text-align: center;
 }
 .player-avatar {
-  width: 72px; height: 72px;
-  background: var(--surface2); border-radius: 50%;
+  width: 72px; height: 72px; background: var(--surface2); border-radius: 50%;
   display: inline-flex; align-items: center; justify-content: center;
-  font-size: 38px; margin-bottom: 12px;
-  border: 2px solid var(--border);
+  font-size: 38px; margin-bottom: 10px; border: 2px solid var(--border);
 }
-.player-hero-name { font-size: 24px; font-weight: 800; letter-spacing: -.3px; margin-bottom: 4px }
+.player-hero-name { font-size: 23px; font-weight: 800; letter-spacing: -.3px; margin-bottom: 3px }
 .player-hero-meta { font-size: 13px; color: var(--text-dim) }
-
-.stat-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 10px; padding: 16px;
+.player-hero-level {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 10px;
+  background: var(--surface2); border: 1px solid var(--border); border-radius: 18px;
+  padding: 5px 12px; font-size: 12px; font-weight: 700;
 }
+.player-hero-level .grew { color: var(--green) }
+.player-hero-level .grew.zero { color: var(--text-dim) }
+
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px }
 .stat-card {
   background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 14px 12px;
-  text-align: center;
+  border-radius: var(--radius); padding: 14px 12px; text-align: center;
+  cursor: pointer; transition: transform .12s, border-color .12s, background .12s;
 }
+.stat-card:active { transform: scale(.97); background: var(--surface2) }
 .stat-card.gold { border-color: rgba(245,158,11,.45); background: rgba(245,158,11,.07) }
 .stat-card-value { font-size: 22px; font-weight: 800; color: var(--accent); line-height: 1 }
 .stat-card.gold .stat-card-value { color: var(--gold) }
 .stat-card.muted .stat-card-value { color: var(--text) }
-.stat-card-label {
-  font-size: 10px; font-weight: 800; letter-spacing: .7px; text-transform: uppercase;
-  color: var(--muted); margin-top: 6px;
-}
+.stat-card-label { font-size: 10px; font-weight: 800; letter-spacing: .7px; text-transform: uppercase; color: var(--muted); margin-top: 6px }
+.stat-card-chev { font-size: 9px; color: var(--muted); margin-top: 4px }
 
-/* ── PROGRESSION CHART ── */
-.chart-section { padding: 0 16px 8px }
+/* ── Progression / level chart ── */
+.chart-section { padding: 0 14px 8px }
 .chart-card {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--radius); padding: 14px;
 }
-.chart-header {
-  display: flex; align-items: baseline; justify-content: space-between;
-  margin-bottom: 14px;
-}
+.chart-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px }
 .chart-title { font-size: 11px; font-weight: 800; letter-spacing: .7px; text-transform: uppercase; color: var(--muted) }
 .chart-meta { font-size: 11px; color: var(--text-dim) }
 .chart-yaxis { font-size: 9px; color: var(--muted); text-align: right; padding-right: 6px }
-.chart-grid {
-  display: grid; grid-template-columns: 32px 1fr; gap: 4px;
-  margin-bottom: 6px;
-}
-.chart-yvals { display: flex; flex-direction: column; justify-content: space-between; height: 120px; padding: 2px 0 }
-.chart-bars { display: flex; align-items: flex-end; gap: 5px; height: 120px; overflow-x: auto; padding: 0 2px }
+.chart-grid { display: grid; grid-template-columns: 32px 1fr; gap: 4px; margin-bottom: 4px }
+.chart-yvals { display: flex; flex-direction: column; justify-content: space-between; height: 110px; padding: 2px 0 }
+.chart-bars { display: flex; align-items: flex-end; gap: 5px; height: 110px; overflow-x: auto; padding: 0 2px }
 .chart-bars::-webkit-scrollbar { display: none }
-.chart-bar-wrap {
-  display: flex; flex-direction: column; align-items: center; gap: 4px;
-  flex: 1 1 0; min-width: 16px; height: 100%; justify-content: flex-end;
-}
+.chart-bar-wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1 1 0; min-width: 14px; height: 100%; justify-content: flex-end }
 .chart-bar {
   width: 100%; min-width: 8px; max-width: 22px;
   background: linear-gradient(180deg, var(--accent), #c2570e);
   border-radius: 3px 3px 0 0; min-height: 4px;
-  transition: opacity .15s;
 }
-.chart-bar.is-mvp {
-  background: linear-gradient(180deg, var(--gold), #ca8a04);
-  box-shadow: 0 0 0 2px rgba(245,158,11,.25);
-}
-.chart-bar-label {
-  font-size: 8.5px; color: var(--muted); white-space: nowrap;
-  font-variant-numeric: tabular-nums;
-}
+.chart-bar.is-mvp { background: linear-gradient(180deg, var(--gold), #ca8a04); box-shadow: 0 0 0 2px rgba(245,158,11,.25) }
+.chart-bar.level { background: linear-gradient(180deg, var(--blue), #1e40af) }
+.chart-bar-label { font-size: 8.5px; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums }
 
-.comp-list { padding: 0 16px 16px }
+/* ── Shooting splits ── */
+.shoot-section { padding: 0 14px 8px }
+.shoot-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px }
+.shoot-title { font-size: 11px; font-weight: 800; letter-spacing: .7px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px }
+.shoot-row {
+  display: grid; grid-template-columns: 50px 1fr auto;
+  align-items: center; gap: 10px; padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.shoot-row:last-child { border-bottom: none }
+.shoot-tag { font-size: 12px; font-weight: 800; color: var(--accent) }
+.shoot-tag.three { color: var(--gold) }
+.shoot-tag.miss { color: var(--red) }
+.shoot-bar-wrap { background: var(--surface2); border-radius: 4px; height: 8px; overflow: hidden }
+.shoot-bar { height: 100%; background: var(--accent); border-radius: 4px }
+.shoot-bar.three { background: var(--gold) }
+.shoot-bar.miss { background: var(--red); opacity: .55 }
+.shoot-stats { font-size: 12px; font-weight: 700; color: var(--text); white-space: nowrap; font-variant-numeric: tabular-nums }
+.shoot-stats .pct { color: var(--text-dim); font-weight: 600 }
+
+/* ── By competition rows ── */
+.comp-list { padding: 0 14px 16px }
 .comp-row {
   display: flex; align-items: center; justify-content: space-between;
   padding: 12px 14px; margin-bottom: 6px;
   background: var(--surface); border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 10px; cursor: pointer; transition: transform .12s, border-color .12s;
 }
+.comp-row:active { transform: scale(.985); border-color: var(--border2) }
 .comp-name { font-size: 14px; font-weight: 600 }
 .comp-stats { font-size: 12px; color: var(--text-dim); text-align: right }
+.comp-stats strong { color: var(--accent); font-weight: 800 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   COMPARE VIEW
-═══════════════════════════════════════════════════════════════════════════ */
-.compare-header {
-  padding: 14px 16px;
-  background: var(--surface);
+/* ═══════════ MATCH DETAIL ═══════════ */
+.match-hero {
+  padding: 16px 14px;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg-soft) 100%);
   border-bottom: 1px solid var(--border);
 }
-.compare-picker { display: flex; flex-direction: column; gap: 6px }
-.compare-picker-label {
-  font-size: 10px; font-weight: 800; letter-spacing: .7px; text-transform: uppercase;
-  color: var(--muted);
+.match-teams-row {
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  gap: 10px; align-items: center; margin-bottom: 8px;
 }
+.match-team-block { text-align: center }
+.match-team-flag { font-size: 32px; line-height: 1 }
+.match-team-name { font-size: 14px; font-weight: 700; margin-top: 6px; word-wrap: break-word }
+.match-team-score { font-size: 32px; font-weight: 800; margin-top: 6px; line-height: 1; font-variant-numeric: tabular-nums }
+.match-vs { font-size: 12px; color: var(--muted); font-weight: 800 }
+.match-meta-row {
+  display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
+  font-size: 11.5px; color: var(--text-dim); margin-top: 4px;
+}
+.match-mvp-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+  padding: 10px 0 0;
+}
+.mvp-block {
+  background: rgba(245,158,11,.08); border: 1px solid rgba(245,158,11,.35);
+  border-radius: 10px; padding: 9px 10px; cursor: pointer; transition: transform .1s;
+}
+.mvp-block:active { transform: scale(.98) }
+.mvp-label { font-size: 9px; font-weight: 800; letter-spacing: .6px; color: var(--gold); margin-bottom: 4px }
+.mvp-name { font-size: 13px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.mvp-poss { font-size: 11px; color: var(--text-dim); margin-top: 1px }
+
+.plays-list { padding: 12px 12px 0 }
+.play-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  margin-bottom: 8px; overflow: hidden;
+}
+.play-header {
+  display: grid; grid-template-columns: auto 1fr auto auto;
+  gap: 10px; align-items: center;
+  padding: 11px 14px; cursor: pointer;
+  background: var(--surface2);
+}
+.play-header:active { background: var(--surface3) }
+.play-num { font-size: 11px; font-weight: 800; color: var(--muted); background: var(--surface3); border-radius: 4px; padding: 2px 7px }
+.play-scores {
+  display: flex; gap: 8px; font-size: 12px; color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.play-scores .home { color: var(--accent) }
+.play-scores .away { color: var(--text-dim) }
+.play-throws-count { font-size: 11px; color: var(--text-dim) }
+.play-chev { font-size: 11px; color: var(--muted); transition: transform .14s }
+.play-card.expanded .play-chev { transform: rotate(180deg) }
+.play-body { display: none; padding: 12px 14px; border-top: 1px solid var(--border) }
+.play-card.expanded .play-body { display: block }
+.play-side-title {
+  font-size: 10px; font-weight: 800; letter-spacing: .6px; text-transform: uppercase;
+  color: var(--text-dim); margin: 6px 0 4px;
+}
+.play-side-title.first { margin-top: 0 }
+.play-player {
+  display: grid; grid-template-columns: auto 1fr auto;
+  gap: 8px; align-items: center; padding: 5px 0; font-size: 13px;
+}
+.play-player .name { font-weight: 600; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.play-player .name .main { color: var(--accent); font-weight: 800 }
+.play-player .poss { font-weight: 800; font-variant-numeric: tabular-nums; color: var(--text); flex-shrink: 0 }
+.play-shots-block { margin-top: 8px; background: var(--surface2); border-radius: 8px; padding: 8px 10px }
+.play-shots-row {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 8px; align-items: center; padding: 3px 0; font-size: 12px;
+}
+.play-shot-line {
+  display: inline-flex; gap: 3px; margin-left: 6px;
+  font-size: 10px; font-weight: 800; letter-spacing: .3px;
+}
+.shot-pill {
+  display: inline-block; min-width: 16px; text-align: center;
+  border-radius: 3px; padding: 1px 4px;
+}
+.shot-pill.s2 { background: rgba(249,115,22,.18); color: var(--accent) }
+.shot-pill.s3 { background: rgba(245,158,11,.18); color: var(--gold) }
+.shot-pill.miss { background: rgba(239,68,68,.16); color: var(--red) }
+
+/* ═══════════ SUBVIEW LIST (per-match breakdown of a stat) ═══════════ */
+.subview-header {
+  padding: 14px 16px 10px;
+  background: var(--surface); border-bottom: 1px solid var(--border);
+}
+.subview-title { font-size: 18px; font-weight: 800; letter-spacing: -.3px }
+.subview-subtitle { font-size: 12px; color: var(--text-dim); margin-top: 2px }
+.breakdown-list { padding: 10px 12px 0 }
+.breakdown-row {
+  display: grid; grid-template-columns: auto 1fr auto;
+  gap: 10px; align-items: center;
+  padding: 12px 14px; margin-bottom: 7px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  cursor: pointer; transition: transform .12s, border-color .12s;
+}
+.breakdown-row:active { transform: scale(.985); border-color: var(--border2) }
+.breakdown-md { font-size: 10px; font-weight: 800; letter-spacing: .4px; color: var(--muted); background: var(--surface2); border-radius: 4px; padding: 3px 6px; min-width: 36px; text-align: center }
+.breakdown-mid { min-width: 0 }
+.breakdown-opp { font-size: 14px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.breakdown-meta { font-size: 11px; color: var(--text-dim); margin-top: 2px; display: flex; gap: 6px; flex-wrap: wrap }
+.breakdown-meta .won { color: var(--green); font-weight: 800 }
+.breakdown-meta .lost { color: var(--red); font-weight: 800 }
+.breakdown-bar-wrap {
+  background: var(--surface2); border-radius: 3px; height: 6px; margin-top: 6px; overflow: hidden;
+}
+.breakdown-bar { height: 100%; background: var(--accent); border-radius: 3px }
+.breakdown-bar.is-mvp { background: var(--gold) }
+.breakdown-primary { font-size: 16px; font-weight: 800; color: var(--accent); text-align: right; white-space: nowrap }
+.breakdown-primary.gold { color: var(--gold) }
+.breakdown-primary-label { font-size: 9px; font-weight: 700; letter-spacing: .5px; color: var(--muted); margin-top: 2px; text-align: right }
+
+/* ═══════════ COMPARE ═══════════ */
+.compare-header { padding: 12px 14px; background: var(--surface); border-bottom: 1px solid var(--border) }
+.compare-pickers { display: grid; grid-template-columns: 1fr 1fr; gap: 8px }
+.compare-pick-block { display: flex; flex-direction: column; gap: 4px }
+.compare-pick-label { font-size: 9.5px; font-weight: 800; letter-spacing: .7px; text-transform: uppercase; color: var(--muted) }
 .compare-pick {
-  background: var(--surface2); border: 1px solid var(--border2);
-  color: var(--text); border-radius: 10px; padding: 11px 14px;
-  font: inherit; font-size: 14px; font-weight: 600;
-  cursor: pointer; outline: none; width: 100%;
-  appearance: none;
+  background: var(--surface2); border: 1px solid var(--border2); color: var(--text);
+  border-radius: 10px; padding: 10px 30px 10px 12px;
+  font: inherit; font-size: 13px; font-weight: 600;
+  cursor: pointer; outline: none; width: 100%; appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238FA3C4'/%3E%3C/svg%3E");
-  background-repeat: no-repeat; background-position: right 14px center;
-  padding-right: 36px;
+  background-repeat: no-repeat; background-position: right 12px center;
 }
 .compare-pick:focus { border-color: var(--accent) }
 
-/* Compare tabs (mobile) */
-.compare-tabs {
-  display: flex; gap: 4px; padding: 12px 14px 0;
-}
-.compare-tab {
-  flex: 1; padding: 10px 8px;
-  background: var(--surface); border: 1px solid var(--border);
-  color: var(--text-dim); border-radius: 10px 10px 0 0;
-  font: inherit; font-size: 13px; font-weight: 700;
-  cursor: pointer; text-align: center;
-  border-bottom: none;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.compare-tab.active { background: var(--accent); border-color: var(--accent); color: #fff }
-.compare-vs {
-  display: flex; align-items: center; justify-content: center;
-  padding: 0 4px;
-  font-size: 11px; font-weight: 800; color: var(--muted);
-}
-
-.compare-body { padding: 0 14px 16px }
-.compare-section { margin-top: 12px }
+.compare-body { padding: 12px 14px 16px }
 .compare-metric-row {
-  display: grid; grid-template-columns: 1fr auto 1fr;
-  align-items: center; gap: 10px;
-  padding: 12px 14px;
-  background: var(--surface); border: 1px solid var(--border);
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px;
+  padding: 11px 14px; background: var(--surface); border: 1px solid var(--border);
   border-radius: 10px; margin-bottom: 6px;
 }
-.compare-val { font-size: 17px; font-weight: 800; text-align: center; line-height: 1 }
+.compare-val { font-size: 17px; font-weight: 800; text-align: center; line-height: 1; font-variant-numeric: tabular-nums }
 .compare-val.left { text-align: right }
 .compare-val.right { text-align: left }
 .compare-val.winner { color: var(--green) }
 .compare-val.loser { color: var(--text-dim); opacity: .6 }
-.compare-metric-label {
-  font-size: 9.5px; font-weight: 800; letter-spacing: .6px; text-transform: uppercase;
-  color: var(--muted); text-align: center; padding: 0 6px;
-}
+.compare-metric-label { font-size: 9.5px; font-weight: 800; letter-spacing: .6px; text-transform: uppercase; color: var(--muted); text-align: center; padding: 0 6px }
 .compare-player-row {
   display: grid; grid-template-columns: 1fr 36px 1fr;
   align-items: center; gap: 8px;
-  padding: 10px 12px;
-  background: var(--surface); border: 1px solid var(--border);
+  padding: 10px 12px; background: var(--surface); border: 1px solid var(--border);
   border-radius: 10px; margin-bottom: 5px;
+  cursor: pointer; transition: transform .12s, border-color .12s;
 }
+.compare-player-row:active { transform: scale(.985); border-color: var(--border2) }
 .compare-player-cell { min-width: 0 }
 .compare-player-cell.left { text-align: right }
-.compare-player-name {
-  font-size: 13px; font-weight: 700;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
+.compare-player-name { font-size: 13px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
 .compare-player-poss { font-size: 11px; color: var(--text-dim); margin-top: 2px }
 .compare-player-cell.winner .compare-player-name { color: var(--green) }
 .compare-player-rank {
@@ -454,11 +497,28 @@ select.filter-select:focus { border-color: var(--accent) }
   margin: 0 auto;
 }
 
+/* Player vs Player detail */
+.pvp-hero {
+  padding: 14px;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg-soft) 100%);
+  border-bottom: 1px solid var(--border);
+}
+.pvp-row {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center;
+}
+.pvp-side { text-align: center }
+.pvp-side .avatar { width: 52px; height: 52px; background: var(--surface2); border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center; font-size: 26px; border: 2px solid var(--border) }
+.pvp-side.left .avatar { border-color: var(--accent) }
+.pvp-side.right .avatar { border-color: var(--blue) }
+.pvp-side .name { font-size: 15px; font-weight: 800; margin-top: 6px; word-wrap: break-word }
+.pvp-side .meta { font-size: 11px; color: var(--text-dim); margin-top: 1px }
+.pvp-vs { font-size: 12px; font-weight: 800; color: var(--muted) }
+
 /* ── EMPTY / LOADING STATES ── */
 .empty { padding: 60px 24px; text-align: center; color: var(--muted) }
 .empty-icon { font-size: 44px; margin-bottom: 14px; opacity: .7 }
 .empty-text { font-size: 14px; line-height: 1.6 }
-
 .loading-bar {
   position: fixed; top: 0; left: 0; right: 0;
   height: 2px; background: var(--accent);
@@ -466,20 +526,17 @@ select.filter-select:focus { border-color: var(--accent) }
   transform-origin: left; z-index: 200;
 }
 @keyframes loadingSweep {
-  0% { transform: scaleX(0); }
-  50% { transform: scaleX(.6); }
-  100% { transform: scaleX(1); opacity: 0; }
+  0% { transform: scaleX(0) }
+  50% { transform: scaleX(.6) }
+  100% { transform: scaleX(1); opacity: 0 }
 }
 
 /* ── DESKTOP TWEAKS ── */
 @media (min-width: 720px) {
   .stat-grid { grid-template-columns: repeat(4, 1fr) }
-  .teams-list { max-width: 720px; margin: 0 auto }
-  .players-list { max-width: 720px; margin: 0 auto }
-  .filter-bar { max-width: 720px; margin: 0 auto }
-  .team-detail-hero { max-width: 720px; margin: 0 auto; border-radius: 0 0 var(--radius-lg) var(--radius-lg) }
-  .player-hero { max-width: 720px; margin: 0 auto }
-  .chart-section, .comp-list, .compare-body, .compare-header, .compare-tabs { max-width: 720px; margin-left: auto; margin-right: auto }
+  .home-filters, .standings-wrap, .bracket-wrap,
+  .players-list, .filter-bar, .last-matches, .plays-list, .breakdown-list, .compare-body, .comp-list, .chart-section, .shoot-section,
+  .team-detail-hero, .player-hero, .match-hero, .subview-header, .compare-header { max-width: 760px; margin-left: auto; margin-right: auto }
 }
 </style>
 </head>
@@ -496,16 +553,22 @@ select.filter-select:focus { border-color: var(--accent) }
   <select class="season-pick" id="seasonPick" onchange="switchSeason(this.value)"></select>
 </div>
 
-<!-- ═════════════════════════════════════ VIEW: TEAMS LIST -->
-<div class="view active" id="viewTeams">
-  <div class="search-wrap">
-    <input class="search-input" id="teamSearch" type="search" placeholder="🔍 Pretraži tim…" oninput="renderTeams()">
+<!-- ═══════ HOME ═══════ -->
+<div class="view active" id="viewHome">
+  <div class="home-filters">
+    <div class="filter-row">
+      <div class="filter-row-label">Takmičenje</div>
+      <select class="full-select" id="homeCompSel" onchange="renderHome()"></select>
+    </div>
+    <div class="filter-row">
+      <div class="filter-row-label">Skoči na tim</div>
+      <select class="full-select" id="homeTeamJump" onchange="onTeamJump(this.value)"></select>
+    </div>
   </div>
-  <div class="section-header" id="teamsSection">Svi timovi</div>
-  <div class="teams-list" id="teamsList"></div>
+  <div id="homeContent"></div>
 </div>
 
-<!-- ═════════════════════════════════════ VIEW: TEAM DETAIL -->
+<!-- ═══════ TEAM DETAIL ═══════ -->
 <div class="view" id="viewTeam">
   <div class="team-detail-hero" id="teamDetailHero"></div>
   <div class="filter-bar">
@@ -523,40 +586,61 @@ select.filter-select:focus { border-color: var(--accent) }
         <option value="match_count">Utakmice</option>
         <option value="total_points">Poeni</option>
         <option value="mvp_count">MVP</option>
+        <option value="level_growth">Rast nivoa</option>
       </select>
     </div>
     <button class="compare-btn" onclick="startCompare()">⚡ Uporedi</button>
   </div>
   <div class="players-list" id="teamPlayersList"></div>
+  <div class="section-header">Poslednje utakmice</div>
+  <div class="last-matches" id="teamLastMatches"></div>
 </div>
 
-<!-- ═════════════════════════════════════ VIEW: PLAYER CARD -->
+<!-- ═══════ PLAYER CARD ═══════ -->
 <div class="view" id="viewPlayer">
   <div class="player-hero" id="playerHero"></div>
   <div class="stat-grid" id="playerStatGrid"></div>
-  <div class="chart-section" id="playerChartSection"></div>
+  <div class="chart-section" id="playerLevelSection"></div>
+  <div class="chart-section" id="playerPossSection"></div>
+  <div class="shoot-section" id="playerShootSection"></div>
   <div class="section-header">Po takmičenju</div>
   <div class="comp-list" id="playerCompList"></div>
 </div>
 
-<!-- ═════════════════════════════════════ VIEW: COMPARE -->
+<!-- ═══════ MATCH DETAIL ═══════ -->
+<div class="view" id="viewMatch">
+  <div id="matchHero"></div>
+  <div class="section-header">Polja</div>
+  <div class="plays-list" id="matchPlays"></div>
+</div>
+
+<!-- ═══════ SUBVIEW (breakdown of a stat: per-match) ═══════ -->
+<div class="view" id="viewSubview">
+  <div class="subview-header" id="subviewHeader"></div>
+  <div class="breakdown-list" id="subviewBody"></div>
+</div>
+
+<!-- ═══════ COMPARE ═══════ -->
 <div class="view" id="viewCompare">
   <div class="compare-header">
-    <div class="compare-picker">
-      <div class="compare-picker-label">Uporedi sa</div>
-      <select class="compare-pick" id="cmpTeamBSel" onchange="renderCompare()">
-        <option value="">Odaberi tim…</option>
-      </select>
+    <div class="compare-pickers">
+      <div class="compare-pick-block">
+        <div class="compare-pick-label">Protivnik</div>
+        <select class="compare-pick" id="cmpTeamBSel" onchange="renderCompare()"></select>
+      </div>
+      <div class="compare-pick-block">
+        <div class="compare-pick-label">Takmičenje</div>
+        <select class="compare-pick" id="cmpCompSel" onchange="renderCompare()"></select>
+      </div>
     </div>
   </div>
-  <div class="compare-tabs" id="compareTabs" style="display:none">
-    <button class="compare-tab active" id="cmpTabA" onclick="switchCompareTab('A')"></button>
-    <div class="compare-vs">VS</div>
-    <button class="compare-tab" id="cmpTabB" onclick="switchCompareTab('B')"></button>
-  </div>
-  <div class="compare-body" id="compareBody">
-    <div class="empty"><div class="empty-icon">⚡</div><div class="empty-text">Odaberi tim za poređenje</div></div>
-  </div>
+  <div class="compare-body" id="compareBody"></div>
+</div>
+
+<!-- ═══════ PLAYER VS PLAYER ═══════ -->
+<div class="view" id="viewPvp">
+  <div class="pvp-hero" id="pvpHero"></div>
+  <div class="compare-body" id="pvpBody"></div>
 </div>
 
 <script>
@@ -564,14 +648,16 @@ select.filter-select:focus { border-color: var(--accent) }
 // STATE
 // ═════════════════════════════════════════════════════════════════════════════
 const MY_TEAM_ID = 430;
-let seasonsMeta   = null;   // { current, available }
-let activeSeason  = null;   // currently loaded season number
-let statsData     = null;   // current season's stats.json
+let seasonsMeta   = null;
+let activeSeason  = null;
+let statsData     = null;
 let currentTeam   = null;
 let currentPlayer = null;
+let currentMatch  = null;   // loaded matches/{id}.json
+let compareTeamA  = null;
 let compareTeamB  = null;
-let compareTab    = 'A';
-let viewHistory   = ['teams'];
+let compareCompId = null;
+let viewHistory   = [{ name: 'home' }];
 
 // ═════════════════════════════════════════════════════════════════════════════
 // HELPERS
@@ -583,29 +669,26 @@ function fmtK(n) {
   return String(x);
 }
 function fmtNum(n) { return (Number(n) || 0).toLocaleString('sr-RS') }
+function fmtPct(n) { return (Number(n) * 100).toFixed(1) + '%' }
+function fmtDate(d) { return d ? d.slice(8,10) + '.' + d.slice(5,7) + '.' : '' }
 function flagEmoji(code) {
   if (!code || code.length !== 2) return '🏳️';
-  return String.fromCodePoint(
-    ...code.toUpperCase().split('').map(c => 0x1F1E6 + c.charCodeAt(0) - 65)
-  );
+  return String.fromCodePoint(...code.toUpperCase().split('').map(c => 0x1F1E6 + c.charCodeAt(0) - 65));
 }
 function timeAgo(iso) {
   if (!iso) return '';
-  const diffMin = Math.round((Date.now() - new Date(iso).getTime()) / 60000);
-  if (diffMin < 2)  return 'upravo ažurirano';
-  if (diffMin < 60) return `pre ${diffMin} min`;
-  const h = Math.round(diffMin / 60);
+  const m = Math.round((Date.now() - new Date(iso).getTime()) / 60000);
+  if (m < 2) return 'upravo ažurirano';
+  if (m < 60) return `pre ${m} min`;
+  const h = Math.round(m / 60);
   if (h < 24) return `pre ${h}h`;
   return `pre ${Math.round(h/24)} dana`;
 }
-function teamTotalPossession(team) {
-  return team.players.reduce((s, p) => s + (p.total_possession || 0), 0);
-}
-function getPlayerStat(player, field, compId) {
-  if (!compId) return player[field] || 0;
-  const cs = (player.by_competition || []).find(c => c.competition_id === Number(compId));
-  return cs ? (cs[field] || 0) : 0;
-}
+function teamById(id)   { return statsData?.teams?.find(t => t.id === id) }
+function compById(id)   { return statsData?.competitions?.find(c => c.id === id) }
+function matchById(id)  { return statsData?.matches?.find(m => m.id === id) }
+function teamName(id)   { return teamById(id)?.name ?? `Tim ${id}` }
+function teamFlag(id)   { return teamById(id)?.flag }
 
 // ═════════════════════════════════════════════════════════════════════════════
 // NAVIGATION
@@ -615,9 +698,9 @@ function showView(name) {
   document.getElementById('view' + name[0].toUpperCase() + name.slice(1)).classList.add('active');
   window.scrollTo({ top: 0, behavior: 'instant' });
 
-  const backBtn  = document.getElementById('backBtn');
-  const appIcon  = document.getElementById('appIcon');
-  if (name === 'teams') {
+  const backBtn = document.getElementById('backBtn');
+  const appIcon = document.getElementById('appIcon');
+  if (name === 'home') {
     backBtn.classList.remove('visible');
     appIcon.style.display = 'flex';
     document.getElementById('headerTitle').textContent = 'KKCZ Stats';
@@ -627,19 +710,27 @@ function showView(name) {
     appIcon.style.display = 'none';
   }
 }
+function navigate(name, ctx) {
+  viewHistory.push({ name, ctx });
+  showView(name);
+}
 function goBack() {
   viewHistory.pop();
-  const prev = viewHistory[viewHistory.length - 1] || 'teams';
-  if (prev === 'teams')        showView('teams');
-  else if (prev === 'team')    { showView('team');    document.getElementById('headerTitle').textContent = currentTeam?.name || ''; }
-  else if (prev === 'compare') showView('compare');
-}
-function navigate(name) {
-  viewHistory.push(name);
-  showView(name);
+  const prev = viewHistory[viewHistory.length - 1] || { name: 'home' };
+  // Re-render the previous view based on context (no need to re-fetch usually)
+  if (prev.name === 'home')          showView('home');
+  else if (prev.name === 'team')     { document.getElementById('headerTitle').textContent = currentTeam?.name || ''; showView('team'); }
+  else if (prev.name === 'player')   { document.getElementById('headerTitle').textContent = currentPlayer?.username || ''; showView('player'); }
+  else if (prev.name === 'match')    { showView('match'); }
+  else if (prev.name === 'compare')  { showView('compare'); }
+  else                                showView(prev.name);
 }
 function updatedLabel() {
   return statsData ? `Sezona ${statsData.season} · ${timeAgo(statsData.last_updated)}` : '—';
+}
+function setHeader(title, subtitle) {
+  document.getElementById('headerTitle').textContent = title;
+  document.getElementById('headerSubtitle').textContent = subtitle || '';
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
@@ -651,151 +742,288 @@ async function loadSeason(season) {
   if (!res.ok) throw new Error(`s${season}/stats.json missing`);
   statsData    = await res.json();
   activeSeason = season;
-  viewHistory  = ['teams'];
-  currentTeam  = null;
-  renderTeams();
-  showView('teams');
+  viewHistory  = [{ name: 'home' }];
+  currentTeam  = null; currentPlayer = null; currentMatch = null;
+  initHomeFilters();
+  renderHome();
+  showView('home');
 }
 async function switchSeason(seasonStr) {
-  try {
-    await loadSeason(parseInt(seasonStr, 10));
-  } catch (e) {
-    document.getElementById('teamsList').innerHTML = `<div class="empty"><div class="empty-icon">📭</div><div class="empty-text">Sezona ${seasonStr} nije dostupna.</div></div>`;
+  try { await loadSeason(parseInt(seasonStr, 10)); }
+  catch (e) {
+    document.getElementById('homeContent').innerHTML = `<div class="empty"><div class="empty-icon">📭</div><div class="empty-text">Sezona ${seasonStr} nije dostupna.</div></div>`;
   }
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// TEAMS LIST VIEW
+// HOME (LEAGUE TABLE + COMPETITION SWITCHER)
 // ═════════════════════════════════════════════════════════════════════════════
-function renderTeams() {
+function initHomeFilters() {
+  const compSel = document.getElementById('homeCompSel');
+  compSel.innerHTML = '';
+  const comps = [...(statsData.competitions || [])].sort((a,b) => a.type - b.type);
+  // Place "League" (type=1) first
+  const sorted = [
+    ...comps.filter(c => c.type === 1),
+    ...comps.filter(c => c.type !== 1),
+  ];
+  sorted.forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c.id;
+    opt.textContent = c.name;
+    compSel.appendChild(opt);
+  });
+}
+
+function renderHome() {
   if (!statsData) return;
-  const q    = document.getElementById('teamSearch').value.toLowerCase().trim();
-  const list = document.getElementById('teamsList');
-
-  // Sort all teams by possession (for ranking)
-  const ranked = [...statsData.teams].sort((a, b) => teamTotalPossession(b) - teamTotalPossession(a));
-  const rankMap = new Map(ranked.map((t, i) => [t.id, i + 1]));
-
-  const myTeam = statsData.teams.find(t => t.id === MY_TEAM_ID);
-  const others = ranked.filter(t => t.id !== MY_TEAM_ID);
-  const ordered = myTeam ? [myTeam, ...others] : ranked;
-  const filtered = q ? ordered.filter(t => t.name.toLowerCase().includes(q)) : ordered;
-
-  if (filtered.length === 0) {
-    list.innerHTML = '<div class="empty"><div class="empty-icon">🔍</div><div class="empty-text">Nema rezultata</div></div>';
+  const compSel = document.getElementById('homeCompSel');
+  const compId  = parseInt(compSel.value, 10);
+  const comp    = compById(compId);
+  if (!comp) {
+    document.getElementById('homeContent').innerHTML = '<div class="empty"><div class="empty-text">Nema dostupnih takmičenja</div></div>';
     return;
   }
 
-  document.getElementById('teamsSection').textContent = q ? `Rezultati (${filtered.length})` : `Svi timovi · ${statsData.teams.length}`;
+  // Team jump dropdown — teams that have matches in this competition
+  const teamsInComp = new Set();
+  for (const m of (statsData.matches || [])) {
+    if (m.competition_id === compId) {
+      teamsInComp.add(m.home_team_id); teamsInComp.add(m.away_team_id);
+    }
+  }
+  const jumpSel = document.getElementById('homeTeamJump');
+  jumpSel.innerHTML = '<option value="">— Odaberi tim —</option>';
+  const teamList = [...teamsInComp].map(id => teamById(id)).filter(Boolean)
+    .sort((a,b) => a.name.localeCompare(b.name));
+  teamList.forEach(t => {
+    const opt = document.createElement('option');
+    opt.value = t.id;
+    opt.textContent = (t.id === MY_TEAM_ID ? '⭐ ' : '') + t.name;
+    jumpSel.appendChild(opt);
+  });
 
-  list.innerHTML = filtered.map(team => {
-    const isMine = team.id === MY_TEAM_ID;
-    const rank   = rankMap.get(team.id);
-    const poss   = teamTotalPossession(team);
-    const mc     = Math.max(...team.players.map(p => p.match_count || 0), 0);
-    const topP   = [...team.players].sort((a,b) => (b.total_possession||0)-(a.total_possession||0))[0];
-    return `
-      <div class="team-card ${isMine ? 'my-team' : ''}" onclick="openTeam(${team.id})">
-        <div class="team-rank">#${rank}</div>
-        <div class="team-flag-wrap">${flagEmoji(team.flag)}</div>
-        <div class="team-info">
-          <div class="team-name-row">
-            <div class="team-name">${team.name}</div>
-            ${isMine ? '<span class="my-team-badge">MOJ</span>' : ''}
-          </div>
-          <div class="team-meta">
-            <span>${mc} utak.</span>
-            ${topP ? `<span class="sep">·</span><span class="team-top">★ ${topP.username}</span>` : ''}
-          </div>
-        </div>
-        <div>
-          <div class="team-poss">${fmtK(poss)}</div>
-          <div class="team-poss-label">POSED</div>
-        </div>
+  const content = document.getElementById('homeContent');
+  setHeader('KKCZ Stats', updatedLabel());
+
+  if (comp.format === 'league') {
+    content.innerHTML = renderLeagueTable(compId, comp);
+  } else if (comp.format === 'knockout' || comp.format === 'groups+knockout' || comp.format === 'groups') {
+    content.innerHTML = renderBracketView(compId, comp);
+  } else {
+    // Unknown format — fallback to standings if any
+    content.innerHTML = renderLeagueTable(compId, comp);
+  }
+}
+
+function renderLeagueTable(compId, comp) {
+  const rows = statsData.standings?.[compId] || [];
+  if (rows.length === 0) {
+    return '<div class="empty"><div class="empty-icon">📋</div><div class="empty-text">Tabela još nije dostupna. Pokreni scrape u GitHub Actions.</div></div>';
+  }
+  return `
+    <div class="section-header">${comp.name} — Tabela</div>
+    <div class="standings-wrap">
+      <table class="standings-table">
+        <thead>
+          <tr>
+            <th class="left">#</th>
+            <th class="left">Tim</th>
+            <th>W</th>
+            <th>L</th>
+            <th>%</th>
+            <th>K</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows.map((r, i) => `
+            <tr class="${r.team_id === MY_TEAM_ID ? 'my-team' : ''}" onclick="openTeam(${r.team_id})">
+              <td class="rank">${i+1}</td>
+              <td class="team-cell left">
+                <span class="flag">${flagEmoji(r.team_flag)}</span>${r.team_name}${r.team_id === MY_TEAM_ID ? '<span class="star">★</span>' : ''}
+              </td>
+              <td>${r.wins}</td>
+              <td>${r.losses}</td>
+              <td class="pct">${(r.win_pct).toFixed(3).slice(1)}</td>
+              <td>${r.points_for}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>`;
+}
+
+function renderBracketView(compId, comp) {
+  // Group matches by round number
+  const compMatches = (statsData.matches || []).filter(m => m.competition_id === compId);
+  if (compMatches.length === 0)
+    return '<div class="empty"><div class="empty-icon">🏆</div><div class="empty-text">Nema utakmica za ovo takmičenje (još).</div></div>';
+
+  // Optional: if there's standings (groups stage), render it first
+  const standings = statsData.standings?.[compId] || [];
+  let html = '';
+  if (standings.length > 0) {
+    html += `<div class="section-header">${comp.name} — Tabela</div>
+      <div class="standings-wrap">
+        <table class="standings-table">
+          <thead><tr><th class="left">#</th><th class="left">Tim</th><th>W</th><th>L</th><th>%</th><th>K</th></tr></thead>
+          <tbody>${standings.map((r, i) => `
+            <tr class="${r.team_id === MY_TEAM_ID ? 'my-team' : ''}" onclick="openTeam(${r.team_id})">
+              <td class="rank">${i+1}</td>
+              <td class="team-cell left"><span class="flag">${flagEmoji(r.team_flag)}</span>${r.team_name}${r.team_id === MY_TEAM_ID ? '<span class="star">★</span>' : ''}</td>
+              <td>${r.wins}</td><td>${r.losses}</td><td class="pct">${(r.win_pct).toFixed(3).slice(1)}</td><td>${r.points_for}</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
       </div>`;
-  }).join('');
+  }
+
+  // Group by round
+  const byRound = new Map();
+  for (const m of compMatches) {
+    const key = m.round != null ? `R${m.round}` : (m.matchday != null ? `MD${m.matchday}` : '?');
+    if (!byRound.has(key)) byRound.set(key, []);
+    byRound.get(key).push(m);
+  }
+  const sortedKeys = [...byRound.keys()].sort();
+
+  html += `<div class="section-header">${comp.name} — Mečevi</div><div class="bracket-wrap">`;
+  for (const k of sortedKeys) {
+    const matches = byRound.get(k);
+    html += `<div class="round-block">
+      <div class="round-title">${k.startsWith('R') ? 'Runda ' + k.slice(1) : k}</div>
+      ${matches.map(m => {
+        const hp = m.home_points, ap = m.away_points;
+        const homeName = teamName(m.home_team_id);
+        const awayName = teamName(m.away_team_id);
+        const homeWon = hp > ap, awayWon = ap > hp;
+        return `<div class="round-matchup" onclick="openMatch(${m.id})">
+          <div class="matchup-team ${homeWon?'winner':awayWon?'loser':''}">${flagEmoji(teamFlag(m.home_team_id))} ${homeName}</div>
+          <div class="matchup-score">${hp ?? '—'} : ${ap ?? '—'}</div>
+          <div class="matchup-team right ${awayWon?'winner':homeWon?'loser':''}">${awayName} ${flagEmoji(teamFlag(m.away_team_id))}</div>
+        </div>`;
+      }).join('')}
+    </div>`;
+  }
+  html += '</div>';
+  return html;
+}
+
+function onTeamJump(val) {
+  if (!val) return;
+  openTeam(parseInt(val, 10));
+  document.getElementById('homeTeamJump').value = '';
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
 // TEAM DETAIL VIEW
 // ═════════════════════════════════════════════════════════════════════════════
 function openTeam(teamId) {
-  currentTeam = statsData.teams.find(t => t.id === teamId);
+  currentTeam = teamById(teamId);
   if (!currentTeam) return;
 
-  const isMine  = currentTeam.id === MY_TEAM_ID;
-  const poss    = teamTotalPossession(currentTeam);
-  const matches = Math.max(...currentTeam.players.map(p => p.match_count || 0), 0);
-  const mvps    = currentTeam.players.reduce((s,p) => s + (p.mvp_count||0), 0);
+  // Team stats
+  const tMatches = (statsData.matches || []).filter(m => m.home_team_id === teamId || m.away_team_id === teamId);
+  const tWins  = tMatches.filter(m => m.winner_team_id === teamId).length;
+  const tLoss  = tMatches.filter(m => m.winner_team_id != null && m.winner_team_id !== teamId).length;
+  const tMvps  = currentTeam.players.reduce((s,p) => s + (p.mvp_count||0), 0);
+  const tPossN = currentTeam.players.reduce((s,p) => s + (p.total_possession||0), 0);
 
+  const isMine = teamId === MY_TEAM_ID;
   document.getElementById('teamDetailHero').innerHTML = `
     <div class="team-detail-flagrow">
       <div class="team-detail-flag">${flagEmoji(currentTeam.flag)}</div>
       <div style="min-width:0">
-        <div class="team-detail-name">${currentTeam.name}${isMine ? ' <span class="my-team-badge" style="vertical-align:middle">MOJ TIM</span>' : ''}</div>
-        <div class="team-detail-tagline">${currentTeam.players.length} igrača · sezona ${statsData.season}</div>
+        <div class="team-detail-name">${currentTeam.name}${isMine ? ' <span style="color:var(--accent)">★</span>' : ''}</div>
+        <div class="team-detail-tagline">${currentTeam.players.length} igrača · ${tMatches.length} utakmica · ${tWins}-${tLoss}</div>
       </div>
     </div>
     <div class="team-stats-grid">
-      <div class="team-stat-pill"><div class="team-stat-pill-value">${fmtK(poss)}</div><div class="team-stat-pill-label">Posed</div></div>
-      <div class="team-stat-pill"><div class="team-stat-pill-value">${matches}</div><div class="team-stat-pill-label">Utakmica</div></div>
-      <div class="team-stat-pill"><div class="team-stat-pill-value" style="color:${mvps>0?'var(--gold)':'var(--text)'}">${mvps > 0 ? '🏆 '+mvps : '—'}</div><div class="team-stat-pill-label">MVP</div></div>
+      <div class="team-stat-pill" onclick="openTeamPossSubview()">
+        <div class="team-stat-pill-value">${fmtK(tPossN)}</div>
+        <div class="team-stat-pill-label">Posed</div>
+        <div class="team-stat-pill-chev">▾ detalji</div>
+      </div>
+      <div class="team-stat-pill" onclick="openTeamMatchesSubview()">
+        <div class="team-stat-pill-value">${tMatches.length}</div>
+        <div class="team-stat-pill-label">Utakmice</div>
+        <div class="team-stat-pill-chev">▾ detalji</div>
+      </div>
+      <div class="team-stat-pill" onclick="openTeamMvpsSubview()">
+        <div class="team-stat-pill-value" style="color:${tMvps>0?'var(--gold)':'var(--text)'}">${tMvps > 0 ? '🏆 '+tMvps : '—'}</div>
+        <div class="team-stat-pill-label">MVP</div>
+        <div class="team-stat-pill-chev">▾ detalji</div>
+      </div>
     </div>`;
 
-  // Competition filter
+  // Comp filter
   const compSel = document.getElementById('teamCompFilter');
   compSel.innerHTML = '<option value="">Cela sezona</option>';
-  (statsData.competitions || []).forEach(c => {
-    const opt = document.createElement('option');
-    opt.value = c.id; opt.textContent = c.name;
-    compSel.appendChild(opt);
-  });
+  // Only comps where this team played
+  const teamCompIds = new Set();
+  for (const m of tMatches) teamCompIds.add(m.competition_id);
+  for (const c of (statsData.competitions || [])) {
+    if (teamCompIds.has(c.id)) {
+      const opt = document.createElement('option');
+      opt.value = c.id; opt.textContent = c.name;
+      compSel.appendChild(opt);
+    }
+  }
+  compSel.value = '';
 
-  document.getElementById('headerTitle').textContent = currentTeam.name;
-  document.getElementById('headerSubtitle').textContent = `${currentTeam.players.length} igrača`;
+  setHeader(currentTeam.name, `${currentTeam.players.length} igrača`);
   renderTeamPlayers();
+  renderTeamLastMatches();
   navigate('team');
+}
+
+function getPlayerStat(player, field, compId) {
+  if (field === 'level_growth') return (player.level_current || 0) - (player.level_first || 0);
+  if (!compId) return player[field] || 0;
+  const cs = (player.by_competition || []).find(c => c.competition_id === Number(compId));
+  return cs ? (cs[field] || 0) : 0;
 }
 
 function renderTeamPlayers() {
   if (!currentTeam) return;
   const compId = document.getElementById('teamCompFilter').value;
   const sortBy = document.getElementById('teamSortBy').value;
+  const list   = document.getElementById('teamPlayersList');
 
   const sorted = [...currentTeam.players]
     .filter(p => compId ? getPlayerStat(p, 'match_count', compId) > 0 : true)
     .sort((a, b) => getPlayerStat(b, sortBy, compId) - getPlayerStat(a, sortBy, compId));
 
-  const list = document.getElementById('teamPlayersList');
   if (sorted.length === 0) {
     list.innerHTML = '<div class="empty"><div class="empty-icon">🏀</div><div class="empty-text">Nema podataka za ovo takmičenje</div></div>';
     return;
   }
 
-  const sortLabelMap = {
+  const labelMap = {
     total_possession: { label: 'POSED', fmt: fmtK },
     play_count:       { label: 'POLJA', fmt: n => n },
     match_count:      { label: 'UTAK.', fmt: n => n },
     total_points:     { label: 'POENI', fmt: n => n },
     mvp_count:        { label: 'MVP',   fmt: n => n > 0 ? '🏆 '+n : '—' },
+    level_growth:     { label: 'NIVO',  fmt: n => '+' + n },
   };
-  const primary = sortLabelMap[sortBy] || sortLabelMap.total_possession;
+  const primary = labelMap[sortBy] || labelMap.total_possession;
 
   list.innerHTML = sorted.map((p, i) => {
     const poss  = getPlayerStat(p, 'total_possession', compId);
     const plays = getPlayerStat(p, 'play_count', compId);
     const mc    = getPlayerStat(p, 'match_count', compId);
     const pts   = getPlayerStat(p, 'total_points', compId);
-    const shots = getPlayerStat(p, 'total_shots', compId);
     const mvp   = getPlayerStat(p, 'mvp_count', compId);
+    const growth = getPlayerStat(p, 'level_growth');
     const primaryVal = getPlayerStat(p, sortBy, compId);
 
-    // Build meta line based on what's NOT in primary
     const metaParts = [];
-    if (sortBy !== 'total_possession') metaParts.push(`${fmtK(poss)} posed`);
-    if (sortBy !== 'play_count')        metaParts.push(`${plays} polja`);
-    if (sortBy !== 'match_count')       metaParts.push(`${mc} utak.`);
-    if (pts > 0 && sortBy !== 'total_points') metaParts.push(`${pts} pts`);
+    if (sortBy === 'level_growth') metaParts.push(`Lvl ${p.level_first}→${p.level_current}`);
+    if (sortBy !== 'total_possession' && sortBy !== 'level_growth') metaParts.push(`${fmtK(poss)} posed`);
+    if (sortBy !== 'play_count' && sortBy !== 'level_growth')      metaParts.push(`${plays} polja`);
+    if (sortBy !== 'match_count' && sortBy !== 'level_growth')     metaParts.push(`${mc} utak.`);
+    if (pts > 0 && sortBy !== 'total_points' && sortBy !== 'level_growth') metaParts.push(`${pts} pts`);
 
     return `
       <div class="player-row ${mvp > 0 ? 'is-mvp' : ''}" onclick="openPlayer(${p.user_id})">
@@ -816,6 +1044,154 @@ function renderTeamPlayers() {
   }).join('');
 }
 
+function renderTeamLastMatches() {
+  if (!currentTeam) return;
+  const tMatches = (statsData.matches || [])
+    .filter(m => m.home_team_id === currentTeam.id || m.away_team_id === currentTeam.id)
+    .sort((a,b) => (b.date||'').localeCompare(a.date||''))
+    .slice(0, 5);
+
+  const wrap = document.getElementById('teamLastMatches');
+  if (tMatches.length === 0) { wrap.innerHTML = ''; return; }
+  wrap.innerHTML = tMatches.map(m => {
+    const isHome = m.home_team_id === currentTeam.id;
+    const opp = teamName(isHome ? m.away_team_id : m.home_team_id);
+    const oppFlag = teamFlag(isHome ? m.away_team_id : m.home_team_id);
+    const myScore = isHome ? m.home_points : m.away_points;
+    const oppScore = isHome ? m.away_points : m.home_points;
+    const won = m.winner_team_id === currentTeam.id;
+    const lost = m.winner_team_id != null && !won;
+    const mdLabel = m.matchday ? 'MD' + m.matchday : (m.round ? 'R' + m.round : '');
+    return `<div class="match-row" onclick="openMatch(${m.id})">
+      ${mdLabel ? `<div class="match-md">${mdLabel}</div>` : ''}
+      <div class="match-info">
+        <div class="match-opponent">${flagEmoji(oppFlag)} vs ${opp}</div>
+        <div class="match-date">${fmtDate(m.date)}</div>
+      </div>
+      <div class="match-score ${won?'won':lost?'lost':''}">${myScore} : ${oppScore}</div>
+      ${won ? '<div class="match-result-flag won">P</div>' : (lost ? '<div class="match-result-flag lost">L</div>' : '')}
+    </div>`;
+  }).join('');
+}
+
+// ── Team subviews ───────────────────────────────────────────────────────────
+function openTeamPossSubview() {
+  if (!currentTeam) return;
+  const tMatches = (statsData.matches || [])
+    .filter(m => m.home_team_id === currentTeam.id || m.away_team_id === currentTeam.id)
+    .sort((a,b) => (b.date||'').localeCompare(a.date||''));
+
+  // Team possession per match = sum of all players' possession for that match where team_id === currentTeam.id
+  const possByMatch = new Map();
+  for (const p of currentTeam.players) {
+    for (const bm of (p.by_match || [])) {
+      if (bm.team_id !== currentTeam.id) continue;
+      possByMatch.set(bm.match_id, (possByMatch.get(bm.match_id) || 0) + (bm.possession || 0));
+    }
+  }
+  const maxPoss = Math.max(...possByMatch.values(), 1);
+
+  document.getElementById('subviewHeader').innerHTML = `
+    <div class="subview-title">Posed po utakmici</div>
+    <div class="subview-subtitle">${currentTeam.name}</div>`;
+
+  document.getElementById('subviewBody').innerHTML = tMatches.map(m => {
+    const isHome = m.home_team_id === currentTeam.id;
+    const opp = teamName(isHome ? m.away_team_id : m.home_team_id);
+    const oppFlag = teamFlag(isHome ? m.away_team_id : m.home_team_id);
+    const poss = possByMatch.get(m.id) || 0;
+    const barW = Math.max(Math.round((poss / maxPoss) * 100), 2);
+    const mdLabel = m.matchday ? 'MD' + m.matchday : (m.round ? 'R' + m.round : '');
+    return `<div class="breakdown-row" onclick="openMatch(${m.id})">
+      <div class="breakdown-md">${mdLabel || '—'}</div>
+      <div class="breakdown-mid">
+        <div class="breakdown-opp">${flagEmoji(oppFlag)} vs ${opp}</div>
+        <div class="breakdown-meta"><span>${fmtDate(m.date)}</span></div>
+        <div class="breakdown-bar-wrap"><div class="breakdown-bar" style="width:${barW}%"></div></div>
+      </div>
+      <div><div class="breakdown-primary">${fmtK(poss)}</div><div class="breakdown-primary-label">POSED</div></div>
+    </div>`;
+  }).join('');
+  setHeader('Posed', currentTeam.name);
+  navigate('subview');
+}
+
+function openTeamMatchesSubview() {
+  if (!currentTeam) return;
+  const tMatches = (statsData.matches || [])
+    .filter(m => m.home_team_id === currentTeam.id || m.away_team_id === currentTeam.id)
+    .sort((a,b) => (b.date||'').localeCompare(a.date||''));
+
+  document.getElementById('subviewHeader').innerHTML = `
+    <div class="subview-title">Sve utakmice</div>
+    <div class="subview-subtitle">${currentTeam.name}</div>`;
+
+  document.getElementById('subviewBody').innerHTML = tMatches.map(m => {
+    const isHome = m.home_team_id === currentTeam.id;
+    const opp = teamName(isHome ? m.away_team_id : m.home_team_id);
+    const oppFlag = teamFlag(isHome ? m.away_team_id : m.home_team_id);
+    const myScore = isHome ? m.home_points : m.away_points;
+    const oppScore = isHome ? m.away_points : m.home_points;
+    const won = m.winner_team_id === currentTeam.id;
+    const lost = m.winner_team_id != null && !won;
+    const mdLabel = m.matchday ? 'MD' + m.matchday : (m.round ? 'R' + m.round : '');
+    const compName = compById(m.competition_id)?.name || '';
+    return `<div class="breakdown-row" onclick="openMatch(${m.id})">
+      <div class="breakdown-md">${mdLabel || '—'}</div>
+      <div class="breakdown-mid">
+        <div class="breakdown-opp">${flagEmoji(oppFlag)} vs ${opp}</div>
+        <div class="breakdown-meta">
+          <span>${fmtDate(m.date)}</span><span class="sep">·</span><span>${compName}</span>
+          ${won ? '<span class="won">POBEDA</span>' : (lost ? '<span class="lost">PORAZ</span>' : '')}
+        </div>
+      </div>
+      <div><div class="breakdown-primary ${won?'':lost?'gold':''}" style="color:${won?'var(--green)':lost?'var(--red)':'var(--text)'}">${myScore}:${oppScore}</div><div class="breakdown-primary-label">REZULTAT</div></div>
+    </div>`;
+  }).join('');
+  setHeader('Utakmice', currentTeam.name);
+  navigate('subview');
+}
+
+function openTeamMvpsSubview() {
+  if (!currentTeam) return;
+
+  // For each match the team played in, find which of OUR players was MVP
+  const mvpsByMatch = []; // {match, mvpPlayer, mvpEntry}
+  for (const p of currentTeam.players) {
+    for (const bm of (p.by_match || [])) {
+      if (bm.team_id !== currentTeam.id || !bm.is_mvp) continue;
+      const m = matchById(bm.match_id); if (!m) continue;
+      mvpsByMatch.push({ m, p, bm });
+    }
+  }
+  mvpsByMatch.sort((a,b) => (b.m.date||'').localeCompare(a.m.date||''));
+
+  document.getElementById('subviewHeader').innerHTML = `
+    <div class="subview-title">MVP po utakmici</div>
+    <div class="subview-subtitle">${currentTeam.name} · ${mvpsByMatch.length} MVP titula</div>`;
+
+  if (mvpsByMatch.length === 0) {
+    document.getElementById('subviewBody').innerHTML = '<div class="empty"><div class="empty-icon">🏆</div><div class="empty-text">Još nema MVP titula u sezoni</div></div>';
+  } else {
+    document.getElementById('subviewBody').innerHTML = mvpsByMatch.map(({m, p, bm}) => {
+      const isHome = m.home_team_id === currentTeam.id;
+      const opp = teamName(isHome ? m.away_team_id : m.home_team_id);
+      const oppFlag = teamFlag(isHome ? m.away_team_id : m.home_team_id);
+      const mdLabel = m.matchday ? 'MD' + m.matchday : (m.round ? 'R' + m.round : '');
+      return `<div class="breakdown-row" onclick="openMatch(${m.id})">
+        <div class="breakdown-md">${mdLabel || '—'}</div>
+        <div class="breakdown-mid">
+          <div class="breakdown-opp">🏆 ${p.username}</div>
+          <div class="breakdown-meta"><span>${flagEmoji(oppFlag)} vs ${opp}</span><span class="sep">·</span><span>${fmtDate(m.date)}</span></div>
+        </div>
+        <div><div class="breakdown-primary gold">${fmtK(bm.possession)}</div><div class="breakdown-primary-label">POSED</div></div>
+      </div>`;
+    }).join('');
+  }
+  setHeader('MVP', currentTeam.name);
+  navigate('subview');
+}
+
 // ═════════════════════════════════════════════════════════════════════════════
 // PLAYER CARD VIEW
 // ═════════════════════════════════════════════════════════════════════════════
@@ -825,47 +1201,82 @@ function openPlayer(userId) {
   if (!currentPlayer) return;
   const p = currentPlayer;
 
+  const growth = (p.level_current || 0) - (p.level_first || 0);
   document.getElementById('playerHero').innerHTML = `
     <div class="player-avatar">${flagEmoji(p.flag)}</div>
     <div class="player-hero-name">${p.username}</div>
-    <div class="player-hero-meta">Level ${p.level || '?'} · ${currentTeam.name}</div>`;
-
-  document.getElementById('playerStatGrid').innerHTML = `
-    <div class="stat-card">
-      <div class="stat-card-value">${fmtK(p.total_possession)}</div>
-      <div class="stat-card-label">Posed</div>
-    </div>
-    <div class="stat-card muted">
-      <div class="stat-card-value">${p.play_count}</div>
-      <div class="stat-card-label">Polja</div>
-    </div>
-    <div class="stat-card muted">
-      <div class="stat-card-value">${p.match_count}</div>
-      <div class="stat-card-label">Utakmice</div>
-    </div>
-    <div class="stat-card ${p.mvp_count > 0 ? 'gold' : 'muted'}">
-      <div class="stat-card-value">${p.mvp_count > 0 ? '🏆 ' + p.mvp_count : '—'}</div>
-      <div class="stat-card-label">MVP</div>
+    <div class="player-hero-meta">${currentTeam.name}</div>
+    <div class="player-hero-level">
+      <span>Lvl ${p.level_first}</span>
+      <span style="color:var(--muted)">→</span>
+      <span>${p.level_current}</span>
+      <span class="grew ${growth === 0 ? 'zero' : ''}">${growth > 0 ? '+'+growth : growth === 0 ? '±0' : growth}</span>
     </div>`;
 
-  // Progression chart
-  const matches = [...(p.by_match || [])].sort((a,b) => (a.date||'') < (b.date||'') ? -1 : 1);
-  if (matches.length > 0) {
-    const possValues = matches.map(m => m.possession || 0);
-    const maxPoss    = Math.max(...possValues, 1);
-    const avgPoss    = possValues.reduce((s,v) => s+v, 0) / possValues.length;
+  document.getElementById('playerStatGrid').innerHTML = `
+    <div class="stat-card" onclick="openPlayerPossSubview()">
+      <div class="stat-card-value">${fmtK(p.total_possession)}</div>
+      <div class="stat-card-label">Posed</div>
+      <div class="stat-card-chev">▾ detalji</div>
+    </div>
+    <div class="stat-card muted" onclick="openPlayerPlaysSubview()">
+      <div class="stat-card-value">${p.play_count}</div>
+      <div class="stat-card-label">Polja</div>
+      <div class="stat-card-chev">▾ detalji</div>
+    </div>
+    <div class="stat-card muted" onclick="openPlayerMatchesSubview()">
+      <div class="stat-card-value">${p.match_count}</div>
+      <div class="stat-card-label">Utakmice</div>
+      <div class="stat-card-chev">▾ detalji</div>
+    </div>
+    <div class="stat-card ${p.mvp_count > 0 ? 'gold' : 'muted'}" onclick="openPlayerMvpSubview()">
+      <div class="stat-card-value">${p.mvp_count > 0 ? '🏆 ' + p.mvp_count : '—'}</div>
+      <div class="stat-card-label">MVP</div>
+      ${p.mvp_count > 0 ? '<div class="stat-card-chev">▾ detalji</div>' : ''}
+    </div>`;
 
-    const bars = matches.map(m => {
-      const h = Math.max(Math.round(((m.possession||0) / maxPoss) * 110), 3);
-      const d = (m.date || '').slice(5);
-      const title = `${fmtNum(m.possession)} posed · ${m.date||''}`;
+  // Level chart (sorted by date)
+  const byMatch = [...(p.by_match || [])].sort((a,b) => (a.date||'').localeCompare(b.date||''));
+  if (byMatch.length > 1 && growth > 0) {
+    const levels = byMatch.map(b => b.level || 0);
+    const minLvl = Math.min(...levels);
+    const maxLvl = Math.max(...levels);
+    const range = maxLvl - minLvl;
+    const bars = byMatch.map(b => {
+      const ratio = range > 0 ? ((b.level - minLvl) / range) : 1;
+      const h = Math.max(Math.round(ratio * 100) + 6, 6);
+      const d = (b.date || '').slice(5);
       return `<div class="chart-bar-wrap">
-        <div class="chart-bar ${m.is_mvp ? 'is-mvp' : ''}" style="height:${h}px" title="${title}"></div>
+        <div class="chart-bar level" style="height:${h}px" title="Lvl ${b.level} · ${b.date}"></div>
         <div class="chart-bar-label">${d}</div>
       </div>`;
     }).join('');
+    document.getElementById('playerLevelSection').innerHTML = `
+      <div class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title">Rast nivoa</div>
+          <div class="chart-meta">${minLvl} → ${maxLvl} (+${growth})</div>
+        </div>
+        <div class="chart-bars">${bars}</div>
+      </div>`;
+  } else {
+    document.getElementById('playerLevelSection').innerHTML = '';
+  }
 
-    document.getElementById('playerChartSection').innerHTML = `
+  // Possession chart
+  if (byMatch.length > 0) {
+    const possValues = byMatch.map(m => m.possession || 0);
+    const maxPoss = Math.max(...possValues, 1);
+    const avgPoss = possValues.reduce((s,v)=>s+v,0) / possValues.length;
+    const bars = byMatch.map(m => {
+      const h = Math.max(Math.round((m.possession / maxPoss) * 100), 4);
+      const d = (m.date || '').slice(5);
+      return `<div class="chart-bar-wrap">
+        <div class="chart-bar ${m.is_mvp ? 'is-mvp' : ''}" style="height:${h}px" title="${fmtNum(m.possession)} posed · ${m.date}"></div>
+        <div class="chart-bar-label">${d}</div>
+      </div>`;
+    }).join('');
+    document.getElementById('playerPossSection').innerHTML = `
       <div class="chart-card">
         <div class="chart-header">
           <div class="chart-title">Posed po utakmici</div>
@@ -881,29 +1292,331 @@ function openPlayer(userId) {
         </div>
       </div>`;
   } else {
-    document.getElementById('playerChartSection').innerHTML = '';
+    document.getElementById('playerPossSection').innerHTML = '';
+  }
+
+  // Shooting splits
+  const made2 = p.shots_2pt_made || 0;
+  const made3 = p.shots_3pt_made || 0;
+  const miss  = p.shots_missed   || 0;
+  const totalShots = made2 + made3 + miss;
+  if (totalShots > 0) {
+    const max = Math.max(made2, made3, miss, 1);
+    const totalPts = (made2 * 2) + (made3 * 3);
+    const overallAcc = ((made2 + made3) / totalShots);
+    document.getElementById('playerShootSection').innerHTML = `
+      <div class="shoot-card">
+        <div class="shoot-title">🎯 Šut · ${totalPts} poena · ${fmtPct(overallAcc)}</div>
+        <div class="shoot-row">
+          <div class="shoot-tag">2pt</div>
+          <div class="shoot-bar-wrap"><div class="shoot-bar" style="width:${(made2/max)*100}%"></div></div>
+          <div class="shoot-stats">${made2} <span class="pct">/ ${made2*2}pts</span></div>
+        </div>
+        <div class="shoot-row">
+          <div class="shoot-tag three">3pt</div>
+          <div class="shoot-bar-wrap"><div class="shoot-bar three" style="width:${(made3/max)*100}%"></div></div>
+          <div class="shoot-stats">${made3} <span class="pct">/ ${made3*3}pts</span></div>
+        </div>
+        <div class="shoot-row">
+          <div class="shoot-tag miss">×</div>
+          <div class="shoot-bar-wrap"><div class="shoot-bar miss" style="width:${(miss/max)*100}%"></div></div>
+          <div class="shoot-stats">${miss} <span class="pct">promašaja</span></div>
+        </div>
+      </div>`;
+  } else {
+    document.getElementById('playerShootSection').innerHTML = '';
   }
 
   // By competition
   const byComp = (p.by_competition || [])
-    .filter(c => c.total_possession > 0)
+    .filter(c => c.total_possession > 0 || c.match_count > 0)
     .sort((a,b) => (b.total_possession||0) - (a.total_possession||0));
   document.getElementById('playerCompList').innerHTML = byComp.length > 0
     ? byComp.map(c => {
-        const comp = (statsData.competitions || []).find(x => x.id === c.competition_id);
-        return `<div class="comp-row">
-          <div class="comp-name">${comp ? comp.name : `Komp. ${c.competition_id}`}</div>
+        const comp = compById(c.competition_id);
+        return `<div class="comp-row" onclick="openPlayerCompSubview(${c.competition_id})">
+          <div>
+            <div class="comp-name">${comp ? comp.name : `Komp. ${c.competition_id}`}</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:3px">${c.match_count}M · ${c.play_count} polja${c.mvp_count > 0 ? ' · 🏆 '+c.mvp_count : ''}</div>
+          </div>
           <div class="comp-stats">
-            <strong style="color:var(--accent)">${fmtK(c.total_possession)}</strong> posed<br>
-            <span style="font-size:11px">${c.play_count} polja · ${c.match_count}M${c.mvp_count > 0 ? ' · 🏆 '+c.mvp_count : ''}</span>
+            <strong>${fmtK(c.total_possession)}</strong> posed${c.total_points > 0 ? `<br><span style="font-size:11px">${c.total_points} pts</span>` : ''}
           </div>
         </div>`;
       }).join('')
-    : '<div class="empty" style="padding:20px"><div class="empty-text">Nema podataka po takmičenju</div></div>';
+    : '<div class="empty" style="padding:20px"><div class="empty-text">Nema podataka</div></div>';
 
-  document.getElementById('headerTitle').textContent = p.username;
-  document.getElementById('headerSubtitle').textContent = currentTeam.name;
+  setHeader(p.username, currentTeam.name);
   navigate('player');
+}
+
+// ── Player subviews (per-match breakdown of a stat) ──────────────────────────
+function buildPlayerSubview(p, statKey, title, primaryFmt, primaryLabel) {
+  const matches = [...(p.by_match || [])].sort((a,b) => (b.date||'').localeCompare(a.date||''));
+  const values = matches.map(b => b[statKey] || 0);
+  const maxVal = Math.max(...values, 1);
+
+  document.getElementById('subviewHeader').innerHTML = `
+    <div class="subview-title">${title}</div>
+    <div class="subview-subtitle">${p.username} · ${currentTeam.name}</div>`;
+
+  document.getElementById('subviewBody').innerHTML = matches.map(b => {
+    const opp = teamName(b.opponent_team_id);
+    const oppFlag = teamFlag(b.opponent_team_id);
+    const v = b[statKey] || 0;
+    const barW = Math.max(Math.round((v / maxVal) * 100), 2);
+    const mdLabel = b.matchday ? 'MD' + b.matchday : (b.round ? 'R' + b.round : '');
+    const won = b.team_won; const lost = !won && b.team_won != null;
+    const myScore = b.team_id === b.home_team_id ? b.home_points : b.away_points;
+    const oppScore = b.team_id === b.home_team_id ? b.away_points : b.home_points;
+    return `<div class="breakdown-row" onclick="openMatch(${b.match_id})">
+      <div class="breakdown-md">${mdLabel || '—'}</div>
+      <div class="breakdown-mid">
+        <div class="breakdown-opp">${flagEmoji(oppFlag)} vs ${opp}</div>
+        <div class="breakdown-meta">
+          <span>${fmtDate(b.date)}</span>
+          <span class="sep">·</span>
+          <span>${myScore}:${oppScore}</span>
+          ${won ? '<span class="won">P</span>' : (lost ? '<span class="lost">L</span>' : '')}
+          ${b.is_mvp ? '<span style="color:var(--gold)">🏆</span>' : ''}
+        </div>
+        <div class="breakdown-bar-wrap"><div class="breakdown-bar ${b.is_mvp?'is-mvp':''}" style="width:${barW}%"></div></div>
+      </div>
+      <div><div class="breakdown-primary ${b.is_mvp?'gold':''}">${primaryFmt(v)}</div><div class="breakdown-primary-label">${primaryLabel}</div></div>
+    </div>`;
+  }).join('');
+}
+
+function openPlayerPossSubview() {
+  if (!currentPlayer) return;
+  buildPlayerSubview(currentPlayer, 'possession', 'Posed po utakmici', fmtK, 'POSED');
+  setHeader('Posed', currentPlayer.username);
+  navigate('subview');
+}
+function openPlayerPlaysSubview() {
+  if (!currentPlayer) return;
+  buildPlayerSubview(currentPlayer, 'plays', 'Polja po utakmici', n => n, 'POLJA');
+  setHeader('Polja', currentPlayer.username);
+  navigate('subview');
+}
+function openPlayerMatchesSubview() {
+  if (!currentPlayer) return;
+  const p = currentPlayer;
+  const matches = [...(p.by_match || [])].sort((a,b) => (b.date||'').localeCompare(a.date||''));
+  document.getElementById('subviewHeader').innerHTML = `
+    <div class="subview-title">Sve utakmice</div>
+    <div class="subview-subtitle">${p.username} · ${currentTeam.name}</div>`;
+  document.getElementById('subviewBody').innerHTML = matches.map(b => {
+    const opp = teamName(b.opponent_team_id);
+    const oppFlag = teamFlag(b.opponent_team_id);
+    const mdLabel = b.matchday ? 'MD' + b.matchday : (b.round ? 'R' + b.round : '');
+    const won = b.team_won; const lost = !won && b.team_won != null;
+    const myScore = b.team_id === b.home_team_id ? b.home_points : b.away_points;
+    const oppScore = b.team_id === b.home_team_id ? b.away_points : b.home_points;
+    const compName = compById(b.competition_id)?.name || '';
+    return `<div class="breakdown-row" onclick="openMatch(${b.match_id})">
+      <div class="breakdown-md">${mdLabel || '—'}</div>
+      <div class="breakdown-mid">
+        <div class="breakdown-opp">${flagEmoji(oppFlag)} vs ${opp}</div>
+        <div class="breakdown-meta">
+          <span>${fmtDate(b.date)}</span><span class="sep">·</span><span>${compName}</span>
+          ${b.is_mvp ? '<span style="color:var(--gold)">🏆 MVP</span>' : ''}
+          <span class="sep">·</span><span>Lvl ${b.level}</span>
+        </div>
+      </div>
+      <div><div class="breakdown-primary" style="color:${won?'var(--green)':lost?'var(--red)':'var(--text)'}">${myScore}:${oppScore}</div><div class="breakdown-primary-label">REZULTAT</div></div>
+    </div>`;
+  }).join('');
+  setHeader('Utakmice', p.username);
+  navigate('subview');
+}
+function openPlayerMvpSubview() {
+  if (!currentPlayer) return;
+  const p = currentPlayer;
+  const matches = [...(p.by_match || [])].filter(b => b.is_mvp).sort((a,b) => (b.date||'').localeCompare(a.date||''));
+  document.getElementById('subviewHeader').innerHTML = `
+    <div class="subview-title">MVP utakmice</div>
+    <div class="subview-subtitle">${p.username} · ${matches.length} titula</div>`;
+  document.getElementById('subviewBody').innerHTML = matches.length === 0
+    ? '<div class="empty"><div class="empty-icon">🏆</div><div class="empty-text">Još nema MVP titula</div></div>'
+    : matches.map(b => {
+        const opp = teamName(b.opponent_team_id);
+        const oppFlag = teamFlag(b.opponent_team_id);
+        const mdLabel = b.matchday ? 'MD' + b.matchday : (b.round ? 'R' + b.round : '');
+        return `<div class="breakdown-row" onclick="openMatch(${b.match_id})">
+          <div class="breakdown-md">${mdLabel || '—'}</div>
+          <div class="breakdown-mid">
+            <div class="breakdown-opp">${flagEmoji(oppFlag)} vs ${opp}</div>
+            <div class="breakdown-meta"><span>${fmtDate(b.date)}</span></div>
+          </div>
+          <div><div class="breakdown-primary gold">${fmtK(b.possession)}</div><div class="breakdown-primary-label">POSED</div></div>
+        </div>`;
+      }).join('');
+  setHeader('MVP', p.username);
+  navigate('subview');
+}
+function openPlayerCompSubview(compId) {
+  if (!currentPlayer) return;
+  const p = currentPlayer;
+  const c = p.by_competition.find(x => x.competition_id === compId);
+  const comp = compById(compId);
+  if (!c || !comp) return;
+  const cMatches = (p.by_match || []).filter(b => b.competition_id === compId);
+  const possValues = cMatches.map(b => b.possession || 0);
+  const maxVal = Math.max(...possValues, 1);
+
+  document.getElementById('subviewHeader').innerHTML = `
+    <div class="subview-title">${comp.name}</div>
+    <div class="subview-subtitle">${p.username} · ${c.match_count} utakmica</div>`;
+  // Header summary card + per-match list
+  const head = `<div class="stat-grid">
+    <div class="stat-card"><div class="stat-card-value">${fmtK(c.total_possession)}</div><div class="stat-card-label">Posed</div></div>
+    <div class="stat-card muted"><div class="stat-card-value">${c.play_count}</div><div class="stat-card-label">Polja</div></div>
+    <div class="stat-card muted"><div class="stat-card-value">${c.match_count}</div><div class="stat-card-label">Utakmice</div></div>
+    <div class="stat-card ${c.mvp_count>0?'gold':'muted'}"><div class="stat-card-value">${c.mvp_count>0?'🏆 '+c.mvp_count:'—'}</div><div class="stat-card-label">MVP</div></div>
+  </div>`;
+  const list = cMatches.sort((a,b)=>(b.date||'').localeCompare(a.date||'')).map(b => {
+    const opp = teamName(b.opponent_team_id);
+    const oppFlag = teamFlag(b.opponent_team_id);
+    const barW = Math.max(Math.round((b.possession / maxVal) * 100), 2);
+    const mdLabel = b.matchday ? 'MD' + b.matchday : (b.round ? 'R' + b.round : '');
+    return `<div class="breakdown-row" onclick="openMatch(${b.match_id})">
+      <div class="breakdown-md">${mdLabel || '—'}</div>
+      <div class="breakdown-mid">
+        <div class="breakdown-opp">${flagEmoji(oppFlag)} vs ${opp}</div>
+        <div class="breakdown-meta"><span>${fmtDate(b.date)}</span>${b.is_mvp?'<span class="sep">·</span><span style="color:var(--gold)">🏆</span>':''}</div>
+        <div class="breakdown-bar-wrap"><div class="breakdown-bar ${b.is_mvp?'is-mvp':''}" style="width:${barW}%"></div></div>
+      </div>
+      <div><div class="breakdown-primary ${b.is_mvp?'gold':''}">${fmtK(b.possession)}</div><div class="breakdown-primary-label">POSED</div></div>
+    </div>`;
+  }).join('');
+  document.getElementById('subviewBody').innerHTML = head + list;
+  setHeader(comp.name, p.username);
+  navigate('subview');
+}
+
+// ═════════════════════════════════════════════════════════════════════════════
+// MATCH DETAIL VIEW
+// ═════════════════════════════════════════════════════════════════════════════
+async function openMatch(matchId) {
+  try {
+    const res = await fetch(`./data/s${activeSeason}/matches/${matchId}.json?t=${Date.now()}`);
+    if (!res.ok) throw new Error('match file missing');
+    currentMatch = await res.json();
+  } catch (e) {
+    alert('Detaljni izveštaj utakmice još nije dostupan. Pokreni scrape.');
+    return;
+  }
+
+  renderMatch();
+  setHeader(`${currentMatch.home_team.name} vs ${currentMatch.away_team.name}`,
+            `${compById(currentMatch.competition_id)?.name || ''}${currentMatch.matchday ? ' · MD' + currentMatch.matchday : ''}`);
+  navigate('match');
+}
+
+function renderMatch() {
+  const m = currentMatch;
+  if (!m) return;
+  const compName = compById(m.competition_id)?.name || '';
+
+  // Find MVP player snapshots from any play
+  function findMvpSnapshot(side, userId) {
+    if (!userId) return null;
+    for (const play of (m.plays || [])) {
+      const players = side === 'home' ? play.home_players : play.away_players;
+      const found = players?.find(p => p.user_id === userId);
+      if (found) return found;
+    }
+    return null;
+  }
+  const homeMvp = findMvpSnapshot('home', m.mvp_home_user_id);
+  const awayMvp = findMvpSnapshot('away', m.mvp_away_user_id);
+
+  // Sum of total possession per team
+  let homePoss = 0, awayPoss = 0;
+  for (const play of (m.plays || [])) {
+    homePoss += play.home_possession || 0;
+    awayPoss += play.away_possession || 0;
+  }
+
+  document.getElementById('matchHero').innerHTML = `
+    <div class="match-hero">
+      <div class="match-teams-row">
+        <div class="match-team-block" onclick="openTeam(${m.home_team.id})" style="cursor:pointer">
+          <div class="match-team-flag">${flagEmoji(m.home_team.flag)}</div>
+          <div class="match-team-name">${m.home_team.name}</div>
+          <div class="match-team-score" style="color:${m.home_points>m.away_points?'var(--green)':'var(--text)'}">${m.home_points}</div>
+        </div>
+        <div class="match-vs">:</div>
+        <div class="match-team-block" onclick="openTeam(${m.away_team.id})" style="cursor:pointer">
+          <div class="match-team-flag">${flagEmoji(m.away_team.flag)}</div>
+          <div class="match-team-name">${m.away_team.name}</div>
+          <div class="match-team-score" style="color:${m.away_points>m.home_points?'var(--green)':'var(--text)'}">${m.away_points}</div>
+        </div>
+      </div>
+      <div class="match-meta-row">
+        <span>${compName}</span><span>·</span>
+        <span>${m.matchday ? 'MD' + m.matchday : (m.round ? 'Runda ' + m.round : '')}</span>
+        <span>·</span><span>${fmtDate(m.date)}</span>
+        <span>·</span><span>Posed: ${fmtK(homePoss)} vs ${fmtK(awayPoss)}</span>
+      </div>
+      ${homeMvp || awayMvp ? `<div class="match-mvp-row">
+        ${homeMvp ? `<div class="mvp-block">
+          <div class="mvp-label">🏆 MVP · ${m.home_team.name}</div>
+          <div class="mvp-name">${flagEmoji(homeMvp.flag)} ${homeMvp.username}</div>
+          <div class="mvp-poss">${fmtK(homeMvp.possession)} posed · Lvl ${homeMvp.level}</div>
+        </div>` : '<div></div>'}
+        ${awayMvp ? `<div class="mvp-block">
+          <div class="mvp-label">🏆 MVP · ${m.away_team.name}</div>
+          <div class="mvp-name">${flagEmoji(awayMvp.flag)} ${awayMvp.username}</div>
+          <div class="mvp-poss">${fmtK(awayMvp.possession)} posed · Lvl ${awayMvp.level}</div>
+        </div>` : '<div></div>'}
+      </div>` : ''}
+    </div>`;
+
+  // Plays list
+  document.getElementById('matchPlays').innerHTML = (m.plays || []).map((play, idx) => `
+    <div class="play-card" id="play-${play.number}">
+      <div class="play-header" onclick="document.getElementById('play-${play.number}').classList.toggle('expanded')">
+        <span class="play-num">P${play.number}</span>
+        <span class="play-scores">
+          <span class="home">${fmtK(play.home_possession)}</span>
+          <span style="color:var(--muted)">·</span>
+          <span class="away">${fmtK(play.away_possession)}</span>
+        </span>
+        <span class="play-throws-count">${play.number_of_throws} 🏀</span>
+        <span class="play-chev">▾</span>
+      </div>
+      <div class="play-body">
+        <div class="play-side-title first">⛹ ${m.home_team.name} (${fmtK(play.home_possession)} posed)</div>
+        ${(play.home_players || []).map(pp => `
+          <div class="play-player">
+            <span>${flagEmoji(pp.flag)}</span>
+            <span class="name"><span class="${pp.is_main?'main':''}">${pp.username}</span>${pp.is_main?' ★':''}<span style="font-size:11px;color:var(--muted)"> Lvl${pp.level}</span></span>
+            <span class="poss">${fmtK(pp.possession)}</span>
+          </div>`).join('')}
+        <div class="play-side-title">⛹ ${m.away_team.name} (${fmtK(play.away_possession)} posed)</div>
+        ${(play.away_players || []).map(pp => `
+          <div class="play-player">
+            <span>${flagEmoji(pp.flag)}</span>
+            <span class="name"><span class="${pp.is_main?'main':''}">${pp.username}</span>${pp.is_main?' ★':''}<span style="font-size:11px;color:var(--muted)"> Lvl${pp.level}</span></span>
+            <span class="poss">${fmtK(pp.possession)}</span>
+          </div>`).join('')}
+        ${(play.throws || []).length > 0 ? `<div class="play-shots-block">
+          <div class="play-side-title first">🎯 Šut</div>
+          ${(play.throws || []).map(t => `
+            <div class="play-shots-row">
+              <span>${flagEmoji(t.flag)} <strong>${t.username}</strong>
+                <span class="play-shot-line">
+                  ${t.points.map(pt => pt === 0 ? '<span class="shot-pill miss">×</span>' : pt === 2 ? '<span class="shot-pill s2">2</span>' : '<span class="shot-pill s3">3</span>').join('')}
+                </span>
+              </span>
+              <span style="font-weight:800">${t.total_points}p</span>
+            </div>`).join('')}
+        </div>` : ''}
+      </div>
+    </div>
+  `).join('');
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
@@ -911,103 +1624,192 @@ function openPlayer(userId) {
 // ═════════════════════════════════════════════════════════════════════════════
 function startCompare() {
   if (!currentTeam) return;
+  compareTeamA = currentTeam;
   compareTeamB = null;
-  compareTab   = 'A';
+  compareCompId = null;
 
-  const sel = document.getElementById('cmpTeamBSel');
-  sel.innerHTML = '<option value="">Odaberi protivnika…</option>';
-  statsData.teams
-    .filter(t => t.id !== currentTeam.id)
-    .sort((a,b) => teamTotalPossession(b) - teamTotalPossession(a))
+  // Team B select — only teams that share a competition with A
+  const sharedComps = new Map(); // compId → Set(teamIds)
+  for (const m of (statsData.matches || [])) {
+    if (m.home_team_id === compareTeamA.id || m.away_team_id === compareTeamA.id) {
+      if (!sharedComps.has(m.competition_id)) sharedComps.set(m.competition_id, new Set());
+      const opp = m.home_team_id === compareTeamA.id ? m.away_team_id : m.home_team_id;
+      sharedComps.get(m.competition_id).add(opp);
+    }
+  }
+  // All possible opponents across all shared comps
+  const oppTeams = new Set();
+  for (const set of sharedComps.values()) for (const t of set) oppTeams.add(t);
+
+  const selB = document.getElementById('cmpTeamBSel');
+  selB.innerHTML = '<option value="">Odaberi protivnika…</option>';
+  [...oppTeams].map(id => teamById(id)).filter(Boolean)
+    .sort((a,b) => a.name.localeCompare(b.name))
     .forEach(t => {
       const opt = document.createElement('option');
-      opt.value = t.id;
-      opt.textContent = t.name;
-      sel.appendChild(opt);
+      opt.value = t.id; opt.textContent = t.name;
+      selB.appendChild(opt);
     });
 
-  document.getElementById('compareTabs').style.display = 'none';
-  document.getElementById('compareBody').innerHTML = '<div class="empty"><div class="empty-icon">⚡</div><div class="empty-text">Odaberi tim iznad za poređenje</div></div>';
-  document.getElementById('headerTitle').textContent = 'Poređenje';
-  document.getElementById('headerSubtitle').textContent = currentTeam.name + ' vs ?';
+  document.getElementById('cmpCompSel').innerHTML = '<option value="">— Prvo odaberi protivnika —</option>';
+  document.getElementById('compareBody').innerHTML = '<div class="empty"><div class="empty-icon">⚡</div><div class="empty-text">Odaberi protivnika za poređenje</div></div>';
+  setHeader('Poređenje', `${compareTeamA.name} vs ?`);
   navigate('compare');
 }
 
-function switchCompareTab(tab) {
-  compareTab = tab;
-  document.getElementById('cmpTabA').classList.toggle('active', tab === 'A');
-  document.getElementById('cmpTabB').classList.toggle('active', tab === 'B');
-  renderCompareBody();
-}
-
 function renderCompare() {
-  const teamBId = Number(document.getElementById('cmpTeamBSel').value);
-  if (!teamBId || !currentTeam) return;
-  compareTeamB = statsData.teams.find(t => t.id === teamBId);
+  const teamBId = parseInt(document.getElementById('cmpTeamBSel').value, 10);
+  if (!teamBId) return;
+  compareTeamB = teamById(teamBId);
   if (!compareTeamB) return;
 
-  // Show tabs
-  const tabs = document.getElementById('compareTabs');
-  tabs.style.display = 'flex';
-  document.getElementById('cmpTabA').textContent = currentTeam.name;
-  document.getElementById('cmpTabB').textContent = compareTeamB.name;
-  document.getElementById('headerSubtitle').textContent = `${currentTeam.name} vs ${compareTeamB.name}`;
+  // Compute shared competitions
+  const aComps = new Set(compareTeamA.players.flatMap(p => p.by_competition.map(c => c.competition_id)));
+  const bComps = new Set(compareTeamB.players.flatMap(p => p.by_competition.map(c => c.competition_id)));
+  const shared = [...aComps].filter(id => bComps.has(id));
 
-  renderCompareBody();
-}
+  const cmpSel = document.getElementById('cmpCompSel');
+  if (cmpSel.options.length <= 1 || !shared.includes(compareCompId)) {
+    cmpSel.innerHTML = '';
+    shared.map(id => compById(id)).filter(Boolean)
+      .sort((a,b) => a.type - b.type)
+      .forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c.id; opt.textContent = c.name;
+        cmpSel.appendChild(opt);
+      });
+    if (shared.length > 0) {
+      compareCompId = shared[0];
+      cmpSel.value = String(compareCompId);
+    }
+  } else {
+    compareCompId = parseInt(cmpSel.value, 10);
+  }
 
-function renderCompareBody() {
-  if (!compareTeamB || !currentTeam) return;
-  const teamA = currentTeam, teamB = compareTeamB;
+  if (shared.length === 0) {
+    document.getElementById('compareBody').innerHTML = '<div class="empty"><div class="empty-icon">🚫</div><div class="empty-text">Ovi timovi nemaju zajedničko takmičenje</div></div>';
+    return;
+  }
 
-  // Metrics
+  setHeader('Poređenje', `${compareTeamA.name} vs ${compareTeamB.name}`);
+
+  // For each team, filter by competition
+  const cid = compareCompId;
+  function aggregateTeam(team) {
+    let poss = 0, mc = 0, mvp = 0;
+    const players = [];
+    for (const p of team.players) {
+      const c = p.by_competition.find(x => x.competition_id === cid);
+      if (!c) continue;
+      poss += c.total_possession || 0;
+      mc = Math.max(mc, c.match_count || 0);
+      mvp += c.mvp_count || 0;
+      players.push({ ...p, cstat: c });
+    }
+    return { poss, mc, mvp, players, count: players.length };
+  }
+  const A = aggregateTeam(compareTeamA);
+  const B = aggregateTeam(compareTeamB);
+
   const metrics = [
-    { key: 'Posed',     a: teamTotalPossession(teamA), b: teamTotalPossession(teamB), fmt: fmtK,    biggerBetter: true },
-    { key: 'Igrači',    a: teamA.players.length,        b: teamB.players.length,        fmt: n=>n,    biggerBetter: false },
-    { key: 'Utakmice',  a: Math.max(...teamA.players.map(p=>p.match_count||0),0), b: Math.max(...teamB.players.map(p=>p.match_count||0),0), fmt: n=>n, biggerBetter: true },
-    { key: 'MVP',       a: teamA.players.reduce((s,p)=>s+(p.mvp_count||0),0), b: teamB.players.reduce((s,p)=>s+(p.mvp_count||0),0), fmt: n=>n>0?'🏆 '+n:'—', biggerBetter: true },
+    { key: 'Posed', a: A.poss, b: B.poss, fmt: fmtK, bb: true },
+    { key: 'Igrači', a: A.count, b: B.count, fmt: n=>n, bb: false },
+    { key: 'Utakmice', a: A.mc, b: B.mc, fmt: n=>n, bb: true },
+    { key: 'MVP', a: A.mvp, b: B.mvp, fmt: n => n>0?'🏆 '+n:'—', bb: true },
   ];
 
-  const metricsHtml = metrics.map(m => {
-    const aWins = m.biggerBetter && m.a > m.b;
-    const bWins = m.biggerBetter && m.b > m.a;
-    return `<div class="compare-metric-row">
-      <div class="compare-val left ${aWins?'winner':bWins?'loser':''}">${m.fmt(m.a)}</div>
-      <div class="compare-metric-label">${m.key}</div>
-      <div class="compare-val right ${bWins?'winner':aWins?'loser':''}">${m.fmt(m.b)}</div>
-    </div>`;
-  }).join('');
+  const topA = [...A.players].sort((a,b) => (b.cstat.total_possession||0) - (a.cstat.total_possession||0)).slice(0,5);
+  const topB = [...B.players].sort((a,b) => (b.cstat.total_possession||0) - (a.cstat.total_possession||0)).slice(0,5);
+  const max = Math.max(topA.length, topB.length);
 
-  // Top 5 players
-  const topA = [...teamA.players].sort((a,b)=>(b.total_possession||0)-(a.total_possession||0)).slice(0,5);
-  const topB = [...teamB.players].sort((a,b)=>(b.total_possession||0)-(a.total_possession||0)).slice(0,5);
-  const max  = Math.max(topA.length, topB.length);
-
-  let playersHtml = '';
+  let playerRows = '';
   for (let i = 0; i < max; i++) {
     const pa = topA[i], pb = topB[i];
-    const aw = pa && pb && (pa.total_possession||0) > (pb.total_possession||0);
-    const bw = pa && pb && (pb.total_possession||0) > (pa.total_possession||0);
-    playersHtml += `<div class="compare-player-row">
+    const aw = pa && pb && (pa.cstat.total_possession||0) > (pb.cstat.total_possession||0);
+    const bw = pa && pb && (pb.cstat.total_possession||0) > (pa.cstat.total_possession||0);
+    const dataAttr = pa && pb ? `onclick="openPvp(${pa.user_id}, ${pb.user_id})"` : '';
+    playerRows += `<div class="compare-player-row" ${dataAttr}>
       <div class="compare-player-cell left ${aw?'winner':''}">
-        ${pa ? `<div class="compare-player-name">${flagEmoji(pa.flag)} ${pa.username}</div><div class="compare-player-poss">${fmtK(pa.total_possession)} posed</div>` : '—'}
+        ${pa ? `<div class="compare-player-name">${flagEmoji(pa.flag)} ${pa.username}</div><div class="compare-player-poss">${fmtK(pa.cstat.total_possession)} posed</div>` : '—'}
       </div>
       <div class="compare-player-rank">#${i+1}</div>
       <div class="compare-player-cell right ${bw?'winner':''}">
-        ${pb ? `<div class="compare-player-name">${flagEmoji(pb.flag)} ${pb.username}</div><div class="compare-player-poss">${fmtK(pb.total_possession)} posed</div>` : '—'}
+        ${pb ? `<div class="compare-player-name">${flagEmoji(pb.flag)} ${pb.username}</div><div class="compare-player-poss">${fmtK(pb.cstat.total_possession)} posed</div>` : '—'}
       </div>
     </div>`;
   }
 
   document.getElementById('compareBody').innerHTML = `
-    <div class="compare-section">
-      <div class="section-header" style="padding-left:0;padding-right:0">Timske metrike</div>
-      ${metricsHtml}
-    </div>
-    <div class="compare-section">
-      <div class="section-header" style="padding-left:0;padding-right:0">Top 5 igrača</div>
-      ${playersHtml}
+    <div class="section-header" style="padding-left:0;padding-right:0">Timske metrike · ${compById(cid)?.name}</div>
+    ${metrics.map(m => {
+      const aw = m.bb && m.a > m.b, bw = m.bb && m.b > m.a;
+      return `<div class="compare-metric-row">
+        <div class="compare-val left ${aw?'winner':bw?'loser':''}">${m.fmt(m.a)}</div>
+        <div class="compare-metric-label">${m.key}</div>
+        <div class="compare-val right ${bw?'winner':aw?'loser':''}">${m.fmt(m.b)}</div>
+      </div>`;
+    }).join('')}
+    <div class="section-header" style="padding-left:0;padding-right:0">Top 5 igrača · klikni za detalje</div>
+    ${playerRows}`;
+}
+
+// ═════════════════════════════════════════════════════════════════════════════
+// PLAYER VS PLAYER (within shared competition)
+// ═════════════════════════════════════════════════════════════════════════════
+function openPvp(userA, userB) {
+  if (!compareTeamA || !compareTeamB || !compareCompId) return;
+  const pA = compareTeamA.players.find(p => p.user_id === userA);
+  const pB = compareTeamB.players.find(p => p.user_id === userB);
+  if (!pA || !pB) return;
+  const cA = pA.by_competition.find(c => c.competition_id === compareCompId);
+  const cB = pB.by_competition.find(c => c.competition_id === compareCompId);
+  if (!cA || !cB) return;
+
+  document.getElementById('pvpHero').innerHTML = `
+    <div class="pvp-row">
+      <div class="pvp-side left">
+        <div class="avatar">${flagEmoji(pA.flag)}</div>
+        <div class="name">${pA.username}</div>
+        <div class="meta">${compareTeamA.name} · Lvl ${pA.level_current}</div>
+      </div>
+      <div class="pvp-vs">VS</div>
+      <div class="pvp-side right">
+        <div class="avatar">${flagEmoji(pB.flag)}</div>
+        <div class="name">${pB.username}</div>
+        <div class="meta">${compareTeamB.name} · Lvl ${pB.level_current}</div>
+      </div>
     </div>`;
+
+  const acc2A = cA.total_shots > 0 ? (cA.shots_2pt_made / cA.total_shots) : 0;
+  const acc2B = cB.total_shots > 0 ? (cB.shots_2pt_made / cB.total_shots) : 0;
+  const acc3A = cA.total_shots > 0 ? (cA.shots_3pt_made / cA.total_shots) : 0;
+  const acc3B = cB.total_shots > 0 ? (cB.shots_3pt_made / cB.total_shots) : 0;
+
+  const rows = [
+    { key: 'Posed',  a: cA.total_possession, b: cB.total_possession, fmt: fmtK, bb: true },
+    { key: 'Polja',  a: cA.play_count,        b: cB.play_count,        fmt: n=>n, bb: true },
+    { key: 'Utakmice', a: cA.match_count,     b: cB.match_count,       fmt: n=>n, bb: true },
+    { key: 'Poeni',  a: cA.total_points,      b: cB.total_points,      fmt: n=>n, bb: true },
+    { key: '2pt',    a: cA.shots_2pt_made,    b: cB.shots_2pt_made,    fmt: n=>n, bb: true },
+    { key: '3pt',    a: cA.shots_3pt_made,    b: cB.shots_3pt_made,    fmt: n=>n, bb: true },
+    { key: 'Promaš.', a: cA.shots_missed,     b: cB.shots_missed,      fmt: n=>n, bb: false },
+    { key: 'MVP',    a: cA.mvp_count,         b: cB.mvp_count,         fmt: n => n>0?'🏆 '+n:'—', bb: true },
+  ];
+
+  document.getElementById('pvpBody').innerHTML = `
+    <div class="section-header" style="padding-left:0;padding-right:0">Metrike · ${compById(compareCompId)?.name}</div>
+    ${rows.map(m => {
+      const aw = m.bb && m.a > m.b, bw = m.bb && m.b > m.a;
+      const al = !m.bb && m.a > m.b, bl = !m.bb && m.b > m.a;
+      return `<div class="compare-metric-row">
+        <div class="compare-val left ${aw||bl?'winner':(bw||al?'loser':'')}">${m.fmt(m.a)}</div>
+        <div class="compare-metric-label">${m.key}</div>
+        <div class="compare-val right ${bw||al?'winner':(aw||bl?'loser':'')}">${m.fmt(m.b)}</div>
+      </div>`;
+    }).join('')}`;
+
+  setHeader(`${pA.username} vs ${pB.username}`, compById(compareCompId)?.name || '');
+  navigate('pvp');
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
@@ -1015,29 +1817,23 @@ function renderCompareBody() {
 // ═════════════════════════════════════════════════════════════════════════════
 async function init() {
   try {
-    // Load seasons meta
     const sRes = await fetch(`./data/seasons.json?t=${Date.now()}`);
     if (!sRes.ok) throw new Error('seasons.json missing');
     seasonsMeta = await sRes.json();
 
-    // Populate season picker
     const sp = document.getElementById('seasonPick');
-    sp.innerHTML = seasonsMeta.available
-      .sort((a,b) => b - a)
-      .map(s => `<option value="${s}">Sezona ${s}</option>`)
-      .join('');
+    sp.innerHTML = seasonsMeta.available.sort((a,b) => b - a)
+      .map(s => `<option value="${s}">S${s}</option>`).join('');
     sp.value = String(seasonsMeta.current);
 
-    // Load current season
     await loadSeason(seasonsMeta.current);
   } catch (e) {
-    document.getElementById('teamsList').innerHTML = `
+    document.getElementById('homeContent').innerHTML = `
       <div class="empty">
         <div class="empty-icon">⏳</div>
         <div class="empty-text">
           Podaci još nisu dostupni.<br><br>
-          Pokreni scraper:<br>
-          <strong>Actions → Scrape & Update Stats → Run workflow</strong>
+          <strong>GitHub → Actions → Scrape & Update Stats → Run workflow</strong>
         </div>
       </div>`;
   }
