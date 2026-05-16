@@ -1,0 +1,975 @@
+{
+  "id": 2743782,
+  "date": "2026-05-15",
+  "competition_id": 76103,
+  "competition_name": "Champions Cup",
+  "matchday": null,
+  "round": 4,
+  "group": null,
+  "home_team": {
+    "id": 491,
+    "name": "Gardien de zoo",
+    "flag": "fr",
+    "team_level": 10923
+  },
+  "away_team": {
+    "id": 1125,
+    "name": "Lezamy Nextgen",
+    "flag": "fr",
+    "team_level": 9714
+  },
+  "home_points": 202,
+  "away_points": 0,
+  "play_length": 180,
+  "mvp_home_user_id": 1538399,
+  "mvp_away_user_id": 18574,
+  "plays": [
+    {
+      "number": 12,
+      "home_possession": 137843,
+      "away_possession": 1215,
+      "number_of_throws": 19,
+      "home_players": [
+        {
+          "user_id": 304732,
+          "username": "francky",
+          "flag": "fr",
+          "level": 1081,
+          "possession": 74534,
+          "is_main": false
+        },
+        {
+          "user_id": 1609808,
+          "username": "Loic",
+          "flag": "fr",
+          "level": 1361,
+          "possession": 63309,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 18574,
+          "username": "Bobby26",
+          "flag": "ch",
+          "level": 692,
+          "possession": 691,
+          "is_main": true
+        },
+        {
+          "user_id": 271144,
+          "username": "Ludo",
+          "flag": "fr",
+          "level": 524,
+          "possession": 524,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 1609808,
+          "username": "Loic",
+          "flag": "fr",
+          "points": [
+            3,
+            2,
+            0,
+            0,
+            3,
+            3,
+            0,
+            2,
+            0
+          ],
+          "total_points": 13,
+          "shots_total": 9,
+          "shots_2pt_made": 2,
+          "shots_3pt_made": 3,
+          "shots_missed": 4
+        },
+        {
+          "user_id": 304732,
+          "username": "francky",
+          "flag": "fr",
+          "points": [
+            0,
+            2,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0,
+            2,
+            3
+          ],
+          "total_points": 15,
+          "shots_total": 10,
+          "shots_2pt_made": 3,
+          "shots_3pt_made": 3,
+          "shots_missed": 4
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "home_possession": 275001,
+      "away_possession": 1012,
+      "number_of_throws": 18,
+      "home_players": [
+        {
+          "user_id": 1538399,
+          "username": "Antho",
+          "flag": "fr",
+          "level": 944,
+          "possession": 139273,
+          "is_main": true
+        },
+        {
+          "user_id": 326425,
+          "username": "VEGETAKASDQ",
+          "flag": "fr",
+          "level": 909,
+          "possession": 135728,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 927311,
+          "username": "Christopher",
+          "flag": "fr",
+          "level": 514,
+          "possession": 514,
+          "is_main": true
+        },
+        {
+          "user_id": 86385,
+          "username": "Jojo",
+          "flag": "fr",
+          "level": 498,
+          "possession": 498,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 1538399,
+          "username": "Antho",
+          "flag": "fr",
+          "points": [
+            2,
+            0,
+            3,
+            2,
+            0,
+            2,
+            0,
+            3,
+            2
+          ],
+          "total_points": 14,
+          "shots_total": 9,
+          "shots_2pt_made": 4,
+          "shots_3pt_made": 2,
+          "shots_missed": 3
+        },
+        {
+          "user_id": 326425,
+          "username": "VEGETAKASDQ",
+          "flag": "fr",
+          "points": [
+            3,
+            0,
+            2,
+            2,
+            3,
+            0,
+            3,
+            3,
+            2
+          ],
+          "total_points": 18,
+          "shots_total": 9,
+          "shots_2pt_made": 3,
+          "shots_3pt_made": 4,
+          "shots_missed": 2
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "home_possession": 47362,
+      "away_possession": 977,
+      "number_of_throws": 17,
+      "home_players": [
+        {
+          "user_id": 999116,
+          "username": "Scottie",
+          "flag": "fr",
+          "level": 766,
+          "possession": 39805,
+          "is_main": true
+        },
+        {
+          "user_id": 426888,
+          "username": "Jason",
+          "flag": "wa",
+          "level": 726,
+          "possession": 7557,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 319938,
+          "username": "clément",
+          "flag": "fr",
+          "level": 491,
+          "possession": 491,
+          "is_main": true
+        },
+        {
+          "user_id": 234548,
+          "username": "Xavier",
+          "flag": "fr",
+          "level": 486,
+          "possession": 486,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 999116,
+          "username": "Scottie",
+          "flag": "fr",
+          "points": [
+            2,
+            3,
+            0,
+            0,
+            0,
+            2,
+            2,
+            3,
+            2,
+            0,
+            2,
+            0,
+            0,
+            3
+          ],
+          "total_points": 19,
+          "shots_total": 14,
+          "shots_2pt_made": 5,
+          "shots_3pt_made": 3,
+          "shots_missed": 6
+        },
+        {
+          "user_id": 426888,
+          "username": "Jason",
+          "flag": "wa",
+          "points": [
+            3,
+            3,
+            3
+          ],
+          "total_points": 9,
+          "shots_total": 3,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 3,
+          "shots_missed": 0
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "home_possession": 47600,
+      "away_possession": 935,
+      "number_of_throws": 14,
+      "home_players": [
+        {
+          "user_id": 814291,
+          "username": "Michael",
+          "flag": "fr",
+          "level": 657,
+          "possession": 25252,
+          "is_main": true
+        },
+        {
+          "user_id": 330564,
+          "username": "Rebeca",
+          "flag": "fr",
+          "level": 598,
+          "possession": 22348,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 2573335,
+          "username": "Noah77",
+          "flag": "fr",
+          "level": 485,
+          "possession": 483,
+          "is_main": true
+        },
+        {
+          "user_id": 746871,
+          "username": "noss",
+          "flag": "fr",
+          "level": 453,
+          "possession": 452,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 814291,
+          "username": "Michael",
+          "flag": "fr",
+          "points": [
+            3,
+            2,
+            2,
+            0,
+            0,
+            0,
+            2
+          ],
+          "total_points": 9,
+          "shots_total": 7,
+          "shots_2pt_made": 3,
+          "shots_3pt_made": 1,
+          "shots_missed": 3
+        },
+        {
+          "user_id": 330564,
+          "username": "Rebeca",
+          "flag": "fr",
+          "points": [
+            0,
+            2,
+            2,
+            2,
+            0,
+            3,
+            2
+          ],
+          "total_points": 11,
+          "shots_total": 7,
+          "shots_2pt_made": 4,
+          "shots_3pt_made": 1,
+          "shots_missed": 2
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "home_possession": 121500,
+      "away_possession": 856,
+      "number_of_throws": 13,
+      "home_players": [
+        {
+          "user_id": 1095864,
+          "username": "BIBI CHEF",
+          "flag": "fr",
+          "level": 508,
+          "possession": 97752,
+          "is_main": false
+        },
+        {
+          "user_id": 52938,
+          "username": "Nathan",
+          "flag": "fr",
+          "level": 535,
+          "possession": 23748,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 383606,
+          "username": "Laurent",
+          "flag": "fr",
+          "level": 437,
+          "possession": 437,
+          "is_main": true
+        },
+        {
+          "user_id": 206881,
+          "username": "Ewen",
+          "flag": "fr",
+          "level": 419,
+          "possession": 419,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 52938,
+          "username": "Nathan",
+          "flag": "fr",
+          "points": [
+            0,
+            0,
+            0
+          ],
+          "total_points": 0,
+          "shots_total": 3,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 0,
+          "shots_missed": 3
+        },
+        {
+          "user_id": 1095864,
+          "username": "BIBI CHEF",
+          "flag": "fr",
+          "points": [
+            0,
+            2,
+            3,
+            3,
+            2,
+            0,
+            2,
+            2,
+            3,
+            0
+          ],
+          "total_points": 17,
+          "shots_total": 10,
+          "shots_2pt_made": 4,
+          "shots_3pt_made": 3,
+          "shots_missed": 3
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "home_possession": 26402,
+      "away_possession": 808,
+      "number_of_throws": 12,
+      "home_players": [
+        {
+          "user_id": 820,
+          "username": "Pavaleanu",
+          "flag": "ro",
+          "level": 494,
+          "possession": 25999,
+          "is_main": true
+        },
+        {
+          "user_id": 974974,
+          "username": "Luis Manuel",
+          "flag": "fr",
+          "level": 404,
+          "possession": 403,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 280725,
+          "username": "Sébastien",
+          "flag": "fr",
+          "level": 412,
+          "possession": 412,
+          "is_main": true
+        },
+        {
+          "user_id": 218177,
+          "username": "Kévin",
+          "flag": "fr",
+          "level": 396,
+          "possession": 396,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 820,
+          "username": "Pavaleanu",
+          "flag": "ro",
+          "points": [
+            3,
+            0,
+            0,
+            2,
+            3,
+            0,
+            3,
+            2,
+            2,
+            0,
+            0
+          ],
+          "total_points": 15,
+          "shots_total": 11,
+          "shots_2pt_made": 3,
+          "shots_3pt_made": 3,
+          "shots_missed": 5
+        },
+        {
+          "user_id": 974974,
+          "username": "Luis Manuel",
+          "flag": "fr",
+          "points": [
+            3
+          ],
+          "total_points": 3,
+          "shots_total": 1,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 1,
+          "shots_missed": 0
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "home_possession": 10581,
+      "away_possession": 778,
+      "number_of_throws": 10,
+      "home_players": [
+        {
+          "user_id": 293046,
+          "username": "DouDou",
+          "flag": "fr",
+          "level": 353,
+          "possession": 7147,
+          "is_main": true
+        },
+        {
+          "user_id": 263167,
+          "username": "K3vin rcl",
+          "flag": "fr",
+          "level": 326,
+          "possession": 2826,
+          "is_main": false
+        },
+        {
+          "user_id": 1095864,
+          "username": "BIBI CHEF",
+          "flag": "fr",
+          "level": 508,
+          "possession": 608,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 677061,
+          "username": "Weatmer",
+          "flag": "fr",
+          "level": 390,
+          "possession": 390,
+          "is_main": true
+        },
+        {
+          "user_id": 18298,
+          "username": "Clement",
+          "flag": "fr",
+          "level": 389,
+          "possession": 388,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 293046,
+          "username": "DouDou",
+          "flag": "fr",
+          "points": [
+            0,
+            2,
+            0,
+            2,
+            2,
+            0,
+            2
+          ],
+          "total_points": 8,
+          "shots_total": 7,
+          "shots_2pt_made": 4,
+          "shots_3pt_made": 0,
+          "shots_missed": 3
+        },
+        {
+          "user_id": 263167,
+          "username": "K3vin rcl",
+          "flag": "fr",
+          "points": [
+            2,
+            0,
+            0
+          ],
+          "total_points": 2,
+          "shots_total": 3,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 0,
+          "shots_missed": 2
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "home_possession": 11986,
+      "away_possession": 741,
+      "number_of_throws": 9,
+      "home_players": [
+        {
+          "user_id": 2353537,
+          "username": "WEMBY",
+          "flag": "fr",
+          "level": 223,
+          "possession": 9913,
+          "is_main": false
+        },
+        {
+          "user_id": 2994012,
+          "username": "Florian",
+          "flag": "fr",
+          "level": 143,
+          "possession": 1815,
+          "is_main": false
+        },
+        {
+          "user_id": 40837,
+          "username": "Jaba",
+          "flag": "ge",
+          "level": 258,
+          "possession": 258,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3180143,
+          "username": "David Rsca",
+          "flag": "be",
+          "level": 398,
+          "possession": 375,
+          "is_main": true
+        },
+        {
+          "user_id": 2809551,
+          "username": "Sebastien",
+          "flag": "fr",
+          "level": 366,
+          "possession": 366,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 40837,
+          "username": "Jaba",
+          "flag": "ge",
+          "points": [
+            0
+          ],
+          "total_points": 0,
+          "shots_total": 1,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 0,
+          "shots_missed": 1
+        },
+        {
+          "user_id": 2353537,
+          "username": "WEMBY",
+          "flag": "fr",
+          "points": [
+            3,
+            0,
+            0,
+            2,
+            2,
+            3,
+            2,
+            3
+          ],
+          "total_points": 15,
+          "shots_total": 8,
+          "shots_2pt_made": 3,
+          "shots_3pt_made": 3,
+          "shots_missed": 2
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "home_possession": 47836,
+      "away_possession": 678,
+      "number_of_throws": 8,
+      "home_players": [
+        {
+          "user_id": 3028250,
+          "username": "KJ VIHILE",
+          "flag": "ng",
+          "level": 211,
+          "possession": 39480,
+          "is_main": true
+        },
+        {
+          "user_id": 2478718,
+          "username": "Colonel olrik",
+          "flag": "fr",
+          "level": 182,
+          "possession": 8356,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 237429,
+          "username": "Mickael",
+          "flag": "fr",
+          "level": 346,
+          "possession": 345,
+          "is_main": true
+        },
+        {
+          "user_id": 1804000,
+          "username": "Florian",
+          "flag": "fr",
+          "level": 333,
+          "possession": 333,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 3028250,
+          "username": "KJ VIHILE",
+          "flag": "ng",
+          "points": [
+            2,
+            0,
+            3,
+            2,
+            3,
+            0,
+            0
+          ],
+          "total_points": 10,
+          "shots_total": 7,
+          "shots_2pt_made": 2,
+          "shots_3pt_made": 2,
+          "shots_missed": 3
+        },
+        {
+          "user_id": 2478718,
+          "username": "Colonel olrik",
+          "flag": "fr",
+          "points": [
+            0
+          ],
+          "total_points": 0,
+          "shots_total": 1,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 0,
+          "shots_missed": 1
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "home_possession": 10926,
+      "away_possession": 662,
+      "number_of_throws": 6,
+      "home_players": [
+        {
+          "user_id": 2453044,
+          "username": "Denis",
+          "flag": "fr",
+          "level": 159,
+          "possession": 5545,
+          "is_main": false
+        },
+        {
+          "user_id": 2695842,
+          "username": "Bruce",
+          "flag": "fr",
+          "level": 175,
+          "possession": 5381,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 2736827,
+          "username": "Max",
+          "flag": "fr",
+          "level": 333,
+          "possession": 333,
+          "is_main": true
+        },
+        {
+          "user_id": 17557,
+          "username": "Scotty",
+          "flag": "fr",
+          "level": 329,
+          "possession": 329,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 2695842,
+          "username": "Bruce",
+          "flag": "fr",
+          "points": [
+            3,
+            3,
+            0
+          ],
+          "total_points": 6,
+          "shots_total": 3,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 2,
+          "shots_missed": 1
+        },
+        {
+          "user_id": 2453044,
+          "username": "Denis",
+          "flag": "fr",
+          "points": [
+            2,
+            2,
+            0
+          ],
+          "total_points": 4,
+          "shots_total": 3,
+          "shots_2pt_made": 2,
+          "shots_3pt_made": 0,
+          "shots_missed": 1
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "home_possession": 18860,
+      "away_possession": 563,
+      "number_of_throws": 5,
+      "home_players": [
+        {
+          "user_id": 178943,
+          "username": "Sasuke",
+          "flag": "fr",
+          "level": 114,
+          "possession": 9483,
+          "is_main": false
+        },
+        {
+          "user_id": 2994012,
+          "username": "Florian",
+          "flag": "fr",
+          "level": 143,
+          "possession": 9377,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 2374014,
+          "username": "Noa",
+          "flag": "fr",
+          "level": 285,
+          "possession": 285,
+          "is_main": true
+        },
+        {
+          "user_id": 2412563,
+          "username": "David",
+          "flag": "fr",
+          "level": 278,
+          "possession": 278,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 2994012,
+          "username": "Florian",
+          "flag": "fr",
+          "points": [
+            0,
+            0
+          ],
+          "total_points": 0,
+          "shots_total": 2,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 0,
+          "shots_missed": 2
+        },
+        {
+          "user_id": 178943,
+          "username": "Sasuke",
+          "flag": "fr",
+          "points": [
+            3,
+            0,
+            2
+          ],
+          "total_points": 5,
+          "shots_total": 3,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 1,
+          "shots_missed": 1
+        }
+      ]
+    },
+    {
+      "number": 1,
+      "home_possession": 3487,
+      "away_possession": 459,
+      "number_of_throws": 4,
+      "home_players": [
+        {
+          "user_id": 3161191,
+          "username": "Vincent",
+          "flag": "fr",
+          "level": 54,
+          "possession": 3487,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 2772395,
+          "username": "SEBB",
+          "flag": "fr",
+          "level": 247,
+          "possession": 247,
+          "is_main": true
+        },
+        {
+          "user_id": 703973,
+          "username": "Dembélé",
+          "flag": "fr",
+          "level": 213,
+          "possession": 212,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 3161191,
+          "username": "Vincent",
+          "flag": "fr",
+          "points": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "total_points": 9,
+          "shots_total": 4,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 3,
+          "shots_missed": 1
+        }
+      ]
+    }
+  ]
+}
