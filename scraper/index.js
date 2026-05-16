@@ -413,6 +413,33 @@ async function processMatch(stats, matchEntry, comp) {
   return true;
 }
 
+// ── Recompute level_first / level_current from chronological by_match data ──
+// Note: BR API returns CURRENT level for all match snapshots (not historical),
+// so this only shows growth across MULTIPLE scrape runs over time. On a single
+// scrape, level_first == level_current for everyone. As future scrapes capture
+// new (higher) levels, by_match entries diverge and growth becomes visible.
+// Enforces invariant: level never decreases chronologically.
+
+function recomputeLevels(stats) {
+  for (const team of stats.teams) {
+    for (const p of team.players) {
+      const matches = (p.by_match || [])
+        .filter(b => (b.level || 0) > 0)
+        .sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+      if (matches.length === 0) continue;
+      // Apply monotone non-decreasing: if a later match shows a LOWER level
+      // (shouldn't happen, but defensive), bump it up to previous.
+      let running = matches[0].level;
+      for (const m of matches) {
+        if (m.level < running) m.level = running;
+        else running = m.level;
+      }
+      p.level_first   = matches[0].level;
+      p.level_current = matches[matches.length - 1].level;
+    }
+  }
+}
+
 // ── Compute standings per competition ───────────────────────────────────────
 
 function computeStandings(stats) {
@@ -540,6 +567,7 @@ async function main() {
   }
 
   // Final
+  recomputeLevels(s);
   computeStandings(s);
   s.last_updated = new Date().toISOString();
   writeSeasonJson('stats.json',   s);

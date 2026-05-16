@@ -21,6 +21,7 @@
   --green:      #10B981;
   --red:        #EF4444;
   --blue:       #3B82F6;
+  --sky:        #60A5FA;
   --text:       #F0F4FF;
   --text-dim:   #8FA3C4;
   --muted:      #4B6080;
@@ -311,11 +312,11 @@ select.filter-select:focus { border-color: var(--accent) }
   border-bottom: 1px solid var(--border);
 }
 .shoot-row:last-child { border-bottom: none }
-.shoot-tag { font-size: 12px; font-weight: 800; color: var(--accent) }
+.shoot-tag { font-size: 12px; font-weight: 800; color: var(--sky) }
 .shoot-tag.three { color: var(--gold) }
 .shoot-tag.miss { color: var(--red) }
 .shoot-bar-wrap { background: var(--surface2); border-radius: 4px; height: 8px; overflow: hidden }
-.shoot-bar { height: 100%; background: var(--accent); border-radius: 4px }
+.shoot-bar { height: 100%; background: var(--sky); border-radius: 4px }
 .shoot-bar.three { background: var(--gold) }
 .shoot-bar.miss { background: var(--red); opacity: .55 }
 .shoot-stats { font-size: 12px; font-weight: 700; color: var(--text); white-space: nowrap; font-variant-numeric: tabular-nums }
@@ -372,21 +373,22 @@ select.filter-select:focus { border-color: var(--accent) }
   margin-bottom: 8px; overflow: hidden;
 }
 .play-header {
-  display: grid; grid-template-columns: auto 1fr auto auto;
-  gap: 10px; align-items: center;
+  display: grid; grid-template-columns: 44px 1fr 44px;
+  gap: 8px; align-items: center;
   padding: 11px 14px; cursor: pointer;
   background: var(--surface2);
 }
 .play-header:active { background: var(--surface3) }
-.play-num { font-size: 11px; font-weight: 800; color: var(--muted); background: var(--surface3); border-radius: 4px; padding: 2px 7px }
+.play-num { font-size: 11px; font-weight: 800; color: var(--muted); background: var(--surface3); border-radius: 4px; padding: 3px 7px; text-align: center; justify-self: start }
 .play-scores {
-  display: flex; gap: 8px; font-size: 12px; color: var(--text);
-  font-variant-numeric: tabular-nums;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  font-size: 14px; font-variant-numeric: tabular-nums; font-weight: 700;
 }
-.play-scores .home { color: var(--accent) }
-.play-scores .away { color: var(--text-dim) }
-.play-throws-count { font-size: 11px; color: var(--text-dim) }
-.play-chev { font-size: 11px; color: var(--muted); transition: transform .14s }
+.play-scores .winner { color: var(--green) }
+.play-scores .loser { color: var(--text-dim) }
+.play-scores .sep { color: var(--muted); font-weight: 600; opacity: .6 }
+.play-throws-count { font-size: 10px; color: var(--muted); margin-top: 4px; text-align: center; display: block }
+.play-chev { font-size: 12px; color: var(--muted); transition: transform .14s; justify-self: end }
 .play-card.expanded .play-chev { transform: rotate(180deg) }
 .play-body { display: none; padding: 12px 14px; border-top: 1px solid var(--border) }
 .play-card.expanded .play-body { display: block }
@@ -399,8 +401,7 @@ select.filter-select:focus { border-color: var(--accent) }
   display: grid; grid-template-columns: auto 1fr auto;
   gap: 8px; align-items: center; padding: 5px 0; font-size: 13px;
 }
-.play-player .name { font-weight: 600; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
-.play-player .name .main { color: var(--accent); font-weight: 800 }
+.play-player .name { font-weight: 600; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text) }
 .play-player .poss { font-weight: 800; font-variant-numeric: tabular-nums; color: var(--text); flex-shrink: 0 }
 .play-shots-block { margin-top: 8px; background: var(--surface2); border-radius: 8px; padding: 8px 10px }
 .play-shots-row {
@@ -415,7 +416,7 @@ select.filter-select:focus { border-color: var(--accent) }
   display: inline-block; min-width: 16px; text-align: center;
   border-radius: 3px; padding: 1px 4px;
 }
-.shot-pill.s2 { background: rgba(249,115,22,.18); color: var(--accent) }
+.shot-pill.s2 { background: rgba(96,165,250,.20); color: var(--sky) }
 .shot-pill.s3 { background: rgba(245,158,11,.18); color: var(--gold) }
 .shot-pill.miss { background: rgba(239,68,68,.16); color: var(--red) }
 
@@ -670,6 +671,12 @@ function fmtK(n) {
 }
 function fmtNum(n) { return (Number(n) || 0).toLocaleString('sr-RS') }
 function fmtPct(n) { return (Number(n) * 100).toFixed(1) + '%' }
+function fmtPct3(n) {
+  // Basketball-style: 1.000 for perfect, .500, .000 for none
+  const x = Number(n) || 0;
+  if (x >= 1) return '1.000';
+  return x.toFixed(3).slice(1); // ".000" .. ".999"
+}
 function fmtDate(d) { return d ? d.slice(8,10) + '.' + d.slice(5,7) + '.' : '' }
 function flagEmoji(code) {
   if (!code || code.length !== 2) return '🏳️';
@@ -844,7 +851,7 @@ function renderLeagueTable(compId, comp) {
               </td>
               <td>${r.wins}</td>
               <td>${r.losses}</td>
-              <td class="pct">${(r.win_pct).toFixed(3).slice(1)}</td>
+              <td class="pct">${fmtPct3(r.win_pct)}</td>
               <td>${r.points_for}</td>
             </tr>
           `).join('')}
@@ -871,7 +878,7 @@ function renderBracketView(compId, comp) {
             <tr class="${r.team_id === MY_TEAM_ID ? 'my-team' : ''}" onclick="openTeam(${r.team_id})">
               <td class="rank">${i+1}</td>
               <td class="team-cell left"><span class="flag">${flagEmoji(r.team_flag)}</span>${r.team_name}${r.team_id === MY_TEAM_ID ? '<span class="star">★</span>' : ''}</td>
-              <td>${r.wins}</td><td>${r.losses}</td><td class="pct">${(r.win_pct).toFixed(3).slice(1)}</td><td>${r.points_for}</td>
+              <td>${r.wins}</td><td>${r.losses}</td><td class="pct">${fmtPct3(r.win_pct)}</td><td>${r.points_for}</td>
             </tr>`).join('')}
           </tbody>
         </table>
@@ -1575,16 +1582,22 @@ function renderMatch() {
     </div>`;
 
   // Plays list
-  document.getElementById('matchPlays').innerHTML = (m.plays || []).map((play, idx) => `
-    <div class="play-card" id="play-${play.number}">
+  document.getElementById('matchPlays').innerHTML = (m.plays || []).map((play, idx) => {
+    const homeWon = play.home_possession > play.away_possession;
+    const awayWon = play.away_possession > play.home_possession;
+    const expandedClass = idx === 0 ? ' expanded' : ''; // first play open by default
+    return `
+    <div class="play-card${expandedClass}" id="play-${play.number}">
       <div class="play-header" onclick="document.getElementById('play-${play.number}').classList.toggle('expanded')">
         <span class="play-num">P${play.number}</span>
-        <span class="play-scores">
-          <span class="home">${fmtK(play.home_possession)}</span>
-          <span style="color:var(--muted)">·</span>
-          <span class="away">${fmtK(play.away_possession)}</span>
+        <span>
+          <span class="play-scores">
+            <span class="${homeWon?'winner':awayWon?'loser':''}">${fmtK(play.home_possession)}</span>
+            <span class="sep">vs</span>
+            <span class="${awayWon?'winner':homeWon?'loser':''}">${fmtK(play.away_possession)}</span>
+          </span>
+          <span class="play-throws-count">${play.number_of_throws} 🏀</span>
         </span>
-        <span class="play-throws-count">${play.number_of_throws} 🏀</span>
         <span class="play-chev">▾</span>
       </div>
       <div class="play-body">
@@ -1592,14 +1605,14 @@ function renderMatch() {
         ${(play.home_players || []).map(pp => `
           <div class="play-player">
             <span>${flagEmoji(pp.flag)}</span>
-            <span class="name"><span class="${pp.is_main?'main':''}">${pp.username}</span>${pp.is_main?' ★':''}<span style="font-size:11px;color:var(--muted)"> Lvl${pp.level}</span></span>
+            <span class="name">${pp.username}<span style="font-size:11px;color:var(--muted)"> Lvl${pp.level}</span></span>
             <span class="poss">${fmtK(pp.possession)}</span>
           </div>`).join('')}
         <div class="play-side-title">⛹ ${m.away_team.name} (${fmtK(play.away_possession)} posed)</div>
         ${(play.away_players || []).map(pp => `
           <div class="play-player">
             <span>${flagEmoji(pp.flag)}</span>
-            <span class="name"><span class="${pp.is_main?'main':''}">${pp.username}</span>${pp.is_main?' ★':''}<span style="font-size:11px;color:var(--muted)"> Lvl${pp.level}</span></span>
+            <span class="name">${pp.username}<span style="font-size:11px;color:var(--muted)"> Lvl${pp.level}</span></span>
             <span class="poss">${fmtK(pp.possession)}</span>
           </div>`).join('')}
         ${(play.throws || []).length > 0 ? `<div class="play-shots-block">
@@ -1616,7 +1629,8 @@ function renderMatch() {
         </div>` : ''}
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
@@ -1628,23 +1642,32 @@ function startCompare() {
   compareTeamB = null;
   compareCompId = null;
 
-  // Team B select — only teams that share a competition with A
-  const sharedComps = new Map(); // compId → Set(teamIds)
-  for (const m of (statsData.matches || [])) {
-    if (m.home_team_id === compareTeamA.id || m.away_team_id === compareTeamA.id) {
-      if (!sharedComps.has(m.competition_id)) sharedComps.set(m.competition_id, new Set());
-      const opp = m.home_team_id === compareTeamA.id ? m.away_team_id : m.home_team_id;
-      sharedComps.get(m.competition_id).add(opp);
+  // Team B candidates:
+  //  - If A is OUR team (430): ALL other teams across all competitions (scouting future opponents)
+  //  - Otherwise: only teams in A's competitions (shared comps via standings, not just played matches)
+  const candidateIds = new Set();
+
+  if (compareTeamA.id === MY_TEAM_ID) {
+    for (const t of (statsData.teams || []))
+      if (t.id !== compareTeamA.id) candidateIds.add(t.id);
+  } else {
+    // Find competitions A is in (via standings, not just played matches)
+    const aComps = new Set();
+    for (const [compId, rows] of Object.entries(statsData.standings || {})) {
+      if (rows.some(r => r.team_id === compareTeamA.id)) aComps.add(parseInt(compId, 10));
+    }
+    // Add all teams in those competitions
+    for (const compId of aComps) {
+      for (const r of (statsData.standings[compId] || [])) {
+        if (r.team_id !== compareTeamA.id) candidateIds.add(r.team_id);
+      }
     }
   }
-  // All possible opponents across all shared comps
-  const oppTeams = new Set();
-  for (const set of sharedComps.values()) for (const t of set) oppTeams.add(t);
 
   const selB = document.getElementById('cmpTeamBSel');
   selB.innerHTML = '<option value="">Odaberi protivnika…</option>';
-  [...oppTeams].map(id => teamById(id)).filter(Boolean)
-    .sort((a,b) => a.name.localeCompare(b.name))
+  [...candidateIds].map(id => teamById(id)).filter(Boolean)
+    .sort((a, b) => a.name.localeCompare(b.name))
     .forEach(t => {
       const opt = document.createElement('option');
       opt.value = t.id; opt.textContent = t.name;
@@ -1663,9 +1686,14 @@ function renderCompare() {
   compareTeamB = teamById(teamBId);
   if (!compareTeamB) return;
 
-  // Compute shared competitions
-  const aComps = new Set(compareTeamA.players.flatMap(p => p.by_competition.map(c => c.competition_id)));
-  const bComps = new Set(compareTeamB.players.flatMap(p => p.by_competition.map(c => c.competition_id)));
+  // Compute shared competitions (via standings — captures teams not yet played)
+  const aComps = new Set();
+  const bComps = new Set();
+  for (const [compId, rows] of Object.entries(statsData.standings || {})) {
+    const cid = parseInt(compId, 10);
+    if (rows.some(r => r.team_id === compareTeamA.id)) aComps.add(cid);
+    if (rows.some(r => r.team_id === compareTeamB.id)) bComps.add(cid);
+  }
   const shared = [...aComps].filter(id => bComps.has(id));
 
   const cmpSel = document.getElementById('cmpCompSel');
@@ -1767,13 +1795,13 @@ function openPvp(userA, userB) {
 
   document.getElementById('pvpHero').innerHTML = `
     <div class="pvp-row">
-      <div class="pvp-side left">
+      <div class="pvp-side left" style="cursor:pointer" onclick="openPlayerFromPvp('A', ${pA.user_id})">
         <div class="avatar">${flagEmoji(pA.flag)}</div>
         <div class="name">${pA.username}</div>
         <div class="meta">${compareTeamA.name} · Lvl ${pA.level_current}</div>
       </div>
       <div class="pvp-vs">VS</div>
-      <div class="pvp-side right">
+      <div class="pvp-side right" style="cursor:pointer" onclick="openPlayerFromPvp('B', ${pB.user_id})">
         <div class="avatar">${flagEmoji(pB.flag)}</div>
         <div class="name">${pB.username}</div>
         <div class="meta">${compareTeamB.name} · Lvl ${pB.level_current}</div>
@@ -1810,6 +1838,12 @@ function openPvp(userA, userB) {
 
   setHeader(`${pA.username} vs ${pB.username}`, compById(compareCompId)?.name || '');
   navigate('pvp');
+}
+
+function openPlayerFromPvp(side, userId) {
+  // Switch context to the appropriate team, then open player card
+  currentTeam = side === 'A' ? compareTeamA : compareTeamB;
+  openPlayer(userId);
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
