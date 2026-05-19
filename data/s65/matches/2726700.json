@@ -1,0 +1,819 @@
+{
+  "id": 2726700,
+  "date": "2026-05-19",
+  "competition_id": 75946,
+  "competition_name": "League",
+  "matchday": 15,
+  "round": null,
+  "group": null,
+  "home_team": {
+    "id": 379,
+    "name": "HELLENIC TEAM BC",
+    "flag": "gr",
+    "team_level": 8926
+  },
+  "away_team": {
+    "id": 217,
+    "name": "Zelenyj haj",
+    "flag": "pl",
+    "team_level": 453
+  },
+  "home_points": 176,
+  "away_points": 0,
+  "play_length": 180,
+  "mvp_home_user_id": 28471,
+  "mvp_away_user_id": 3229927,
+  "plays": [
+    {
+      "number": 12,
+      "home_possession": 20972,
+      "away_possession": 248,
+      "number_of_throws": 19,
+      "home_players": [
+        {
+          "user_id": 340848,
+          "username": "κατερινα",
+          "flag": "gr",
+          "level": 723,
+          "possession": 12897,
+          "is_main": false
+        },
+        {
+          "user_id": 28471,
+          "username": "Armenopoulos",
+          "flag": "gr",
+          "level": 903,
+          "possession": 8075,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3243354,
+          "username": "Jan",
+          "flag": "pl",
+          "level": 16,
+          "possession": 248,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 28471,
+          "username": "Armenopoulos",
+          "flag": "gr",
+          "points": [
+            3,
+            2,
+            2,
+            3,
+            0,
+            0,
+            0
+          ],
+          "total_points": 10,
+          "shots_total": 7,
+          "shots_2pt_made": 2,
+          "shots_3pt_made": 2,
+          "shots_missed": 3
+        },
+        {
+          "user_id": 340848,
+          "username": "κατερινα",
+          "flag": "gr",
+          "points": [
+            0,
+            0,
+            2,
+            2,
+            2,
+            0,
+            2,
+            3,
+            2,
+            2,
+            2,
+            2
+          ],
+          "total_points": 19,
+          "shots_total": 12,
+          "shots_2pt_made": 8,
+          "shots_3pt_made": 1,
+          "shots_missed": 3
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "home_possession": 11873,
+      "away_possession": 754,
+      "number_of_throws": 18,
+      "home_players": [
+        {
+          "user_id": 32808,
+          "username": "ΠΑΝΟΥΛΗΣ",
+          "flag": "gr",
+          "level": 632,
+          "possession": 6260,
+          "is_main": true
+        },
+        {
+          "user_id": 310892,
+          "username": "DimitrisKoni",
+          "flag": "gr",
+          "level": 614,
+          "possession": 5613,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3242633,
+          "username": "Bartosz",
+          "flag": "pl",
+          "level": 17,
+          "possession": 754,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 32808,
+          "username": "ΠΑΝΟΥΛΗΣ",
+          "flag": "gr",
+          "points": [
+            0,
+            3,
+            2,
+            2,
+            3,
+            2,
+            0,
+            2,
+            2
+          ],
+          "total_points": 16,
+          "shots_total": 9,
+          "shots_2pt_made": 5,
+          "shots_3pt_made": 2,
+          "shots_missed": 2
+        },
+        {
+          "user_id": 310892,
+          "username": "DimitrisKoni",
+          "flag": "gr",
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0,
+            2
+          ],
+          "total_points": 5,
+          "shots_total": 9,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 1,
+          "shots_missed": 7
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "home_possession": 10552,
+      "away_possession": 20,
+      "number_of_throws": 17,
+      "home_players": [
+        {
+          "user_id": 161649,
+          "username": "saliagas21",
+          "flag": "gr",
+          "level": 522,
+          "possession": 5521,
+          "is_main": false
+        },
+        {
+          "user_id": 1690199,
+          "username": "MAKROPOULOS",
+          "flag": "gr",
+          "level": 576,
+          "possession": 5031,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3212870,
+          "username": "Piotr",
+          "flag": "pl",
+          "level": 20,
+          "possession": 20,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 1690199,
+          "username": "MAKROPOULOS",
+          "flag": "gr",
+          "points": [
+            0,
+            0,
+            3,
+            2,
+            2,
+            0,
+            2,
+            2
+          ],
+          "total_points": 11,
+          "shots_total": 8,
+          "shots_2pt_made": 4,
+          "shots_3pt_made": 1,
+          "shots_missed": 3
+        },
+        {
+          "user_id": 161649,
+          "username": "saliagas21",
+          "flag": "gr",
+          "points": [
+            2,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          "total_points": 6,
+          "shots_total": 9,
+          "shots_2pt_made": 3,
+          "shots_3pt_made": 0,
+          "shots_missed": 6
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "home_possession": 11149,
+      "away_possession": 20,
+      "number_of_throws": 14,
+      "home_players": [
+        {
+          "user_id": 123520,
+          "username": "Tsikis G 9 11",
+          "flag": "gr",
+          "level": 503,
+          "possession": 6142,
+          "is_main": true
+        },
+        {
+          "user_id": 295114,
+          "username": "Angelos",
+          "flag": "gr",
+          "level": 452,
+          "possession": 5007,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3225629,
+          "username": "Kacper",
+          "flag": "pl",
+          "level": 20,
+          "possession": 20,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 123520,
+          "username": "Tsikis G 9 11",
+          "flag": "gr",
+          "points": [
+            2,
+            0,
+            0,
+            0,
+            3,
+            0,
+            3,
+            3
+          ],
+          "total_points": 11,
+          "shots_total": 8,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 3,
+          "shots_missed": 4
+        },
+        {
+          "user_id": 295114,
+          "username": "Angelos",
+          "flag": "gr",
+          "points": [
+            0,
+            2,
+            0,
+            3,
+            0,
+            0
+          ],
+          "total_points": 5,
+          "shots_total": 6,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 1,
+          "shots_missed": 4
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "home_possession": 9119,
+      "away_possession": 733,
+      "number_of_throws": 13,
+      "home_players": [
+        {
+          "user_id": 707930,
+          "username": "Ρία",
+          "flag": "gr",
+          "level": 427,
+          "possession": 5644,
+          "is_main": false
+        },
+        {
+          "user_id": 29590,
+          "username": "Afrodite",
+          "flag": "gr",
+          "level": 450,
+          "possession": 3475,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3217281,
+          "username": "Michal",
+          "flag": "pl",
+          "level": 19,
+          "possession": 733,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 29590,
+          "username": "Afrodite",
+          "flag": "gr",
+          "points": [
+            0,
+            2,
+            2,
+            2,
+            3
+          ],
+          "total_points": 9,
+          "shots_total": 5,
+          "shots_2pt_made": 3,
+          "shots_3pt_made": 1,
+          "shots_missed": 1
+        },
+        {
+          "user_id": 707930,
+          "username": "Ρία",
+          "flag": "gr",
+          "points": [
+            2,
+            3,
+            2,
+            2,
+            3,
+            0,
+            0,
+            0
+          ],
+          "total_points": 12,
+          "shots_total": 8,
+          "shots_2pt_made": 3,
+          "shots_3pt_made": 2,
+          "shots_missed": 3
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "home_possession": 6351,
+      "away_possession": 971,
+      "number_of_throws": 12,
+      "home_players": [
+        {
+          "user_id": 28471,
+          "username": "Armenopoulos",
+          "flag": "gr",
+          "level": 903,
+          "possession": 5517,
+          "is_main": false
+        },
+        {
+          "user_id": 836666,
+          "username": "Giorgos gr",
+          "flag": "gr",
+          "level": 422,
+          "possession": 421,
+          "is_main": true
+        },
+        {
+          "user_id": 93561,
+          "username": "Vasilis",
+          "flag": "gr",
+          "level": 413,
+          "possession": 413,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3229927,
+          "username": "Jan",
+          "flag": "pl",
+          "level": 19,
+          "possession": 971,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 836666,
+          "username": "Giorgos gr",
+          "flag": "gr",
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            3
+          ],
+          "total_points": 5,
+          "shots_total": 6,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 1,
+          "shots_missed": 4
+        },
+        {
+          "user_id": 93561,
+          "username": "Vasilis",
+          "flag": "gr",
+          "points": [
+            2,
+            0,
+            0,
+            0,
+            2,
+            3
+          ],
+          "total_points": 7,
+          "shots_total": 6,
+          "shots_2pt_made": 2,
+          "shots_3pt_made": 1,
+          "shots_missed": 3
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "home_possession": 11776,
+      "away_possession": 733,
+      "number_of_throws": 10,
+      "home_players": [
+        {
+          "user_id": 1979135,
+          "username": "ManthosJr",
+          "flag": "gr",
+          "level": 413,
+          "possession": 8887,
+          "is_main": true
+        },
+        {
+          "user_id": 264865,
+          "username": "Aetopoulo",
+          "flag": "gr",
+          "level": 360,
+          "possession": 2889,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3234572,
+          "username": "Wiktor",
+          "flag": "pl",
+          "level": 19,
+          "possession": 733,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 1979135,
+          "username": "ManthosJr",
+          "flag": "gr",
+          "points": [
+            2,
+            0,
+            0,
+            0,
+            2,
+            2,
+            3,
+            3
+          ],
+          "total_points": 12,
+          "shots_total": 8,
+          "shots_2pt_made": 3,
+          "shots_3pt_made": 2,
+          "shots_missed": 3
+        },
+        {
+          "user_id": 264865,
+          "username": "Aetopoulo",
+          "flag": "gr",
+          "points": [
+            2,
+            2
+          ],
+          "total_points": 4,
+          "shots_total": 2,
+          "shots_2pt_made": 2,
+          "shots_3pt_made": 0,
+          "shots_missed": 0
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "home_possession": 9788,
+      "away_possession": 18,
+      "number_of_throws": 9,
+      "home_players": [
+        {
+          "user_id": 1876463,
+          "username": "Asterios",
+          "flag": "gr",
+          "level": 335,
+          "possession": 6320,
+          "is_main": true
+        },
+        {
+          "user_id": 2022076,
+          "username": "Ilisia",
+          "flag": "gr",
+          "level": 303,
+          "possession": 3468,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3219117,
+          "username": "Oskar",
+          "flag": "pl",
+          "level": 18,
+          "possession": 18,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 1876463,
+          "username": "Asterios",
+          "flag": "gr",
+          "points": [
+            2,
+            0,
+            0,
+            0,
+            2,
+            3
+          ],
+          "total_points": 7,
+          "shots_total": 6,
+          "shots_2pt_made": 2,
+          "shots_3pt_made": 1,
+          "shots_missed": 3
+        },
+        {
+          "user_id": 2022076,
+          "username": "Ilisia",
+          "flag": "gr",
+          "points": [
+            3,
+            3,
+            2
+          ],
+          "total_points": 8,
+          "shots_total": 3,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 2,
+          "shots_missed": 0
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "home_possession": 8040,
+      "away_possession": 712,
+      "number_of_throws": 8,
+      "home_players": [
+        {
+          "user_id": 493567,
+          "username": "Zoumbi",
+          "flag": "gr",
+          "level": 261,
+          "possession": 8040,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3228275,
+          "username": "Marcel",
+          "flag": "pl",
+          "level": 16,
+          "possession": 712,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 493567,
+          "username": "Zoumbi",
+          "flag": "gr",
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            2,
+            3
+          ],
+          "total_points": 7,
+          "shots_total": 8,
+          "shots_2pt_made": 2,
+          "shots_3pt_made": 1,
+          "shots_missed": 5
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "home_possession": 11336,
+      "away_possession": 248,
+      "number_of_throws": 6,
+      "home_players": [
+        {
+          "user_id": 2699033,
+          "username": "Manos",
+          "flag": "gr",
+          "level": 237,
+          "possession": 11336,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3229790,
+          "username": "Jan",
+          "flag": "pl",
+          "level": 16,
+          "possession": 248,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 2699033,
+          "username": "Manos",
+          "flag": "gr",
+          "points": [
+            3,
+            0,
+            3,
+            0,
+            3,
+            2
+          ],
+          "total_points": 11,
+          "shots_total": 6,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 3,
+          "shots_missed": 2
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "home_possession": 6459,
+      "away_possession": 136,
+      "number_of_throws": 5,
+      "home_players": [
+        {
+          "user_id": 2445917,
+          "username": "Panagioths",
+          "flag": "gr",
+          "level": 228,
+          "possession": 6459,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 611408,
+          "username": "Мирослав",
+          "flag": "pl",
+          "level": 136,
+          "possession": 136,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 2445917,
+          "username": "Panagioths",
+          "flag": "gr",
+          "points": [
+            2,
+            2,
+            2,
+            0,
+            0
+          ],
+          "total_points": 6,
+          "shots_total": 5,
+          "shots_2pt_made": 3,
+          "shots_3pt_made": 0,
+          "shots_missed": 2
+        }
+      ]
+    },
+    {
+      "number": 1,
+      "home_possession": 5668,
+      "away_possession": 137,
+      "number_of_throws": 4,
+      "home_players": [
+        {
+          "user_id": 28471,
+          "username": "Armenopoulos",
+          "flag": "gr",
+          "level": 903,
+          "possession": 5517,
+          "is_main": false
+        },
+        {
+          "user_id": 2885088,
+          "username": "Σπάνιος",
+          "flag": "gr",
+          "level": 152,
+          "possession": 151,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3080704,
+          "username": "Мирослав",
+          "flag": "pl",
+          "level": 137,
+          "possession": 137,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 2885088,
+          "username": "Σπάνιος",
+          "flag": "gr",
+          "points": [
+            3,
+            0,
+            2,
+            0
+          ],
+          "total_points": 5,
+          "shots_total": 4,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 1,
+          "shots_missed": 2
+        }
+      ]
+    }
+  ]
+}
