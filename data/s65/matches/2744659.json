@@ -1,0 +1,1255 @@
+{
+  "id": 2744659,
+  "date": "2026-05-22",
+  "competition_id": 76841,
+  "competition_name": "Cup",
+  "matchday": null,
+  "round": 1,
+  "group": null,
+  "home_team": {
+    "id": 716,
+    "name": "Champions RELAX",
+    "flag": "rs",
+    "team_level": 1831
+  },
+  "away_team": {
+    "id": 137,
+    "name": "Sumadija",
+    "flag": "rs",
+    "team_level": 8286
+  },
+  "home_points": 35,
+  "away_points": 157,
+  "play_length": 180,
+  "mvp_home_user_id": 1513866,
+  "mvp_away_user_id": 9257,
+  "plays": [
+    {
+      "number": 12,
+      "home_possession": 2417,
+      "away_possession": 56684,
+      "number_of_throws": 19,
+      "home_players": [
+        {
+          "user_id": 2383510,
+          "username": "Canan",
+          "flag": "rs",
+          "level": 95,
+          "possession": 1900,
+          "is_main": false
+        },
+        {
+          "user_id": 1513866,
+          "username": "Miljana",
+          "flag": "rs",
+          "level": 282,
+          "possession": 282,
+          "is_main": true
+        },
+        {
+          "user_id": 2062150,
+          "username": "Nikola",
+          "flag": "rs",
+          "level": 235,
+          "possession": 235,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 9257,
+          "username": "Milutin",
+          "flag": "rs",
+          "level": 401,
+          "possession": 29415,
+          "is_main": false
+        },
+        {
+          "user_id": 191268,
+          "username": "Stefan",
+          "flag": "rs",
+          "level": 527,
+          "possession": 8812,
+          "is_main": false
+        },
+        {
+          "user_id": 232745,
+          "username": "Milan",
+          "flag": "rs",
+          "level": 310,
+          "possession": 8494,
+          "is_main": false
+        },
+        {
+          "user_id": 4950,
+          "username": "Milan",
+          "flag": "rs",
+          "level": 614,
+          "possession": 7143,
+          "is_main": true
+        },
+        {
+          "user_id": 2165545,
+          "username": "Marko",
+          "flag": "rs",
+          "level": 371,
+          "possession": 2820,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 4950,
+          "username": "Milan",
+          "flag": "rs",
+          "points": [
+            2,
+            0,
+            3,
+            3,
+            2,
+            0,
+            3,
+            3,
+            0
+          ],
+          "total_points": 16,
+          "shots_total": 9,
+          "shots_2pt_made": 2,
+          "shots_3pt_made": 4,
+          "shots_missed": 3
+        },
+        {
+          "user_id": 191268,
+          "username": "Stefan",
+          "flag": "rs",
+          "points": [
+            3,
+            2,
+            2,
+            3,
+            0,
+            2,
+            0,
+            3,
+            2,
+            2
+          ],
+          "total_points": 19,
+          "shots_total": 10,
+          "shots_2pt_made": 5,
+          "shots_3pt_made": 3,
+          "shots_missed": 2
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "home_possession": 126442,
+      "away_possession": 203579,
+      "number_of_throws": 18,
+      "home_players": [
+        {
+          "user_id": 2009282,
+          "username": "Nikola",
+          "flag": "rs",
+          "level": 233,
+          "possession": 58879,
+          "is_main": true
+        },
+        {
+          "user_id": 1513866,
+          "username": "Miljana",
+          "flag": "rs",
+          "level": 282,
+          "possession": 55625,
+          "is_main": false
+        },
+        {
+          "user_id": 2383510,
+          "username": "Canan",
+          "flag": "rs",
+          "level": 95,
+          "possession": 11938,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 232745,
+          "username": "Milan",
+          "flag": "rs",
+          "level": 310,
+          "possession": 92015,
+          "is_main": false
+        },
+        {
+          "user_id": 2523599,
+          "username": "agoney",
+          "flag": "rs",
+          "level": 485,
+          "possession": 51970,
+          "is_main": true
+        },
+        {
+          "user_id": 421340,
+          "username": "Milos",
+          "flag": "rs",
+          "level": 427,
+          "possession": 27340,
+          "is_main": false
+        },
+        {
+          "user_id": 210605,
+          "username": "Profesionalac",
+          "flag": "rs",
+          "level": 480,
+          "possession": 19620,
+          "is_main": false
+        },
+        {
+          "user_id": 9257,
+          "username": "Milutin",
+          "flag": "rs",
+          "level": 401,
+          "possession": 7216,
+          "is_main": false
+        },
+        {
+          "user_id": 2165545,
+          "username": "Marko",
+          "flag": "rs",
+          "level": 371,
+          "possession": 5418,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 2523599,
+          "username": "agoney",
+          "flag": "rs",
+          "points": [
+            0,
+            2,
+            2,
+            0,
+            3,
+            3,
+            3,
+            0,
+            0,
+            0,
+            2,
+            0,
+            2
+          ],
+          "total_points": 17,
+          "shots_total": 13,
+          "shots_2pt_made": 4,
+          "shots_3pt_made": 3,
+          "shots_missed": 6
+        },
+        {
+          "user_id": 210605,
+          "username": "Profesionalac",
+          "flag": "rs",
+          "points": [
+            0,
+            3,
+            3,
+            0,
+            0
+          ],
+          "total_points": 6,
+          "shots_total": 5,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 2,
+          "shots_missed": 3
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "home_possession": 86225,
+      "away_possession": 60436,
+      "number_of_throws": 17,
+      "home_players": [
+        {
+          "user_id": 1513866,
+          "username": "Miljana",
+          "flag": "rs",
+          "level": 282,
+          "possession": 56540,
+          "is_main": false
+        },
+        {
+          "user_id": 2383510,
+          "username": "Canan",
+          "flag": "rs",
+          "level": 95,
+          "possession": 17645,
+          "is_main": false
+        },
+        {
+          "user_id": 2009282,
+          "username": "Nikola",
+          "flag": "rs",
+          "level": 233,
+          "possession": 11901,
+          "is_main": false
+        },
+        {
+          "user_id": 2656182,
+          "username": "Nikola1",
+          "flag": "rs",
+          "level": 141,
+          "possession": 139,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 9257,
+          "username": "Milutin",
+          "flag": "rs",
+          "level": 401,
+          "possession": 19345,
+          "is_main": false
+        },
+        {
+          "user_id": 232745,
+          "username": "Milan",
+          "flag": "rs",
+          "level": 310,
+          "possession": 17978,
+          "is_main": false
+        },
+        {
+          "user_id": 2165545,
+          "username": "Marko",
+          "flag": "rs",
+          "level": 371,
+          "possession": 13544,
+          "is_main": false
+        },
+        {
+          "user_id": 603975,
+          "username": "Somi Brate",
+          "flag": "rs",
+          "level": 427,
+          "possession": 6080,
+          "is_main": false
+        },
+        {
+          "user_id": 3003250,
+          "username": "Lazar",
+          "flag": "rs",
+          "level": 225,
+          "possession": 2616,
+          "is_main": false
+        },
+        {
+          "user_id": 1444,
+          "username": "Rubirozza",
+          "flag": "rs",
+          "level": 448,
+          "possession": 448,
+          "is_main": true
+        },
+        {
+          "user_id": 421340,
+          "username": "Milos",
+          "flag": "rs",
+          "level": 427,
+          "possession": 425,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 2656182,
+          "username": "Nikola1",
+          "flag": "rs",
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0,
+            2,
+            3,
+            0,
+            0,
+            2
+          ],
+          "total_points": 18,
+          "shots_total": 17,
+          "shots_2pt_made": 3,
+          "shots_3pt_made": 4,
+          "shots_missed": 10
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "home_possession": 4667,
+      "away_possession": 105991,
+      "number_of_throws": 14,
+      "home_players": [
+        {
+          "user_id": 1513866,
+          "username": "Miljana",
+          "flag": "rs",
+          "level": 282,
+          "possession": 2858,
+          "is_main": false
+        },
+        {
+          "user_id": 2009282,
+          "username": "Nikola",
+          "flag": "rs",
+          "level": 233,
+          "possession": 1343,
+          "is_main": false
+        },
+        {
+          "user_id": 2383510,
+          "username": "Canan",
+          "flag": "rs",
+          "level": 95,
+          "possession": 336,
+          "is_main": false
+        },
+        {
+          "user_id": 2383507,
+          "username": "Nikola",
+          "flag": "rs",
+          "level": 130,
+          "possession": 130,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 4950,
+          "username": "Milan",
+          "flag": "rs",
+          "level": 614,
+          "possession": 61605,
+          "is_main": false
+        },
+        {
+          "user_id": 9257,
+          "username": "Milutin",
+          "flag": "rs",
+          "level": 401,
+          "possession": 34871,
+          "is_main": false
+        },
+        {
+          "user_id": 421340,
+          "username": "Milos",
+          "flag": "rs",
+          "level": 427,
+          "possession": 6060,
+          "is_main": false
+        },
+        {
+          "user_id": 603975,
+          "username": "Somi Brate",
+          "flag": "rs",
+          "level": 427,
+          "possession": 3455,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 603975,
+          "username": "Somi Brate",
+          "flag": "rs",
+          "points": [
+            0
+          ],
+          "total_points": 0,
+          "shots_total": 1,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 0,
+          "shots_missed": 1
+        },
+        {
+          "user_id": 9257,
+          "username": "Milutin",
+          "flag": "rs",
+          "points": [
+            2,
+            0,
+            3,
+            2,
+            0,
+            2,
+            0,
+            2,
+            2,
+            3,
+            0,
+            3,
+            2
+          ],
+          "total_points": 21,
+          "shots_total": 13,
+          "shots_2pt_made": 6,
+          "shots_3pt_made": 3,
+          "shots_missed": 4
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "home_possession": 1586,
+      "away_possession": 104613,
+      "number_of_throws": 13,
+      "home_players": [
+        {
+          "user_id": 1513866,
+          "username": "Miljana",
+          "flag": "rs",
+          "level": 282,
+          "possession": 660,
+          "is_main": false
+        },
+        {
+          "user_id": 2009282,
+          "username": "Nikola",
+          "flag": "rs",
+          "level": 233,
+          "possession": 576,
+          "is_main": false
+        },
+        {
+          "user_id": 2383510,
+          "username": "Canan",
+          "flag": "rs",
+          "level": 95,
+          "possession": 224,
+          "is_main": false
+        },
+        {
+          "user_id": 2840172,
+          "username": "kolaNi",
+          "flag": "rs",
+          "level": 126,
+          "possession": 126,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 4950,
+          "username": "Milan",
+          "flag": "rs",
+          "level": 614,
+          "possession": 41055,
+          "is_main": false
+        },
+        {
+          "user_id": 2165545,
+          "username": "Marko",
+          "flag": "rs",
+          "level": 371,
+          "possession": 30701,
+          "is_main": false
+        },
+        {
+          "user_id": 810942,
+          "username": "Kakarot",
+          "flag": "rs",
+          "level": 377,
+          "possession": 18425,
+          "is_main": true
+        },
+        {
+          "user_id": 9257,
+          "username": "Milutin",
+          "flag": "rs",
+          "level": 401,
+          "possession": 14432,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 810942,
+          "username": "Kakarot",
+          "flag": "rs",
+          "points": [
+            0,
+            2,
+            0,
+            3,
+            3
+          ],
+          "total_points": 8,
+          "shots_total": 5,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 2,
+          "shots_missed": 2
+        },
+        {
+          "user_id": 2165545,
+          "username": "Marko",
+          "flag": "rs",
+          "points": [
+            2,
+            3,
+            2,
+            3,
+            2,
+            3,
+            0,
+            3
+          ],
+          "total_points": 18,
+          "shots_total": 8,
+          "shots_2pt_made": 3,
+          "shots_3pt_made": 4,
+          "shots_missed": 1
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "home_possession": 63805,
+      "away_possession": 60884,
+      "number_of_throws": 12,
+      "home_players": [
+        {
+          "user_id": 2383510,
+          "username": "Canan",
+          "flag": "rs",
+          "level": 95,
+          "possession": 34606,
+          "is_main": false
+        },
+        {
+          "user_id": 2009282,
+          "username": "Nikola",
+          "flag": "rs",
+          "level": 233,
+          "possession": 29082,
+          "is_main": false
+        },
+        {
+          "user_id": 2709222,
+          "username": "Nikolaa",
+          "flag": "rs",
+          "level": 117,
+          "possession": 117,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 9257,
+          "username": "Milutin",
+          "flag": "rs",
+          "level": 401,
+          "possession": 37498,
+          "is_main": false
+        },
+        {
+          "user_id": 4950,
+          "username": "Milan",
+          "flag": "rs",
+          "level": 614,
+          "possession": 10275,
+          "is_main": false
+        },
+        {
+          "user_id": 421340,
+          "username": "Milos",
+          "flag": "rs",
+          "level": 427,
+          "possession": 6080,
+          "is_main": false
+        },
+        {
+          "user_id": 3003250,
+          "username": "Lazar",
+          "flag": "rs",
+          "level": 225,
+          "possession": 5608,
+          "is_main": false
+        },
+        {
+          "user_id": 232745,
+          "username": "Milan",
+          "flag": "rs",
+          "level": 310,
+          "possession": 707,
+          "is_main": false
+        },
+        {
+          "user_id": 3034126,
+          "username": "dejan",
+          "flag": "hr",
+          "level": 369,
+          "possession": 367,
+          "is_main": true
+        },
+        {
+          "user_id": 634571,
+          "username": "Vladimir",
+          "flag": "rs",
+          "level": 349,
+          "possession": 349,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 2709222,
+          "username": "Nikolaa",
+          "flag": "rs",
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            3,
+            2,
+            3,
+            2,
+            2,
+            0,
+            3,
+            0
+          ],
+          "total_points": 15,
+          "shots_total": 12,
+          "shots_2pt_made": 3,
+          "shots_3pt_made": 3,
+          "shots_missed": 6
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "home_possession": 115,
+      "away_possession": 30741,
+      "number_of_throws": 10,
+      "home_players": [
+        {
+          "user_id": 2420019,
+          "username": "milos",
+          "flag": "rs",
+          "level": 115,
+          "possession": 115,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 9257,
+          "username": "Milutin",
+          "flag": "rs",
+          "level": 401,
+          "possession": 17340,
+          "is_main": false
+        },
+        {
+          "user_id": 1390727,
+          "username": "Kakarot 2",
+          "flag": "rs",
+          "level": 337,
+          "possession": 8184,
+          "is_main": false
+        },
+        {
+          "user_id": 2165545,
+          "username": "Marko",
+          "flag": "rs",
+          "level": 371,
+          "possession": 4876,
+          "is_main": false
+        },
+        {
+          "user_id": 562107,
+          "username": "Misko",
+          "flag": "rs",
+          "level": 341,
+          "possession": 341,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 562107,
+          "username": "Misko",
+          "flag": "rs",
+          "points": [
+            3
+          ],
+          "total_points": 3,
+          "shots_total": 1,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 1,
+          "shots_missed": 0
+        },
+        {
+          "user_id": 1390727,
+          "username": "Kakarot 2",
+          "flag": "rs",
+          "points": [
+            2,
+            0,
+            0,
+            3,
+            2,
+            2,
+            3,
+            2,
+            0
+          ],
+          "total_points": 14,
+          "shots_total": 9,
+          "shots_2pt_made": 4,
+          "shots_3pt_made": 2,
+          "shots_missed": 3
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "home_possession": 105,
+      "away_possession": 30450,
+      "number_of_throws": 9,
+      "home_players": [
+        {
+          "user_id": 2819264,
+          "username": "alokiN",
+          "flag": "rs",
+          "level": 105,
+          "possession": 105,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 2365286,
+          "username": "Dule Savic",
+          "flag": "de",
+          "level": 313,
+          "possession": 17532,
+          "is_main": true
+        },
+        {
+          "user_id": 232745,
+          "username": "Milan",
+          "flag": "rs",
+          "level": 310,
+          "possession": 12918,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 2365286,
+          "username": "Dule Savic",
+          "flag": "de",
+          "points": [
+            0,
+            2,
+            3,
+            2,
+            2
+          ],
+          "total_points": 9,
+          "shots_total": 5,
+          "shots_2pt_made": 3,
+          "shots_3pt_made": 1,
+          "shots_missed": 1
+        },
+        {
+          "user_id": 232745,
+          "username": "Milan",
+          "flag": "rs",
+          "points": [
+            0,
+            0,
+            0,
+            3
+          ],
+          "total_points": 3,
+          "shots_total": 4,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 1,
+          "shots_missed": 3
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "home_possession": 1168,
+      "away_possession": 60460,
+      "number_of_throws": 8,
+      "home_players": [
+        {
+          "user_id": 3008366,
+          "username": "Graham",
+          "flag": "rs",
+          "level": 74,
+          "possession": 700,
+          "is_main": false
+        },
+        {
+          "user_id": 2709222,
+          "username": "Nikolaa",
+          "flag": "rs",
+          "level": 117,
+          "possession": 375,
+          "is_main": false
+        },
+        {
+          "user_id": 2383510,
+          "username": "Canan",
+          "flag": "rs",
+          "level": 95,
+          "possession": 93,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 2488466,
+          "username": "Nebojsa",
+          "flag": "rs",
+          "level": 301,
+          "possession": 37120,
+          "is_main": true
+        },
+        {
+          "user_id": 2525463,
+          "username": "nebojsa",
+          "flag": "rs",
+          "level": 264,
+          "possession": 18464,
+          "is_main": false
+        },
+        {
+          "user_id": 2165545,
+          "username": "Marko",
+          "flag": "rs",
+          "level": 371,
+          "possession": 4876,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 2488466,
+          "username": "Nebojsa",
+          "flag": "rs",
+          "points": [
+            0,
+            0,
+            2,
+            2,
+            2
+          ],
+          "total_points": 6,
+          "shots_total": 5,
+          "shots_2pt_made": 3,
+          "shots_3pt_made": 0,
+          "shots_missed": 2
+        },
+        {
+          "user_id": 2525463,
+          "username": "nebojsa",
+          "flag": "rs",
+          "points": [
+            3,
+            3,
+            2
+          ],
+          "total_points": 8,
+          "shots_total": 3,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 2,
+          "shots_missed": 0
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "home_possession": 26474,
+      "away_possession": 46594,
+      "number_of_throws": 6,
+      "home_players": [
+        {
+          "user_id": 2656182,
+          "username": "Nikola1",
+          "flag": "rs",
+          "level": 141,
+          "possession": 13900,
+          "is_main": false
+        },
+        {
+          "user_id": 3008366,
+          "username": "Graham",
+          "flag": "rs",
+          "level": 74,
+          "possession": 12574,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 2574112,
+          "username": "Dule jr",
+          "flag": "de",
+          "level": 240,
+          "possession": 16524,
+          "is_main": false
+        },
+        {
+          "user_id": 9257,
+          "username": "Milutin",
+          "flag": "rs",
+          "level": 401,
+          "possession": 14432,
+          "is_main": false
+        },
+        {
+          "user_id": 232745,
+          "username": "Milan",
+          "flag": "rs",
+          "level": 310,
+          "possession": 11800,
+          "is_main": false
+        },
+        {
+          "user_id": 603975,
+          "username": "Somi Brate",
+          "flag": "rs",
+          "level": 427,
+          "possession": 3040,
+          "is_main": false
+        },
+        {
+          "user_id": 3003250,
+          "username": "Lazar",
+          "flag": "rs",
+          "level": 225,
+          "possession": 561,
+          "is_main": false
+        },
+        {
+          "user_id": 2670815,
+          "username": "nebojsa",
+          "flag": "rs",
+          "level": 238,
+          "possession": 237,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 2670815,
+          "username": "nebojsa",
+          "flag": "rs",
+          "points": [
+            0
+          ],
+          "total_points": 0,
+          "shots_total": 1,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 0,
+          "shots_missed": 1
+        },
+        {
+          "user_id": 2574112,
+          "username": "Dule jr",
+          "flag": "de",
+          "points": [
+            0,
+            3,
+            2,
+            0,
+            0
+          ],
+          "total_points": 5,
+          "shots_total": 5,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 1,
+          "shots_missed": 3
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "home_possession": 34807,
+      "away_possession": 47478,
+      "number_of_throws": 5,
+      "home_players": [
+        {
+          "user_id": 2656182,
+          "username": "Nikola1",
+          "flag": "rs",
+          "level": 141,
+          "possession": 28121,
+          "is_main": false
+        },
+        {
+          "user_id": 3183340,
+          "username": "Marko",
+          "flag": "rs",
+          "level": 57,
+          "possession": 6686,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 232745,
+          "username": "Milan",
+          "flag": "rs",
+          "level": 310,
+          "possession": 17687,
+          "is_main": false
+        },
+        {
+          "user_id": 3003250,
+          "username": "Lazar",
+          "flag": "rs",
+          "level": 225,
+          "possession": 16022,
+          "is_main": true
+        },
+        {
+          "user_id": 603975,
+          "username": "Somi Brate",
+          "flag": "rs",
+          "level": 427,
+          "possession": 9100,
+          "is_main": false
+        },
+        {
+          "user_id": 2995616,
+          "username": "boban",
+          "flag": "rs",
+          "level": 224,
+          "possession": 4669,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 3003250,
+          "username": "Lazar",
+          "flag": "rs",
+          "points": [
+            2,
+            0,
+            2,
+            0
+          ],
+          "total_points": 4,
+          "shots_total": 4,
+          "shots_2pt_made": 2,
+          "shots_3pt_made": 0,
+          "shots_missed": 2
+        },
+        {
+          "user_id": 2995616,
+          "username": "boban",
+          "flag": "rs",
+          "points": [
+            0
+          ],
+          "total_points": 0,
+          "shots_total": 1,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 0,
+          "shots_missed": 1
+        }
+      ]
+    },
+    {
+      "number": 1,
+      "home_possession": 33567,
+      "away_possession": 15219,
+      "number_of_throws": 4,
+      "home_players": [
+        {
+          "user_id": 2656182,
+          "username": "Nikola1",
+          "flag": "rs",
+          "level": 141,
+          "possession": 27600,
+          "is_main": false
+        },
+        {
+          "user_id": 2720945,
+          "username": "Ilija",
+          "flag": "rs",
+          "level": 19,
+          "possession": 5967,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 603975,
+          "username": "Somi Brate",
+          "flag": "rs",
+          "level": 427,
+          "possession": 6060,
+          "is_main": false
+        },
+        {
+          "user_id": 9257,
+          "username": "Milutin",
+          "flag": "rs",
+          "level": 401,
+          "possession": 5762,
+          "is_main": false
+        },
+        {
+          "user_id": 2669380,
+          "username": "Stefan",
+          "flag": "rs",
+          "level": 218,
+          "possession": 3397,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 2720945,
+          "username": "Ilija",
+          "flag": "rs",
+          "points": [
+            2,
+            0,
+            0,
+            0
+          ],
+          "total_points": 2,
+          "shots_total": 4,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 0,
+          "shots_missed": 3
+        }
+      ]
+    }
+  ]
+}
