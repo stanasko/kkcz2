@@ -1,0 +1,1379 @@
+{
+  "id": 2726733,
+  "date": "2026-05-23",
+  "competition_id": 75946,
+  "competition_name": "League",
+  "matchday": 19,
+  "round": null,
+  "group": null,
+  "home_team": {
+    "id": 430,
+    "name": "KK CRVENA ZVEZDA 2",
+    "flag": "rs",
+    "team_level": 9677
+  },
+  "away_team": {
+    "id": 388,
+    "name": "BC Kauno Žalgiris",
+    "flag": "lt",
+    "team_level": 6424
+  },
+  "home_points": 170,
+  "away_points": 0,
+  "play_length": 180,
+  "mvp_home_user_id": 3619,
+  "mvp_away_user_id": 551288,
+  "plays": [
+    {
+      "number": 12,
+      "home_possession": 147398,
+      "away_possession": 24944,
+      "number_of_throws": 19,
+      "home_players": [
+        {
+          "user_id": 3619,
+          "username": "GOXI",
+          "flag": "rs",
+          "level": 992,
+          "possession": 57094,
+          "is_main": true
+        },
+        {
+          "user_id": 12603,
+          "username": "TAKI DELIJA",
+          "flag": "rs",
+          "level": 730,
+          "possession": 41000,
+          "is_main": false
+        },
+        {
+          "user_id": 16430,
+          "username": "BratMoii",
+          "flag": "rs",
+          "level": 948,
+          "possession": 27867,
+          "is_main": false
+        },
+        {
+          "user_id": 3122721,
+          "username": "Srdjan",
+          "flag": "rs",
+          "level": 220,
+          "possession": 10799,
+          "is_main": false
+        },
+        {
+          "user_id": 5451,
+          "username": "Branko",
+          "flag": "rs",
+          "level": 751,
+          "possession": 10638,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 551288,
+          "username": "Algimantas",
+          "flag": "lt",
+          "level": 542,
+          "possession": 24081,
+          "is_main": true
+        },
+        {
+          "user_id": 1411527,
+          "username": "Linas",
+          "flag": "lt",
+          "level": 450,
+          "possession": 863,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 3619,
+          "username": "GOXI",
+          "flag": "rs",
+          "points": [
+            3,
+            0,
+            0,
+            0,
+            3,
+            2,
+            0,
+            0,
+            0,
+            2,
+            2,
+            3,
+            0
+          ],
+          "total_points": 15,
+          "shots_total": 13,
+          "shots_2pt_made": 3,
+          "shots_3pt_made": 3,
+          "shots_missed": 7
+        },
+        {
+          "user_id": 16430,
+          "username": "BratMoii",
+          "flag": "rs",
+          "points": [
+            3,
+            3,
+            2,
+            0,
+            3,
+            2
+          ],
+          "total_points": 13,
+          "shots_total": 6,
+          "shots_2pt_made": 2,
+          "shots_3pt_made": 3,
+          "shots_missed": 1
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "home_possession": 89338,
+      "away_possession": 29876,
+      "number_of_throws": 18,
+      "home_players": [
+        {
+          "user_id": 12603,
+          "username": "TAKI DELIJA",
+          "flag": "rs",
+          "level": 730,
+          "possession": 38913,
+          "is_main": false
+        },
+        {
+          "user_id": 5451,
+          "username": "Branko",
+          "flag": "rs",
+          "level": 751,
+          "possession": 26496,
+          "is_main": false
+        },
+        {
+          "user_id": 3619,
+          "username": "GOXI",
+          "flag": "rs",
+          "level": 992,
+          "possession": 17075,
+          "is_main": false
+        },
+        {
+          "user_id": 3122721,
+          "username": "Srdjan",
+          "flag": "rs",
+          "level": 220,
+          "possession": 6000,
+          "is_main": false
+        },
+        {
+          "user_id": 363918,
+          "username": "NN",
+          "flag": "rs",
+          "level": 854,
+          "possession": 854,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 343961,
+          "username": "Dovile",
+          "flag": "lt",
+          "level": 293,
+          "possession": 29459,
+          "is_main": false
+        },
+        {
+          "user_id": 1768218,
+          "username": "Tomas",
+          "flag": "de",
+          "level": 420,
+          "possession": 417,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 363918,
+          "username": "NN",
+          "flag": "rs",
+          "points": [
+            3
+          ],
+          "total_points": 3,
+          "shots_total": 1,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 1,
+          "shots_missed": 0
+        },
+        {
+          "user_id": 5451,
+          "username": "Branko",
+          "flag": "rs",
+          "points": [
+            3,
+            2,
+            0,
+            3,
+            3,
+            2,
+            3,
+            2,
+            0,
+            2,
+            2,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          "total_points": 24,
+          "shots_total": 17,
+          "shots_2pt_made": 6,
+          "shots_3pt_made": 4,
+          "shots_missed": 7
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "home_possession": 41053,
+      "away_possession": 760,
+      "number_of_throws": 17,
+      "home_players": [
+        {
+          "user_id": 12603,
+          "username": "TAKI DELIJA",
+          "flag": "rs",
+          "level": 730,
+          "possession": 25268,
+          "is_main": true
+        },
+        {
+          "user_id": 204431,
+          "username": "48kg SNUS",
+          "flag": "ba",
+          "level": 663,
+          "possession": 13634,
+          "is_main": false
+        },
+        {
+          "user_id": 3118473,
+          "username": "Fabio",
+          "flag": "rs",
+          "level": 129,
+          "possession": 2151,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 290005,
+          "username": "Darius",
+          "flag": "lt",
+          "level": 407,
+          "possession": 407,
+          "is_main": true
+        },
+        {
+          "user_id": 173427,
+          "username": "Nerijus",
+          "flag": "lt",
+          "level": 355,
+          "possession": 353,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 12603,
+          "username": "TAKI DELIJA",
+          "flag": "rs",
+          "points": [
+            2,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            0,
+            2,
+            0
+          ],
+          "total_points": 8,
+          "shots_total": 11,
+          "shots_2pt_made": 4,
+          "shots_3pt_made": 0,
+          "shots_missed": 7
+        },
+        {
+          "user_id": 204431,
+          "username": "48kg SNUS",
+          "flag": "ba",
+          "points": [
+            3,
+            2,
+            0,
+            3,
+            0,
+            2
+          ],
+          "total_points": 10,
+          "shots_total": 6,
+          "shots_2pt_made": 2,
+          "shots_3pt_made": 2,
+          "shots_missed": 2
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "home_possession": 129971,
+      "away_possession": 50994,
+      "number_of_throws": 14,
+      "home_players": [
+        {
+          "user_id": 2278625,
+          "username": "Sferopulos",
+          "flag": "rs",
+          "level": 296,
+          "possession": 67758,
+          "is_main": false
+        },
+        {
+          "user_id": 3619,
+          "username": "GOXI",
+          "flag": "rs",
+          "level": 992,
+          "possession": 20490,
+          "is_main": false
+        },
+        {
+          "user_id": 12603,
+          "username": "TAKI DELIJA",
+          "flag": "rs",
+          "level": 730,
+          "possession": 15563,
+          "is_main": false
+        },
+        {
+          "user_id": 381048,
+          "username": "Stefan",
+          "flag": "rs",
+          "level": 480,
+          "possession": 12740,
+          "is_main": false
+        },
+        {
+          "user_id": 16536,
+          "username": "VUKŠA",
+          "flag": "rs",
+          "level": 513,
+          "possession": 11446,
+          "is_main": true
+        },
+        {
+          "user_id": 3122721,
+          "username": "Srdjan",
+          "flag": "rs",
+          "level": 220,
+          "possession": 1404,
+          "is_main": false
+        },
+        {
+          "user_id": 3124008,
+          "username": "Miljan",
+          "flag": "rs",
+          "level": 127,
+          "possession": 570,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 1455000,
+          "username": "Aušra",
+          "flag": "lt",
+          "level": 324,
+          "possession": 50671,
+          "is_main": false
+        },
+        {
+          "user_id": 182027,
+          "username": "Deividas",
+          "flag": "lt",
+          "level": 325,
+          "possession": 323,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 16536,
+          "username": "VUKŠA",
+          "flag": "rs",
+          "points": [
+            3,
+            3,
+            3,
+            2,
+            0,
+            0,
+            0
+          ],
+          "total_points": 11,
+          "shots_total": 7,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 3,
+          "shots_missed": 3
+        },
+        {
+          "user_id": 381048,
+          "username": "Stefan",
+          "flag": "rs",
+          "points": [
+            0,
+            0,
+            2,
+            2,
+            0,
+            0,
+            0
+          ],
+          "total_points": 4,
+          "shots_total": 7,
+          "shots_2pt_made": 2,
+          "shots_3pt_made": 0,
+          "shots_missed": 5
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "home_possession": 58147,
+      "away_possession": 634,
+      "number_of_throws": 13,
+      "home_players": [
+        {
+          "user_id": 12603,
+          "username": "TAKI DELIJA",
+          "flag": "rs",
+          "level": 730,
+          "possession": 46703,
+          "is_main": false
+        },
+        {
+          "user_id": 3122721,
+          "username": "Srdjan",
+          "flag": "rs",
+          "level": 220,
+          "possession": 10662,
+          "is_main": false
+        },
+        {
+          "user_id": 296360,
+          "username": "MALI MRAV",
+          "flag": "rs",
+          "level": 437,
+          "possession": 437,
+          "is_main": true
+        },
+        {
+          "user_id": 296370,
+          "username": "MITROVIC",
+          "flag": "rs",
+          "level": 345,
+          "possession": 345,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 141354,
+          "username": "Modestas",
+          "flag": "lt",
+          "level": 318,
+          "possession": 317,
+          "is_main": true
+        },
+        {
+          "user_id": 592732,
+          "username": "Povilas",
+          "flag": "lt",
+          "level": 317,
+          "possession": 317,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 296360,
+          "username": "MALI MRAV",
+          "flag": "rs",
+          "points": [
+            2,
+            2,
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          "total_points": 7,
+          "shots_total": 7,
+          "shots_2pt_made": 2,
+          "shots_3pt_made": 1,
+          "shots_missed": 4
+        },
+        {
+          "user_id": 296370,
+          "username": "MITROVIC",
+          "flag": "rs",
+          "points": [
+            2,
+            0,
+            2,
+            0,
+            2,
+            0
+          ],
+          "total_points": 6,
+          "shots_total": 6,
+          "shots_2pt_made": 3,
+          "shots_3pt_made": 0,
+          "shots_missed": 3
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "home_possession": 199435,
+      "away_possession": 140459,
+      "number_of_throws": 12,
+      "home_players": [
+        {
+          "user_id": 16430,
+          "username": "BratMoii",
+          "flag": "rs",
+          "level": 948,
+          "possession": 129665,
+          "is_main": false
+        },
+        {
+          "user_id": 3619,
+          "username": "GOXI",
+          "flag": "rs",
+          "level": 992,
+          "possession": 67296,
+          "is_main": false
+        },
+        {
+          "user_id": 414165,
+          "username": "Miljan",
+          "flag": "rs",
+          "level": 307,
+          "possession": 1875,
+          "is_main": false
+        },
+        {
+          "user_id": 1416268,
+          "username": "Milan",
+          "flag": "rs",
+          "level": 315,
+          "possession": 315,
+          "is_main": true
+        },
+        {
+          "user_id": 3124008,
+          "username": "Miljan",
+          "flag": "rs",
+          "level": 127,
+          "possession": 284,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 343961,
+          "username": "Dovile",
+          "flag": "lt",
+          "level": 293,
+          "possession": 87599,
+          "is_main": false
+        },
+        {
+          "user_id": 2260142,
+          "username": "Deimantas",
+          "flag": "lt",
+          "level": 302,
+          "possession": 52860,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 1416268,
+          "username": "Milan",
+          "flag": "rs",
+          "points": [
+            0,
+            2
+          ],
+          "total_points": 2,
+          "shots_total": 2,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 0,
+          "shots_missed": 1
+        },
+        {
+          "user_id": 414165,
+          "username": "Miljan",
+          "flag": "rs",
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            2,
+            2,
+            0,
+            0
+          ],
+          "total_points": 6,
+          "shots_total": 10,
+          "shots_2pt_made": 3,
+          "shots_3pt_made": 0,
+          "shots_missed": 7
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "home_possession": 105667,
+      "away_possession": 25340,
+      "number_of_throws": 10,
+      "home_players": [
+        {
+          "user_id": 2278625,
+          "username": "Sferopulos",
+          "flag": "rs",
+          "level": 296,
+          "possession": 57979,
+          "is_main": true
+        },
+        {
+          "user_id": 16536,
+          "username": "VUKŠA",
+          "flag": "rs",
+          "level": 513,
+          "possession": 26972,
+          "is_main": false
+        },
+        {
+          "user_id": 3619,
+          "username": "GOXI",
+          "flag": "rs",
+          "level": 992,
+          "possession": 10816,
+          "is_main": false
+        },
+        {
+          "user_id": 5451,
+          "username": "Branko",
+          "flag": "rs",
+          "level": 751,
+          "possession": 9361,
+          "is_main": false
+        },
+        {
+          "user_id": 2216426,
+          "username": "Darko",
+          "flag": "rs",
+          "level": 291,
+          "possession": 291,
+          "is_main": false
+        },
+        {
+          "user_id": 3124008,
+          "username": "Miljan",
+          "flag": "rs",
+          "level": 127,
+          "possession": 248,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 2333436,
+          "username": "audrius",
+          "flag": "lt",
+          "level": 275,
+          "possession": 25053,
+          "is_main": false
+        },
+        {
+          "user_id": 2847647,
+          "username": "Juozas",
+          "flag": "lt",
+          "level": 290,
+          "possession": 287,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 2278625,
+          "username": "Sferopulos",
+          "flag": "rs",
+          "points": [
+            3,
+            0,
+            3,
+            2,
+            3,
+            3,
+            2,
+            2,
+            2
+          ],
+          "total_points": 20,
+          "shots_total": 9,
+          "shots_2pt_made": 4,
+          "shots_3pt_made": 4,
+          "shots_missed": 1
+        },
+        {
+          "user_id": 2216426,
+          "username": "Darko",
+          "flag": "rs",
+          "points": [
+            3
+          ],
+          "total_points": 3,
+          "shots_total": 1,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 1,
+          "shots_missed": 0
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "home_possession": 99302,
+      "away_possession": 28711,
+      "number_of_throws": 9,
+      "home_players": [
+        {
+          "user_id": 12603,
+          "username": "TAKI DELIJA",
+          "flag": "rs",
+          "level": 730,
+          "possession": 70783,
+          "is_main": false
+        },
+        {
+          "user_id": 3619,
+          "username": "GOXI",
+          "flag": "rs",
+          "level": 992,
+          "possession": 13660,
+          "is_main": false
+        },
+        {
+          "user_id": 3122721,
+          "username": "Srdjan",
+          "flag": "rs",
+          "level": 220,
+          "possession": 13580,
+          "is_main": false
+        },
+        {
+          "user_id": 3124008,
+          "username": "Miljan",
+          "flag": "rs",
+          "level": 127,
+          "possession": 743,
+          "is_main": false
+        },
+        {
+          "user_id": 2254595,
+          "username": "Darkoboss",
+          "flag": "rs",
+          "level": 272,
+          "possession": 272,
+          "is_main": true
+        },
+        {
+          "user_id": 1436821,
+          "username": "Vlahovic",
+          "flag": "rs",
+          "level": 264,
+          "possession": 264,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 551288,
+          "username": "Algimantas",
+          "flag": "lt",
+          "level": 542,
+          "possession": 14027,
+          "is_main": false
+        },
+        {
+          "user_id": 634881,
+          "username": "Ceris",
+          "flag": "fr",
+          "level": 263,
+          "possession": 12496,
+          "is_main": true
+        },
+        {
+          "user_id": 2356521,
+          "username": "karocia999",
+          "flag": "lt",
+          "level": 245,
+          "possession": 1194,
+          "is_main": false
+        },
+        {
+          "user_id": 2333436,
+          "username": "audrius",
+          "flag": "lt",
+          "level": 275,
+          "possession": 564,
+          "is_main": false
+        },
+        {
+          "user_id": 3001159,
+          "username": "Rička",
+          "flag": "se",
+          "level": 255,
+          "possession": 430,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 2254595,
+          "username": "Darkoboss",
+          "flag": "rs",
+          "points": [
+            2,
+            0,
+            0,
+            2,
+            0
+          ],
+          "total_points": 4,
+          "shots_total": 5,
+          "shots_2pt_made": 2,
+          "shots_3pt_made": 0,
+          "shots_missed": 3
+        },
+        {
+          "user_id": 1436821,
+          "username": "Vlahovic",
+          "flag": "rs",
+          "points": [
+            2,
+            0,
+            3,
+            0
+          ],
+          "total_points": 5,
+          "shots_total": 4,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 1,
+          "shots_missed": 2
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "home_possession": 90761,
+      "away_possession": 10082,
+      "number_of_throws": 8,
+      "home_players": [
+        {
+          "user_id": 3619,
+          "username": "GOXI",
+          "flag": "rs",
+          "level": 992,
+          "possession": 42773,
+          "is_main": false
+        },
+        {
+          "user_id": 12603,
+          "username": "TAKI DELIJA",
+          "flag": "rs",
+          "level": 730,
+          "possession": 25940,
+          "is_main": false
+        },
+        {
+          "user_id": 3122721,
+          "username": "Srdjan",
+          "flag": "rs",
+          "level": 220,
+          "possession": 15797,
+          "is_main": true
+        },
+        {
+          "user_id": 2278625,
+          "username": "Sferopulos",
+          "flag": "rs",
+          "level": 296,
+          "possession": 5674,
+          "is_main": false
+        },
+        {
+          "user_id": 3124008,
+          "username": "Miljan",
+          "flag": "rs",
+          "level": 127,
+          "possession": 372,
+          "is_main": false
+        },
+        {
+          "user_id": 2364390,
+          "username": "BUKARI",
+          "flag": "rs",
+          "level": 205,
+          "possession": 205,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 551288,
+          "username": "Algimantas",
+          "flag": "lt",
+          "level": 542,
+          "possession": 5535,
+          "is_main": false
+        },
+        {
+          "user_id": 2356521,
+          "username": "karocia999",
+          "flag": "lt",
+          "level": 245,
+          "possession": 2893,
+          "is_main": false
+        },
+        {
+          "user_id": 2496206,
+          "username": "Agnius",
+          "flag": "lt",
+          "level": 182,
+          "possession": 1410,
+          "is_main": false
+        },
+        {
+          "user_id": 3021817,
+          "username": "Lina",
+          "flag": "lt",
+          "level": 245,
+          "possession": 244,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 3122721,
+          "username": "Srdjan",
+          "flag": "rs",
+          "points": [
+            0,
+            0,
+            3,
+            0,
+            2,
+            2,
+            2
+          ],
+          "total_points": 9,
+          "shots_total": 7,
+          "shots_2pt_made": 3,
+          "shots_3pt_made": 1,
+          "shots_missed": 3
+        },
+        {
+          "user_id": 2364390,
+          "username": "BUKARI",
+          "flag": "rs",
+          "points": [
+            2
+          ],
+          "total_points": 2,
+          "shots_total": 1,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 0,
+          "shots_missed": 0
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "home_possession": 53963,
+      "away_possession": 5551,
+      "number_of_throws": 6,
+      "home_players": [
+        {
+          "user_id": 3619,
+          "username": "GOXI",
+          "flag": "rs",
+          "level": 992,
+          "possession": 32452,
+          "is_main": false
+        },
+        {
+          "user_id": 12603,
+          "username": "TAKI DELIJA",
+          "flag": "rs",
+          "level": 730,
+          "possession": 13695,
+          "is_main": false
+        },
+        {
+          "user_id": 204431,
+          "username": "48kg SNUS",
+          "flag": "ba",
+          "level": 663,
+          "possession": 7170,
+          "is_main": false
+        },
+        {
+          "user_id": 3124008,
+          "username": "Miljan",
+          "flag": "rs",
+          "level": 127,
+          "possession": 372,
+          "is_main": false
+        },
+        {
+          "user_id": 3008474,
+          "username": "Jovan",
+          "flag": "rs",
+          "level": 140,
+          "possession": 139,
+          "is_main": true
+        },
+        {
+          "user_id": 316417,
+          "username": "Hajneken",
+          "flag": "rs",
+          "level": 136,
+          "possession": 135,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 2658620,
+          "username": "Nojus",
+          "flag": "lt",
+          "level": 216,
+          "possession": 4165,
+          "is_main": true
+        },
+        {
+          "user_id": 634881,
+          "username": "Ceris",
+          "flag": "fr",
+          "level": 263,
+          "possession": 627,
+          "is_main": false
+        },
+        {
+          "user_id": 2333436,
+          "username": "audrius",
+          "flag": "lt",
+          "level": 275,
+          "possession": 564,
+          "is_main": false
+        },
+        {
+          "user_id": 2438406,
+          "username": "Karmalija",
+          "flag": "lt",
+          "level": 196,
+          "possession": 195,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 3008474,
+          "username": "Jovan",
+          "flag": "rs",
+          "points": [
+            2,
+            3,
+            2
+          ],
+          "total_points": 7,
+          "shots_total": 3,
+          "shots_2pt_made": 2,
+          "shots_3pt_made": 1,
+          "shots_missed": 0
+        },
+        {
+          "user_id": 316417,
+          "username": "Hajneken",
+          "flag": "rs",
+          "points": [
+            2,
+            2,
+            0
+          ],
+          "total_points": 4,
+          "shots_total": 3,
+          "shots_2pt_made": 2,
+          "shots_3pt_made": 0,
+          "shots_missed": 1
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "home_possession": 158679,
+      "away_possession": 92005,
+      "number_of_throws": 5,
+      "home_players": [
+        {
+          "user_id": 3619,
+          "username": "GOXI",
+          "flag": "rs",
+          "level": 992,
+          "possession": 84913,
+          "is_main": false
+        },
+        {
+          "user_id": 2278625,
+          "username": "Sferopulos",
+          "flag": "rs",
+          "level": 296,
+          "possession": 39888,
+          "is_main": false
+        },
+        {
+          "user_id": 5451,
+          "username": "Branko",
+          "flag": "rs",
+          "level": 751,
+          "possession": 16516,
+          "is_main": false
+        },
+        {
+          "user_id": 3073115,
+          "username": "Dragisa",
+          "flag": "rs",
+          "level": 130,
+          "possession": 16259,
+          "is_main": false
+        },
+        {
+          "user_id": 3122721,
+          "username": "Srdjan",
+          "flag": "rs",
+          "level": 220,
+          "possession": 599,
+          "is_main": false
+        },
+        {
+          "user_id": 3124008,
+          "username": "Miljan",
+          "flag": "rs",
+          "level": 127,
+          "possession": 372,
+          "is_main": false
+        },
+        {
+          "user_id": 322233,
+          "username": "Nenad",
+          "flag": "rs",
+          "level": 132,
+          "possession": 132,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 551288,
+          "username": "Algimantas",
+          "flag": "lt",
+          "level": 542,
+          "possession": 90416,
+          "is_main": false
+        },
+        {
+          "user_id": 2496206,
+          "username": "Agnius",
+          "flag": "lt",
+          "level": 182,
+          "possession": 1447,
+          "is_main": true
+        },
+        {
+          "user_id": 635848,
+          "username": "Audrius",
+          "flag": "fr",
+          "level": 142,
+          "possession": 142,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 322233,
+          "username": "Nenad",
+          "flag": "rs",
+          "points": [
+            0
+          ],
+          "total_points": 0,
+          "shots_total": 1,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 0,
+          "shots_missed": 1
+        },
+        {
+          "user_id": 3073115,
+          "username": "Dragisa",
+          "flag": "rs",
+          "points": [
+            0,
+            3,
+            0,
+            0
+          ],
+          "total_points": 3,
+          "shots_total": 4,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 1,
+          "shots_missed": 3
+        }
+      ]
+    },
+    {
+      "number": 1,
+      "home_possession": 87989,
+      "away_possession": 10461,
+      "number_of_throws": 4,
+      "home_players": [
+        {
+          "user_id": 3619,
+          "username": "GOXI",
+          "flag": "rs",
+          "level": 992,
+          "possession": 48991,
+          "is_main": false
+        },
+        {
+          "user_id": 3118473,
+          "username": "Fabio",
+          "flag": "rs",
+          "level": 129,
+          "possession": 32039,
+          "is_main": true
+        },
+        {
+          "user_id": 2278625,
+          "username": "Sferopulos",
+          "flag": "rs",
+          "level": 296,
+          "possession": 4950,
+          "is_main": false
+        },
+        {
+          "user_id": 3124008,
+          "username": "Miljan",
+          "flag": "rs",
+          "level": 127,
+          "possession": 1610,
+          "is_main": false
+        },
+        {
+          "user_id": 3122721,
+          "username": "Srdjan",
+          "flag": "rs",
+          "level": 220,
+          "possession": 399,
+          "is_main": false
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 551288,
+          "username": "Algimantas",
+          "flag": "lt",
+          "level": 542,
+          "possession": 9597,
+          "is_main": false
+        },
+        {
+          "user_id": 2356521,
+          "username": "karocia999",
+          "flag": "lt",
+          "level": 245,
+          "possession": 597,
+          "is_main": false
+        },
+        {
+          "user_id": 2617007,
+          "username": "Andrius",
+          "flag": "lt",
+          "level": 62,
+          "possession": 267,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 3118473,
+          "username": "Fabio",
+          "flag": "rs",
+          "points": [
+            0,
+            0,
+            2
+          ],
+          "total_points": 2,
+          "shots_total": 3,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 0,
+          "shots_missed": 2
+        },
+        {
+          "user_id": 3124008,
+          "username": "Miljan",
+          "flag": "rs",
+          "points": [
+            2
+          ],
+          "total_points": 2,
+          "shots_total": 1,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 0,
+          "shots_missed": 0
+        }
+      ]
+    }
+  ]
+}
