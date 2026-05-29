@@ -1,0 +1,667 @@
+{
+  "id": 2726770,
+  "date": "2026-05-29",
+  "competition_id": 75946,
+  "competition_name": "League",
+  "matchday": 25,
+  "round": null,
+  "group": null,
+  "home_team": {
+    "id": 2042,
+    "name": "LRYTAS",
+    "flag": "lt",
+    "team_level": 1407
+  },
+  "away_team": {
+    "id": 217,
+    "name": "Zelenyj haj",
+    "flag": "pl",
+    "team_level": 465
+  },
+  "home_points": 98,
+  "away_points": 76,
+  "play_length": 180,
+  "mvp_home_user_id": 772742,
+  "mvp_away_user_id": 611408,
+  "plays": [
+    {
+      "number": 12,
+      "home_possession": 15634,
+      "away_possession": 10574,
+      "number_of_throws": 19,
+      "home_players": [
+        {
+          "user_id": 772742,
+          "username": "Laurynas",
+          "flag": "lt",
+          "level": 588,
+          "possession": 15634,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 611408,
+          "username": "Мирослав",
+          "flag": "pl",
+          "level": 143,
+          "possession": 9140,
+          "is_main": true
+        },
+        {
+          "user_id": 3080704,
+          "username": "Мирослав",
+          "flag": "pl",
+          "level": 140,
+          "possession": 1434,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 772742,
+          "username": "Laurynas",
+          "flag": "lt",
+          "points": [
+            2,
+            0,
+            0,
+            3,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            2,
+            3,
+            2,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          "total_points": 18,
+          "shots_total": 19,
+          "shots_2pt_made": 6,
+          "shots_3pt_made": 2,
+          "shots_missed": 11
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "home_possession": 223,
+      "away_possession": 9504,
+      "number_of_throws": 18,
+      "home_players": [
+        {
+          "user_id": 46931,
+          "username": "stasys",
+          "flag": "lt",
+          "level": 223,
+          "possession": 223,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3080704,
+          "username": "Мирослав",
+          "flag": "pl",
+          "level": 140,
+          "possession": 8289,
+          "is_main": true
+        },
+        {
+          "user_id": 611408,
+          "username": "Мирослав",
+          "flag": "pl",
+          "level": 143,
+          "possession": 1215,
+          "is_main": false
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 3080704,
+          "username": "Мирослав",
+          "flag": "pl",
+          "points": [
+            0,
+            2,
+            2,
+            0,
+            3,
+            2,
+            0,
+            2,
+            2,
+            3,
+            2,
+            2,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3
+          ],
+          "total_points": 28,
+          "shots_total": 18,
+          "shots_2pt_made": 8,
+          "shots_3pt_made": 4,
+          "shots_missed": 6
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "home_possession": 3104,
+      "away_possession": 260,
+      "number_of_throws": 17,
+      "home_players": [
+        {
+          "user_id": 2463259,
+          "username": "Blaser",
+          "flag": "lt",
+          "level": 167,
+          "possession": 3104,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3212870,
+          "username": "Piotr",
+          "flag": "pl",
+          "level": 20,
+          "possession": 260,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 2463259,
+          "username": "Blaser",
+          "flag": "lt",
+          "points": [
+            0,
+            2,
+            0,
+            2,
+            3,
+            2,
+            3,
+            3,
+            2,
+            3,
+            0,
+            0,
+            0,
+            2,
+            2,
+            0,
+            3
+          ],
+          "total_points": 27,
+          "shots_total": 17,
+          "shots_2pt_made": 6,
+          "shots_3pt_made": 5,
+          "shots_missed": 6
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "home_possession": 167,
+      "away_possession": 260,
+      "number_of_throws": 14,
+      "home_players": [
+        {
+          "user_id": 643239,
+          "username": "Karolis",
+          "flag": "lt",
+          "level": 167,
+          "possession": 167,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3225629,
+          "username": "Kacper",
+          "flag": "pl",
+          "level": 20,
+          "possession": 260,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 3225629,
+          "username": "Kacper",
+          "flag": "pl",
+          "points": [
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2,
+            0,
+            2,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "total_points": 11,
+          "shots_total": 14,
+          "shots_2pt_made": 4,
+          "shots_3pt_made": 1,
+          "shots_missed": 9
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "home_possession": 2354,
+      "away_possession": 1447,
+      "number_of_throws": 13,
+      "home_players": [
+        {
+          "user_id": 2275527,
+          "username": "Lukas butkauskas",
+          "flag": "lt",
+          "level": 125,
+          "possession": 2354,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3217281,
+          "username": "Michal",
+          "flag": "pl",
+          "level": 19,
+          "possession": 1447,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 2275527,
+          "username": "Lukas butkauskas",
+          "flag": "lt",
+          "points": [
+            2,
+            0,
+            3,
+            0,
+            0,
+            2,
+            2,
+            3,
+            2,
+            3,
+            3,
+            2,
+            0
+          ],
+          "total_points": 22,
+          "shots_total": 13,
+          "shots_2pt_made": 5,
+          "shots_3pt_made": 4,
+          "shots_missed": 4
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "home_possession": 26,
+      "away_possession": 257,
+      "number_of_throws": 12,
+      "home_players": [
+        {
+          "user_id": 3225437,
+          "username": "Werzlis",
+          "flag": "lt",
+          "level": 26,
+          "possession": 26,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3229927,
+          "username": "Jan",
+          "flag": "pl",
+          "level": 19,
+          "possession": 257,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 3229927,
+          "username": "Jan",
+          "flag": "pl",
+          "points": [
+            3,
+            0,
+            0,
+            3,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          "total_points": 10,
+          "shots_total": 12,
+          "shots_2pt_made": 2,
+          "shots_3pt_made": 2,
+          "shots_missed": 8
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "home_possession": 1376,
+      "away_possession": 1209,
+      "number_of_throws": 10,
+      "home_players": [
+        {
+          "user_id": 3232982,
+          "username": "Matas",
+          "flag": "lt",
+          "level": 20,
+          "possession": 1376,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3234572,
+          "username": "Wiktor",
+          "flag": "pl",
+          "level": 19,
+          "possession": 1209,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 3232982,
+          "username": "Matas",
+          "flag": "lt",
+          "points": [
+            0,
+            3,
+            3,
+            3,
+            0,
+            0,
+            0,
+            3,
+            0,
+            3
+          ],
+          "total_points": 15,
+          "shots_total": 10,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 5,
+          "shots_missed": 5
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "home_possession": 548,
+      "away_possession": 726,
+      "number_of_throws": 9,
+      "home_players": [
+        {
+          "user_id": 3241121,
+          "username": "Mantas",
+          "flag": "lt",
+          "level": 20,
+          "possession": 548,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3219117,
+          "username": "Oskar",
+          "flag": "pl",
+          "level": 18,
+          "possession": 726,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 3219117,
+          "username": "Oskar",
+          "flag": "pl",
+          "points": [
+            2,
+            0,
+            3,
+            0,
+            3,
+            0,
+            2,
+            3,
+            0
+          ],
+          "total_points": 13,
+          "shots_total": 9,
+          "shots_2pt_made": 2,
+          "shots_3pt_made": 3,
+          "shots_missed": 4
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "home_possession": 1076,
+      "away_possession": 1198,
+      "number_of_throws": 8,
+      "home_players": [
+        {
+          "user_id": 3241966,
+          "username": "Rapolas",
+          "flag": "lt",
+          "level": 20,
+          "possession": 1076,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3247697,
+          "username": "Oskar",
+          "flag": "pl",
+          "level": 18,
+          "possession": 1198,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 3247697,
+          "username": "Oskar",
+          "flag": "pl",
+          "points": [
+            3,
+            2,
+            0,
+            0,
+            3,
+            3,
+            3,
+            0
+          ],
+          "total_points": 14,
+          "shots_total": 8,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 4,
+          "shots_missed": 3
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "home_possession": 1076,
+      "away_possession": 953,
+      "number_of_throws": 6,
+      "home_players": [
+        {
+          "user_id": 3246777,
+          "username": "Andrius",
+          "flag": "lt",
+          "level": 20,
+          "possession": 1076,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3242633,
+          "username": "Bartosz",
+          "flag": "pl",
+          "level": 17,
+          "possession": 953,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 3246777,
+          "username": "Andrius",
+          "flag": "lt",
+          "points": [
+            2,
+            0,
+            0,
+            0,
+            3,
+            0
+          ],
+          "total_points": 5,
+          "shots_total": 6,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 1,
+          "shots_missed": 4
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "home_possession": 1067,
+      "away_possession": 944,
+      "number_of_throws": 5,
+      "home_players": [
+        {
+          "user_id": 3241942,
+          "username": "Saulius",
+          "flag": "lt",
+          "level": 19,
+          "possession": 1067,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3228275,
+          "username": "Marcel",
+          "flag": "pl",
+          "level": 16,
+          "possession": 944,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 3241942,
+          "username": "Saulius",
+          "flag": "lt",
+          "points": [
+            0,
+            3,
+            0,
+            3,
+            3
+          ],
+          "total_points": 9,
+          "shots_total": 5,
+          "shots_2pt_made": 0,
+          "shots_3pt_made": 3,
+          "shots_missed": 2
+        }
+      ]
+    },
+    {
+      "number": 1,
+      "home_possession": 1480,
+      "away_possession": 944,
+      "number_of_throws": 4,
+      "home_players": [
+        {
+          "user_id": 2463259,
+          "username": "Blaser",
+          "flag": "lt",
+          "level": 167,
+          "possession": 1470,
+          "is_main": false
+        },
+        {
+          "user_id": 3250181,
+          "username": "Simas",
+          "flag": "lt",
+          "level": 10,
+          "possession": 10,
+          "is_main": true
+        }
+      ],
+      "away_players": [
+        {
+          "user_id": 3243354,
+          "username": "Jan",
+          "flag": "pl",
+          "level": 16,
+          "possession": 944,
+          "is_main": true
+        }
+      ],
+      "throws": [
+        {
+          "user_id": 3250181,
+          "username": "Simas",
+          "flag": "lt",
+          "points": [
+            0,
+            2,
+            0,
+            0
+          ],
+          "total_points": 2,
+          "shots_total": 4,
+          "shots_2pt_made": 1,
+          "shots_3pt_made": 0,
+          "shots_missed": 3
+        }
+      ]
+    }
+  ]
+}
